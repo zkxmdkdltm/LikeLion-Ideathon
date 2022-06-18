@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./register.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="./script.js"></script>
+    <title>Register</title>
+</head>
+<body>
+    <section class="register-form">
+        <div class="logo-box"><a href="../MainPage/index.html"><img src="../logo.PNG"></a></div>
+            <form action="">
+                <div class="int-area">
+                    <p>아이디</p>
+                    <input type="text" name="id" id="id" autocomplete="off" required>
+                </div>
+                <div class="int-area">
+                    <p>비밀번호</p>
+                    <input type="text" name="pw" id="pw" autocomplete="off" required>
+                </div>
+                <div class="int-area">
+                    <p>비밀번호 확인</p>
+                    <input type="text" name="pw" id="pw" autocomplete="off" required>
+                </div>
+                <div class="int-area">
+                    <p>이름</p>
+                    <input type="text" name="username" id="username" autocomplete="off" required>
+                </div>
+                <div class="int-area-birth">
+                    <p>생년월일</p>
+                    <input type="text" name="username" id="username" autocomplete="off" placeholder="년(4자)" onfocus="this.placeholder=''" onblur="this.placeholder='년(4자)'" autocomplete="off" required>
+                    <input type="text" name="username" id="username" autocomplete="off" placeholder="월" onfocus="this.placeholder=''" onblur="this.placeholder='월'" autocomplete="off" required>
+                    <input type="text" name="username" id="username" autocomplete="off" placeholder="일" onfocus="this.placeholder=''" onblur="this.placeholder='일'" autocomplete="off" required>
+                </div>
+                <div class="int-area">
+                    <p>성별</p>
+                    <select>
+                        <option selected>성별</option>
+                        <option>남자</option>
+                        <option>여자</option>
+                        <option>선택안함</option>
+                    </select>
+                </div>
+                <div class="int-area">
+                    <p>본인확인 이메일</p>
+                    <input type="text" name="username" id="username" autocomplete="off" placeholder="이메일 입력" onfocus="this.placeholder=''" onblur="this.placeholder='이메일 입력'" autocomplete="off" required>
+                </div>
+                <div class="int-area" style="width:110%;">
+                    <p>휴대전화</p>
+                    <input class="phone"type="text" name="username" id="username" autocomplete="off" placeholder="전화번호 입력" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호 입력'" autocomplete="off" required>
+                    <button class="phone-button" type="submit" style="display: inline-block;">인증번호 받기</button>
+                <div class="int-area">
+                    <input type="text" name="username" id="username" autocomplete="off" placeholder="인증번호를 입력하세요" onfocus="this.placeholder=''" onblur="this.placeholder='인증번호를 입력하세요'" autocomplete="off" required>
+                </div>
+
+                <div class="btn-area">
+                    <button type="submit">가입하기</button>
+                </div>
+            </form>
+    </section>
+    
+</body>
+</html>

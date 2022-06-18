@@ -13,7 +13,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 120vh;
 }
 
 .login-form h1{
@@ -30,6 +30,10 @@ body{
 }
 .logo-box img{
     width: 250px;
+}
+
+form{
+    width: 400px;
 }
 
 .int-area{
@@ -52,12 +56,24 @@ body{
     outline: none;
 }
 
-.int-area label{
-    position: absolute;
-    left: 10px;
-    top: 15px;
-    font-style: 18px;
-    transition: top 0.5s ease;
+
+.int-area-birth{
+    width: 120%;
+    margin-top: 30px;
+}
+.int-area-birth input{
+    padding-left: 10px;
+    width:23%;
+    margin-top: 20px;
+    margin-right: 20px;
+    height: 4vh;
+}
+
+.int-area select{
+    margin-top: 16px;
+    width: 104%;
+    padding-left: 10px;
+    height: 4vh;
 }
   
 .int-area input:focus + label,
@@ -65,6 +81,20 @@ body{
     top: -2px;
     font-size: 13px;
     color: #166caa;
+}
+.int-area .phone{
+    width: 60%;
+    display: inline-block;
+}
+.phone-button{
+    width: 30%;
+    height: 50px;
+    display: inline-block;
+    color: #fff;
+    background: #4f8aac;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
 }
 .btn-area {
     margin-top: 30px;

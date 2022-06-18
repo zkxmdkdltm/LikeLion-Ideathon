@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">   
     <script src="https://kit.fontawesome.com/67c54296f6.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>1/N</title>
 </head>
 <body>
     <nav>
-        <a href="">logo</a>
+        <div class="logo-box"><a href=""><img src="../logo.PNG"></a></div>
         <ul>
             <li><a href="../SubPage/login.html">로그인</a></li>
             <li class="line">|</li>
-            <li><a href="">회원가입</a></li>
+            <li><a href="../SubPage/register.html">회원가입</a></li>
             <li class="line">|</li>
             <li><a href="">마이페이지</a></li>
             <li class="line">|</li>
@@ -27,8 +27,8 @@
     
     <main>
         <div class="address">
-            주소를 입력하세요 : 지번, 도로명 , 건물명으로 검색
-            <div><i class="fa-solid fa-magnifying-glass"></i></div>
+            <input type="text" name="address" id="address" placeholder="지번, 도로명, 건물명으로 검색" onfocus="this.placeholder=''" onblur="this.placeholder='지번, 도로명, 건물명으로 검색'" autocomplete="off">
+            <div class="btn-area"><button type="submit"><i class="fa-solid fa-magnifying-glass fa-2x"></i></button></div>
         </div>
         <div class="menu-box">
             <div class="menu-line">
