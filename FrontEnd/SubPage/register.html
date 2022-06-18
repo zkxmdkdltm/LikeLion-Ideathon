@@ -13,6 +13,11 @@
     <section class="register-form">
         <div class="logo-box"><a href="../MainPage/index.html"><img src="../logo.PNG"></a></div>
             <form action="">
+                <div class="int-area" style="width:110%;">
+                    <p>아이디</p>
+                    <input class="with-button"type="text" name="username" id="username" autocomplete="off" required>
+                    <button class="submit-button" type="submit" style="display: inline-block;">중복확인</button>
+                </div>
                 <div class="int-area">
                     <p>아이디</p>
                     <input type="text" name="id" id="id" autocomplete="off" required>
@@ -44,16 +49,21 @@
                         <option>선택안함</option>
                     </select>
                 </div>
-                <div class="int-area">
+                <!-- <div class="int-area">
                     <p>본인확인 이메일</p>
                     <input type="text" name="username" id="username" autocomplete="off" placeholder="이메일 입력" onfocus="this.placeholder=''" onblur="this.placeholder='이메일 입력'" autocomplete="off" required>
+                </div> -->
+                <div class="int-area" style="width:110%;">
+                    <p>본인확인 이메일</p>
+                    <input class="with-button"type="text" name="username" id="username" autocomplete="off" placeholder="이메일 입력" onfocus="this.placeholder=''" onblur="this.placeholder='이메일 입력'" autocomplete="off" required>
+                    <button class="submit-button" type="submit" style="display: inline-block;">인증번호 받기</button>
+                    <input type="text" style="margin-top: 20px;" name="username" id="username" autocomplete="off" placeholder="인증번호를 입력하세요" onfocus="this.placeholder=''" onblur="this.placeholder='인증번호를 입력하세요'" autocomplete="off" required>
                 </div>
                 <div class="int-area" style="width:110%;">
                     <p>휴대전화</p>
-                    <input class="phone"type="text" name="username" id="username" autocomplete="off" placeholder="전화번호 입력" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호 입력'" autocomplete="off" required>
-                    <button class="phone-button" type="submit" style="display: inline-block;">인증번호 받기</button>
-                <div class="int-area">
-                    <input type="text" name="username" id="username" autocomplete="off" placeholder="인증번호를 입력하세요" onfocus="this.placeholder=''" onblur="this.placeholder='인증번호를 입력하세요'" autocomplete="off" required>
+                    <input class="with-button"type="text" name="username" id="username" autocomplete="off" placeholder="전화번호 입력" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호 입력'" autocomplete="off" required>
+                    <button class="submit-button" type="submit" style="display: inline-block;">인증번호 받기</button>
+                    <input type="text" style="margin-top: 20px;" name="username" id="username" autocomplete="off" placeholder="인증번호를 입력하세요" onfocus="this.placeholder=''" onblur="this.placeholder='인증번호를 입력하세요'" autocomplete="off" required>
                 </div>
 
                 <div class="btn-area">
