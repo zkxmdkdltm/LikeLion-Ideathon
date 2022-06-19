@@ -1,0 +1,68 @@
+/* 필터링 검색 */
+
+.filtering {
+    display: flex;
+    justify-content : center;
+}
+
+.filtering > #category, label {
+    margin-right: 20px;
+}
+
+.filtering > select {
+    width:150px;
+     padding:5px;
+     border:1px solid #999;
+     font-family:'Nanumgothic';
+     border-radius:3px;
+/* [출처] html css select 셀렉트 박스 디자인 변경하기|작성자 반짝이는 와이프 */
+
+}
+/* 게시글 목록 */
+.writing_wrap {
+    margin-top: 50px;
+}
+
+.writing {
+    width: 700px;
+    height: 50px;
+    margin: auto;
+    color: black;
+    transition: all 0.3s;
+    border-radius: 20px;
+    line-height: 40px;
+    
+}
+
+.writing:hover {
+    background-color: rgb(215, 215, 214);
+    width: 710px;
+    height: 60px;
+}
+
+.writing > a > h5 {
+    display: inline-block;
+    margin: 10px;
+}
+
+.주문완료 {
+    text-align: center;
+    width: 60px;
+    height: 30px;
+    font-size:13px;
+    line-height: 30px;
+    background-color: rgb(129, 173, 250);
+    border-radius: 10px;
+}
+
+.주문중 {
+    text-align: center;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    font-size:13px;
+    background-color: rgb(244, 96, 96);
+    border-radius: 10px;
+}
+
+
