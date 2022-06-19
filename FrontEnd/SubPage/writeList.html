@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="ListStyle.css">
+    <link rel="stylesheet" href="./writeList.css">
+    <link rel="stylesheet" href="../MainPage/style.css">
+    <script src="https://kit.fontawesome.com/67c54296f6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <nav>
+            <div class="logo-box"><a href="../MainPage/index.html"><img src="../logo.PNG"></a></div>
+            <ul>
+                <li><a href="">마이페이지</a></li>
+                <li class="line">|</li>
+                <li><a href="">고객센터</a></li>
+                <li class="line">|</li>
+                <li><a href=""></a></li>
+                <input id="check-btn" type="checkbox" />
+                <label id="check-label" for="check-btn"> 메뉴 </label>
+                <div class="sidebar">
+                <ul class="sidebar__animation">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                </ul>
+            </div>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div id ="main">
+        <div class="address">
+            <input type="text" name="address" id="address" placeholder="지번, 도로명, 건물명으로 검색" onfocus="this.placeholder=''" onblur="this.placeholder='지번, 도로명, 건물명으로 검색'" autocomplete="off">
+            <div class="btn-area"><button type="submit"><i class="fa-solid fa-magnifying-glass fa-2x"></i></button></div>
+        </div>
+        <div class="filtering">
+
+            <label for="category">음식 종류</label>
+            <select name="category" id="category">
+                <option value="선택안함">선택안함</option>
+                <option value="한식">한식</option>
+                <option value="중식">중식</option>
+                <option value="일식">일식</option>
+                <option value="치킨">치킨</option>
+                <option value="떡볶이">떡볶이</option>
+            </select>
+
+            <label for="location">위치</label>
+            <select name="location" id="location">
+                <option value="선택안함">선택안함</option>
+                <option value="강북구">강북구</option>
+                <option value="성북구">성북구</option>
+            </select>
+        </div>
+        
+        <div class="writing_wrap">
+            <div class="writing">
+                <a href="">
+                    <h5 class="count">1</h5>
+                    <h5 class="주문중">주문중</h5> 
+                    <h5>음식카테고리</h5>
+                    <h5>위치</h5>
+                    <h5>제목</h5>
+                </a> 
+            </div>
+            <br/>
+            <div class="writing">
+                <a href="">
+                    <h5 class="count">2</h5>
+                    <h5 class="주문중">주문중</h5>
+                    <h5>음식카테고리</h5>
+                    <h5>위치</h5>
+                    <h5>제목</h5>
+                </a> 
+            </div>
+            <br/>
+            <div class="writing">
+                <a href="">
+                    <h5 class="count">3</h5>
+                    <h5 class="주문완료">주문완료</h5>
+                    <h5>음식카테고리</h5>
+                    <h5>위치</h5>
+                    <h5>제목</h5>
+                </a> 
+            </div>
+            <br/>
+        </div>
+        
+    </div>
+
+    <div class="pagination">
+        <div> <  1  2  3  4  5  6  7  8  9 10  ></div> 
+    </div>
+</body>
+</html>

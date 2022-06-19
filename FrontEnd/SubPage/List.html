@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Restaurant List</title>
     <link rel="stylesheet" href="ListStyle.css">
-    
+    <link rel="stylesheet" href="../MainPage/style.css">  
+    <script src="https://kit.fontawesome.com/67c54296f6.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="header">
         <nav>
-            <div class="logo-box"><a href=""><img src="../logo.PNG"></a></div>
+            <div class="logo-box"><a href="../MainPage/index.html"><img src="../logo.PNG"></a></div>
             <ul>
+                <li><a href="../SubPage/writeList.html">게시판</a></li>
+                <li class="line">|</li>
                 <li><a href="../SubPage/login.html">로그인</a></li>
                 <li class="line">|</li>
                 <li><a href="../SubPage/register.html">회원가입</a></li>
@@ -40,6 +43,10 @@
     </div>
 
     <div id ="main">
+        <div class="address">
+            <input type="text" name="address" id="address" placeholder="지번, 도로명, 건물명으로 검색" onfocus="this.placeholder=''" onblur="this.placeholder='지번, 도로명, 건물명으로 검색'" autocomplete="off">
+            <div class="btn-area"><button type="submit"><i class="fa-solid fa-magnifying-glass fa-2x"></i></button></div>
+        </div>
         <ul>
             <li class="box">
                 <div class="img"> img </div>

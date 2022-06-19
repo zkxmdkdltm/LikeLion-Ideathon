@@ -2,6 +2,8 @@
 
 * {
     list-style-type: none;
+    text-decoration: none;
+    color: inherit;
 }
 
 body{
@@ -15,46 +17,7 @@ body{
     overflow-x:  hidden;
 }
 
-/* 상단바 */
-nav{
-    width: 100%;
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-}
-.logo-box{
-    margin: 25px;
-}
-.logo-box img{
-    width: 250px;
-}
-nav a{
-    display: block;
-    float: left;
-    font-size: 20px;
-    font-weight: 800;
-    line-height: 80px;
-    padding: 0 10px;
-    text-decoration: none;
-    color: #4a4a4a;
-}
 
-
-nav ul{
-    float: right;
-}
-nav ul li{
-    float: left;
-    padding: 0 30px;
-    line-height: 80px;
-}
-
-.line{
-    font-weight: 100;
-    color:rgb(209, 209, 209)
-}
 /*사이드바*/
 
 #header {
@@ -71,15 +34,17 @@ nav ul li{
     cursor: pointer;
 }
 .sidebar {
+    height: 100%;
     position: absolute; 
     top: 0px;
     right: 0;
     display: block; 
     background-color: rgb(255, 233, 109);
-    width: 500px; 
-    height: 700px;
     display: flex;
-     
+    width: 500px;
+    height: 700px;
+    
+        
     flex-direction: column;
     transform: translatex(100%);
     transition: transform 0.4s ease-in-out;
@@ -98,6 +63,41 @@ nav ul li{
     float: none;
 
 }
+/*주소*/
+
+.address{
+    display: flex;
+    width: 25%;
+    margin: 20px;
+    margin-left: 60px;
+}
+
+
+.address input{
+    width: 90%;
+    padding: 20px 10px 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    outline: none;
+}
+
+.address div{
+    width:10%;
+}
+.btn-area button {
+    background-color: white;
+    width: 100%;
+    height: 50px;
+    margin: 0px 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
 /* 식당 목록 */
 
 #main {
