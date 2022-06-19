@@ -13,7 +13,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 140vh;
+    height: 100%;
+}
+section{
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .login-form h1{
