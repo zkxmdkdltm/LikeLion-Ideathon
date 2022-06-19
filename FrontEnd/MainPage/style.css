@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+body{
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
 nav{
     width: 100%;
     background-color: white;
@@ -81,7 +86,7 @@ main{
     width: 70%;
     margin: auto;
     margin-top: 56px;
-    background-color: rgb(145, 145, 145);
+    background-color: #f2bb16;
 }
 
 .menu-line{
@@ -91,10 +96,21 @@ main{
     margin-top: 20px;
 }
 
-.menu{
-    background-color: rgb(80, 80, 80);
+
+.menu {
+    background-color: white;
     width: 17%;
     padding-bottom: 17%;
     border-radius: 50%;
-    margin:auto
+    border: 3px solid white;
+    margin:auto;
+    transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
+    overflow: hidden;
+}
+.menu:hover {
+    transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+    -moz-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    -o-transform: scale(1.4);
 }
