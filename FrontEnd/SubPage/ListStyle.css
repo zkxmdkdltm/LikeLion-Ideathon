@@ -27,11 +27,8 @@ body{
 #check-label { 
     position: absolute;
     z-index:9999;
-    right: 5px;
-    top: 45px;
-    line-height: 80px;
-    padding: 0 30px;
     cursor: pointer;
+    width: 40px;
 }
 .sidebar {
     height: 100%;
@@ -41,8 +38,8 @@ body{
     display: block; 
     background-color: rgb(255, 233, 109);
     display: flex;
-    width: 500px;
-    height: 700px;
+    width: 300px;
+    height: 750px;
     
         
     flex-direction: column;
@@ -57,11 +54,16 @@ body{
 }
 
 .sidebar__animation {
-    margin-top: 90px;
+    margin-top: 80px;
 }
 .sidebar__animation > li {
     float: none;
 
+}
+
+.sidebar__animation > li {
+    height: 50px;
+    font-size: 15px;
 }
 /*주소*/
 

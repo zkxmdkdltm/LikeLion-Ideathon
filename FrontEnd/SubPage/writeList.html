@@ -25,19 +25,29 @@
                 <li class="line">|</li>
                 <li><a href="">고객센터</a></li>
                 <li class="line">|</li>
-                <li style="margin-right:60px;"><a href=""></a></li>
-                <input id="check-btn" type="checkbox"/>
-                <label id="check-label" for="check-btn" style="color:#4a4a4a;"> 메뉴 </label>
-                <div class="sidebar">
-                <ul class="sidebar__animation">
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
-                </ul>
-            </div>
+                <li>
+                    <div style="margin-right:60px;">
+                        <input id="check-btn" type="checkbox"/>
+                        <label id="check-label" for="check-btn" style="color:#4a4a4a;">메뉴</label>
+                        <div class="sidebar">
+                            <ul class="sidebar__animation">
+                                <li>피자</li>
+                                <li>패스트푸드</li>
+                                <li>양식</li>
+                                <li>카페·디저트</li>
+                                <li>돈까스·회·일식</li>
+                                <li>분식</li>
+                                <li>백반·죽·국수</li>
+                                <li>찜·찌개·탕</li>
+                                <li>고기·구이</li>
+                                <li>중식</li>
+                                <li>족발·보쌈</li>
+                                <li>치킨</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                
             </ul>
         </nav>
 
@@ -50,14 +60,21 @@
         </div>
         <div class="filtering">
 
-            <label for="category">음식 종류</label>
+            <label for="category">메뉴 카테고리</label>
             <select name="category" id="category">
                 <option value="선택안함">선택안함</option>
-                <option value="한식">한식</option>
+                <option value="피자">피자</option>
+                <option value="패스트푸드">패스트푸드</option>
+                <option value="양식">양식</option>
+                <option value="카페·디저트">카페·디저트</option>
+                <option value="돈까스·회·일식">돈까스·회·일식</option>
+                <option value="분식">분식</option>
+                <option value="백반·죽·국수">백반·죽·국수</option>
+                <option value="찜·찌개·탕">찜·찌개·탕</option>
+                <option value="고기·구이">고기·구이</option>
                 <option value="중식">중식</option>
-                <option value="일식">일식</option>
+                <option value="족발·보쌈">족발·보쌈</option>
                 <option value="치킨">치킨</option>
-                <option value="떡볶이">떡볶이</option>
             </select>
 
             <label for="location">위치</label>
@@ -66,12 +83,14 @@
                 <option value="강북구">강북구</option>
                 <option value="성북구">성북구</option>
             </select>
+
+            <button class="filtering_button">검색</button>
         </div>
         
         <div class="writing_wrap">
             <div class="writing">
                 <a href="">
-                    <h5 class="count">1</h5>
+                    <h5 class="count" >1</h5>
                     <h5 class="주문중">주문중</h5> 
                     <h5>음식카테고리</h5>
                     <h5>위치</h5>
