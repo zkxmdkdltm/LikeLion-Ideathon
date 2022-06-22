@@ -1,9 +1,10 @@
 /* 필터링 검색 */
 
 .filtering {
-    margin-top: 100px;
     display: flex;
+    margin-top: 100px;
     justify-content : center;
+    
 }
 
 .filtering > #category, label {
@@ -12,39 +13,57 @@
 
 .filtering > select {
     width:150px;
-     padding:5px;
-     border:1px solid #999;
-     font-family:'Nanumgothic';
-     border-radius:3px;
+    padding:5px;
+    border:1px solid #999;
+    font-family:'Nanumgothic';
+    border-radius:3px;
 /* [출처] html css select 셀렉트 박스 디자인 변경하기|작성자 반짝이는 와이프 */
+}
+
+.filtering_button {
+    width: 40px;
+    padding:5px;
+    border:1px solid #999;
+    font-family:'Nanumgothic';
+    border-radius:3px;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
 
 }
 /* 게시글 목록 */
 .writing_wrap {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .writing {
-    
+    margin: auto;
     width: 700px;
     height: 50px;
-    margin: auto;
     color: black;
     transition: all 0.3s;
     border-radius: 20px;
-    line-height: 40px;
+    background-color: rgb(240, 240, 240);
+
+    
     
 }
 
 .writing:hover {
-    background-color: rgb(215, 215, 214);
-    width: 710px;
-    height: 60px;
+    background-color: #c9c9c9;
+    width: 705px;
+    height: 55px;
+
 }
+
 
 .writing > a > h5 {
     display: inline-block;
     margin: 10px;
+}
+
+.count {
+    padding-left: 10px;
 }
 
 
