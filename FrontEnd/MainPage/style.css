@@ -136,3 +136,9 @@ main{
     -ms-transform: scale(1.4);
     -o-transform: scale(1.4);
 }
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

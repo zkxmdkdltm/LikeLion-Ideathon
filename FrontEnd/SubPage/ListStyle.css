@@ -170,10 +170,9 @@ body{
     margin-right: 20px;
 }
 
-.pagination{ 
-    justify-content: center;   
-}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.pagination a{
-    color: black;
 }
