@@ -10,7 +10,7 @@ body{
     overflow-y:auto;
 }
 
-nav{
+.top-nav{
     width: 100%;
     background-color: white;
     position: fixed;
@@ -28,7 +28,7 @@ nav{
 .logo-box img{
     width: 100%;
 }
-nav a{
+.top-nav a{
     display: block;
     float: left;
     font-size: 20px;
@@ -40,10 +40,10 @@ nav a{
 }
 
 
-nav ul{
+.top-nav ul{
     float: right;
 }
-nav ul li{
+.top-nav ul li{
     float: left;
     padding: 0 30px;
     line-height: 80px;
@@ -58,6 +58,7 @@ nav ul li{
 
 main{
     padding-top: 150px;
+    
 }
 
 .address{

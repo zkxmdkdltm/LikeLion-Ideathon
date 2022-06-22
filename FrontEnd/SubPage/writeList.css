@@ -4,9 +4,13 @@
     display: flex;
     margin-top: 100px;
     justify-content : center;
+    font-family: 'Noto Sans KR', sans-serif;
     
 }
-
+.filtering label{
+    font-weight: 900;
+    font-size: 20px;
+}
 .filtering > #category, label {
     margin-right: 20px;
 }
@@ -14,6 +18,8 @@
 .filtering > select {
     width:150px;
     padding:5px;
+    height: 30px;
+    font-size: 14px;
     border:1px solid #999;
     font-family:'Nanumgothic';
     border-radius:3px;
@@ -23,8 +29,10 @@
 .filtering_button {
     width: 40px;
     padding:5px;
+    height: 31px;
     border:1px solid #999;
     font-family:'Nanumgothic';
+    font-size: 14px;
     border-radius:3px;
     text-align: center;
     margin-left: 10px;
@@ -40,12 +48,13 @@
     margin: auto;
     width: 700px;
     height: 50px;
-    color: black;
     transition: all 0.3s;
     border-radius: 20px;
     background-color: rgb(240, 240, 240);
 
-    
+}
+.writing a{
+    color: black;
     
 }
 
@@ -53,19 +62,8 @@
     background-color: #c9c9c9;
     width: 705px;
     height: 55px;
-
+    
 }
-
-
-.writing > a > h5 {
-    display: inline-block;
-    margin: 10px;
-}
-
-.count {
-    padding-left: 10px;
-}
-
 
 .주문완료 {
     text-align: center;
@@ -86,5 +84,21 @@
     background-color: rgb(244, 96, 96);
     border-radius: 10px;
 }
+
+
+
+.writing > a > h5 {
+    display: inline-block;
+    margin: 10px;
+    color:black;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.count {
+    padding-left: 10px;
+}
+
+
 
 

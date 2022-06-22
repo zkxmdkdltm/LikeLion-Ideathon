@@ -24,11 +24,14 @@ body{
     position: relative;
 }
 
-#check-label { 
+/* #check-label { 
     position: absolute;
     z-index:9999;
     cursor: pointer;
     width: 40px;
+    font-weight: 900;
+    font-size: 20px;
+    color:black;
 }
 .sidebar {
     height: 100%;
@@ -40,8 +43,6 @@ body{
     display: flex;
     width: 300px;
     height: 750px;
-    
-        
     flex-direction: column;
     transform: translatex(100%);
     transition: transform 0.4s ease-in-out;
@@ -64,8 +65,27 @@ body{
 .sidebar__animation > li {
     height: 50px;
     font-size: 15px;
-}
+} */
+
 /*주소*/
+
+.dropdown a{
+    background-color: white;
+    color: black;
+    border: none;
+    text-align: center;
+}
+
+.dropdown a:hover{
+    background-color: #f2bb16;
+    color: white;
+    border: none;
+}
+.dropdown a:focus{
+    background-color: #f2bb16;
+    color: white;
+    border: none;
+}
 
 .address{
     display: flex;
@@ -104,6 +124,8 @@ body{
 
 #main {
     margin-top: 170px;
+    font-family: 'Noto Sans KR', sans-serif;
+    
 }
 
 #main > ul {
@@ -148,9 +170,10 @@ body{
     margin-right: 20px;
 }
 
-.pagination {
-    text-align: center;
-    margin: 30px;
+.pagination{ 
+    justify-content: center;   
 }
 
-
+.pagination a{
+    color: black;
+}
