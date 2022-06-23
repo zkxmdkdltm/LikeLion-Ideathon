@@ -7,7 +7,6 @@ function typing(){
         let txt = content.charAt(i);
         text.innerHTML += txt=== "\n" ? "<br/>": txt;
         i++;
-        console.log(i);
         if(i==content.length){
             $(".blink").hide();
         }
