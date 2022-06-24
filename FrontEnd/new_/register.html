@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="./button.css">
+    <link rel="stylesheet" href="./register.css">
+
+    <title>Register</title>
+</head>
+<body>
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">WEITER</a>
+        </li>
+        <li class="intro">
+            <div><a class="" href="./login.html">&lt LOGIN</a></div>
+        </li>
+    </ul>
+    <section class="register-form">
+        <form action="">
+            <div class="int-area" style="width:110%;">
+                <p>아이디</p>
+                <input class="with-button"type="text" name="username" id="username" autocomplete="off" required>
+                <button type="submit" class="custom-btn btn-9">중복확인</button>
+            </div>
+            <div class="int-area" style="width:110%;">
+                <p>닉네임</p>
+                <input class="with-button"type="text" name="username" id="username" autocomplete="off" required>
+                <button type="submit" class="custom-btn btn-9">중복확인</button>
+            </div>
+            <div class="int-area">
+                <p>비밀번호</p>
+                <input type="text" name="pw" id="pw" autocomplete="off" required>
+            </div>
+            <div class="int-area">
+                <p>비밀번호 확인</p>
+                <input type="text" name="pw" id="pw" autocomplete="off" required>
+            </div>
+            <div class="int-area">
+                <p>이름</p>
+                <input type="text" name="username" id="username" autocomplete="off" required>
+            </div>
+            <div class="int-area" style="width:107%;">
+                <p>휴대전화</p>
+                <input class="with-button"type="text" name="username" id="username" placeholder="전화번호 입력" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호 입력'" autocomplete="off" required>
+                <button type="submit" class="custom-btn btn-9">인증하기</button>
+                <input type="text" style="margin-top: 20px; width:400px;" name="username" id="username" placeholder="인증번호를 입력하세요" onfocus="this.placeholder=''" onblur="this.placeholder='인증번호를 입력하세요'" autocomplete="off" required>
+            </div>
+
+            <div class="btn-area">
+                <button type="button" class="custom-btn btn-9" onclick="location.href=''">가입하기</button>
+            </div>
+        </form>
+    </section>
+    
+</body>
+</html>

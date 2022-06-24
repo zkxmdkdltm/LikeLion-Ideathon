@@ -1,23 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-*{
+/* *{
     margin: 0;
     padding: 0;
-}
-a{
+} */
+/* a{
     text-decoration: none;
     color: black;
+} */
+.nav{
+    position: fixed;
+    display: block;
 }
-
-body{
+.nav a{
+    color:black;
+    font-size: 45px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.nav a:hover{
+    color:black;
+}
+.nav-item{
+    margin:15px;
+}
+.intro{
+    margin-left: 100%;
+}
+.intro div{
+    width: 200px;
+}
+.intro a{
+    font-size: 30px;
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+section{
     font-family: 'Noto Sans KR', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-}
-section{
-    margin-top: 100px;
-    margin-bottom: 100px;
+    height: 100vh;
 }
 
 .login-form h1{
@@ -26,19 +50,15 @@ section{
     margin-bottom: 50px;
 }
 
-.logo-box{
+/* .logo-box{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 70px;
+    margin-bottom: 130px;
 }
 .logo-box img{
     width: 250px;
-}
-
-form{
-    width: 400px;
-}
+} */
 
 .int-area{
     width: 400px;
@@ -60,24 +80,12 @@ form{
     outline: none;
 }
 
-
-.int-area-birth{
-    width: 120%;
-    margin-top: 30px;
-}
-.int-area-birth input{
-    padding-left: 10px;
-    width:23%;
-    margin-top: 20px;
-    margin-right: 20px;
-    height: 4vh;
-}
-
-.int-area select{
-    margin-top: 16px;
-    width: 104%;
-    padding-left: 10px;
-    height: 4vh;
+.int-area label{
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    font-style: 18px;
+    transition: top 0.5s ease;
 }
   
 .int-area input:focus + label,
@@ -85,20 +93,6 @@ form{
     top: -2px;
     font-size: 13px;
     color: #166caa;
-}
-.int-area .with-button{
-    width: 64%;
-    display: inline-block;
-}
-.submit-button{
-    width: 30%;
-    height: 50px;
-    display: inline-block;
-    color: #fff;
-    background: #f2bb16;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
 }
 .btn-area {
     margin-top: 30px;
@@ -108,22 +102,23 @@ form{
     width: 100%;
     height: 50px;
     margin: 0px 10px;
-    color: #fff;
-    background: #f2bb16;
-    border: none;
-    border-radius: 20px;
+    color: black;
+    background: white;
+    border: 1px solid black;
     font-size: 20px;
     cursor: pointer;
 }
 
-.caption {
-    margin-top: 20px;
+/* .caption {
+    width: 100%;
     text-align: center;
+    margin: 0px 10px;
+    margin-top: 20px;
 }
 
 .caption a {
-    margin: 0 20px;
     font-size: 15px;
     color: rgb(0, 43, 54);
     text-decoration: none;
-}
+    
+} */

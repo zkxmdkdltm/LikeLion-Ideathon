@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
-
+ul{
+    list-style: none;
+}
 a{
     text-decoration: none;
 }
@@ -45,6 +47,7 @@ a{
         opacity: 0;
     }
 }
+
 
 
 /*------------------------------menu.html-----------------------*/
