@@ -12,4 +12,4 @@ function typing(){
         }
     }
 }
-setInterval(typing, 100)
+setInterval(typing, 50)

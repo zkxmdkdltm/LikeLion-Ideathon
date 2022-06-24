@@ -45,23 +45,7 @@ a{
     }
 }
 
-.btns{
-    width: 120px;
-    display: block;
-    position: absolute;
-    top:46%;
-    right:30%;
-}
-.btns button{
-    margin-bottom: 40px;
-    width: 120px;
-    height: 50px;
-    border-radius: 40px;
-    background-color: #EBEAEA;
-}
-.btns button:hover{
-    background-color: #31313165;
-}
+
 
 /*------------------------------menu.html-----------------------*/
 main{
@@ -83,7 +67,8 @@ main{
 .menu-wrap{
     width: 17%;
     height: 100%;
-    margin: auto
+    margin: auto;
+    
 }
 
 .menu-wrap p{
@@ -104,6 +89,7 @@ main{
     transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
     overflow: hidden;
     cursor: pointer;
+    background-size: 100%;
 }
 
 .menu:hover {
@@ -129,13 +115,16 @@ main{
     display: inline-block;
     margin-right: 50px;
     margin-bottom: 20px;
-    background-color: white;
+    background-color: #EBEAEA;
     border-radius: 15px;
     border: 2px solid black;
     width: 230px;
-    height: 190px;
+    height: 220px;
 }
 
+#main > ul > .box > button{
+    color: black;
+}
 #main > ul > li > .img {
     background-color: rgb(255, 255, 255);
     border-radius: 15px;
@@ -169,6 +158,10 @@ main{
     align-items: center;
     justify-content: center;    
 }
-.pagination li{
+.pagination{
     color:black;
 }
+
+
+
+  
