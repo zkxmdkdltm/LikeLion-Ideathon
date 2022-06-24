@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
+
 a{
     text-decoration: none;
 }
@@ -23,7 +24,7 @@ a{
     margin-left: 100%;
 }
 .intro div{
-    width: 120px;
+    width: 200px;
 }
 .intro a{
     font-size: 30px;
@@ -162,5 +163,120 @@ main{
 }
 
 
+/*-------------------------store select-------------------------*/
 
-  
+.menuPage {
+    background-color: white;
+    width: 50%;
+    margin: auto; 
+    margin-bottom: 50px;
+}
+
+.storeData {
+    margin-bottom: 50px;
+}
+
+p {
+    margin:0;
+    font-size: 15.3px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.foodName {
+    font-size: 16.5px;
+}
+
+.sideInfo {
+    font-size: 13px;
+    color: #555555;
+}
+.accordion {
+    border-radius: 0rem;
+}
+
+.accordion-button {
+    background-color: #EBEAEA;
+    color: black;
+}
+
+.accordion-button.collapsed {
+    color: black;
+
+}
+
+.accordion-body {
+    padding: 0;
+}
+
+.food {
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #c1c1c1 ;
+    
+}
+
+.follow_wrap {
+    z-index: 999;
+    font-family: 'Noto Sans KR', sans-serif;
+    
+}
+.follow {
+    position: fixed;
+    width: 300px;
+    height: 500px;
+    top: 70px;
+    right: 35px;
+    background-color: white;
+}
+
+.top,
+.order {
+    font-size: 13.5px;
+    height: 50px;
+    background-color: #555555;
+    position: sticky;
+    color: white;
+    padding: 15px;
+    font-weight: 100;
+}
+
+.follow_content {
+    padding: 15px;
+}
+
+.person,
+.min {
+    width: 50px;
+    height: 20px;
+    font-size: 15.3px;
+}
+
+.order {
+    text-align: center;
+}
+
+.order a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    padding-bottom: 2px;
+}
+
+.order a:before {
+    content: '';
+    position: absolute; /*부모 요소에는 position: relative를 주어야 한다.*/
+    background-color: white;
+    height: 1px; /*밑줄 굵기*/
+
+    width: 0; /*초기에 보이지 않도록*/
+    bottom: 0; /*a태그 아래에 위치시키기*/
+    transition: 0.7s; /*애니메이션 동작 실행 시간 정의*/
+
+    /*가상 요소를 가운데로 이동시키기*/
+    left: 50%;
+    transform: translateX(-50%) ;
+}
+
+.order a:hover:before {
+    width: 100%;
+}
