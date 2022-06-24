@@ -17,7 +17,7 @@ a{
     margin:15px;
 }
 .nav-item a:hover{
-    background-color: white;
+    color:black;
 }
 .intro{
     margin-left: 100%;
@@ -44,7 +44,6 @@ a{
         opacity: 0;
     }
 }
-
 
 
 /*------------------------------menu.html-----------------------*/
