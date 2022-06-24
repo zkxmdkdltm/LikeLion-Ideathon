@@ -168,10 +168,32 @@ main{
 
 /*-------------------------store select-------------------------*/
 
+
+.store_detail_intro{
+    margin-left: 30%;
+}
+.store_detail_intro div{
+    width: 200px;
+}
+.store_detail_intro a{
+    font-size: 30px;
+}
+
+.box1 {
+    float: left;
+    width: 70%;
+}
+
+.box2 {
+    float: right;
+    width: 30%;
+    height: 5000px;
+}
 .menuPage {
+    margin: auto;
+    margin-left: 300px;
     background-color: white;
-    width: 50%;
-    margin: auto; 
+    width: 700px;
     margin-bottom: 50px;
 }
 
@@ -214,21 +236,19 @@ p {
     padding-left: 30px;
     padding-top: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #c1c1c1 ;
+    border-bottom: 1px solid #c1c1c1;
+    cursor: pointer;
     
 }
 
-.follow_wrap {
-    z-index: 999;
-    font-family: 'Noto Sans KR', sans-serif;
-    
-}
 .follow {
-    position: fixed;
+    position: sticky;
+    margin: auto;
+    font-family: 'Noto Sans KR', sans-serif;
+    position: sticky;
     width: 300px;
-    height: 500px;
-    top: 70px;
-    right: 35px;
+    height: 700px;
+    top: 20px;
     background-color: white;
 }
 
@@ -282,4 +302,30 @@ p {
 
 .order a:hover:before {
     width: 100%;
+}
+
+.deliverTip,
+.sumPrice {
+    padding: 15px;
+}
+.deliverTip > div,
+.sumPrice > div {
+    display: inline-block;
+}
+
+.sumPrice {
+    margin-left: 105px;
+}
+
+.orderList{
+    display: flex;
+    align-items: center;
+}
+
+.orderList > div {
+    flex: 1;
+}
+
+.count > input {
+    width: 60px;
 }
