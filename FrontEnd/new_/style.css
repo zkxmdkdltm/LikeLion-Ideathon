@@ -368,7 +368,7 @@ p {
 /*-------------------------order bulletin-------------------------*/
 
 .board_wrap {
-    background-color: #EBEAEA;
+    background-color: rgba( 235, 234, 234, 0.5);
     padding: 0px 20px;
     width: 1100px;
     height: 500px;
