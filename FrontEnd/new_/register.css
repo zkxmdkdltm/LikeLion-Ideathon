@@ -34,13 +34,14 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 105vh;
 }
 
 
 
 form{
     width: 400px;
+
 }
 
 .int-area{
