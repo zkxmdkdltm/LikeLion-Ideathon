@@ -278,6 +278,10 @@ p {
     padding: 0;
 }
 
+.choose {
+    
+}
+
 .food {
     padding-left: 30px;
     padding-top: 10px;
@@ -379,7 +383,7 @@ p {
 
 .orderEnd_wrap {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
@@ -387,6 +391,7 @@ p {
 
 .orderEnd_wrap p {
     font-size: 20px;
+    font-weight: bold;
     
 }
 
