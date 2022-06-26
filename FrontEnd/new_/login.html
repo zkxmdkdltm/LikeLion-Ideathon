@@ -23,7 +23,7 @@
     <section class="login-form">
         <form action="">
             <div class="int-area">
-                <input type="text" name="id" id="id" autocomplete="off" required EngNumOnly>
+                <input type="text" name="id" id="id" autocomplete="off" required oninput="this.value = this.value.replace(/[^a-zA-Z0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                 <label for="id">USER NAME</label>
             </div>
             <div class="int-area">

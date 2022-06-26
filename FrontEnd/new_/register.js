@@ -31,6 +31,4 @@ function onlyAlphabet(ele) {
     ele.value = ele.value.replace(/[^\\!-z]/gi,"");
 }
 
-$(document).on("keyup", "input[numberOnly]", function() {$(this).val( $(this).val().replace(/[^0-9]/gi,"") );})
-$(document).on("keyup", "input[koOnly]", function() {$(this).val( $(this).val().replace(/[^ㄱ-힣]/gi,"") );})
-$(document).on("keyup", "input[EngNumOnly]", function() {$(this).val( $(this).val().replace(/[^a-zA-Z0-9]/gi,"") );})
+

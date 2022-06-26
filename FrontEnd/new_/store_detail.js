@@ -1,7 +1,7 @@
 var food = document.querySelectorAll('.food');
 var foodindex = 0; 
 const follow_content = document.querySelector(".order_content");
-
+var sumP = parseInt(document.getElementsByClassName("deliver_price")[0].innerText);
 
 
 function food_click(idx){
@@ -10,6 +10,7 @@ function food_click(idx){
     const foodName = document.getElementsByClassName("foodName")[foodindex].innerText;
     var price = document.getElementsByClassName("price")[foodindex].innerText;
     
+
     let Area = document.querySelector(".order_content");
     let orderList = document.createElement('div');
     orderList.setAttribute('class','orderList');
@@ -32,9 +33,12 @@ function food_click(idx){
     count.appendChild(amount);
     fn.innerHTML = foodName;
     p.innerHTML = price;
+    console.log(follow_content, foodName)
+    console.log(sumP);
     
     const sumPrice = document.querySelector('.sumP');
-    const sumP = 0;
+    sumP = sumP + parseInt(price) * 1000;
+    
     sumPrice.innerText = `${sumP}원`;
 
     console.log(foodName);

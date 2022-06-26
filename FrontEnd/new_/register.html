@@ -25,7 +25,7 @@
         <form action="">
             <div class="int-area" style="width:110%;">
                 <p>아이디</p>
-                <input class="with-button"type="text" name="username" id="username" autocomplete="off" required EngNumOnly>
+                <input class="with-button"type="text" name="username" id="username" autocomplete="off" required  oninput="this.value = this.value.replace(/[^a-zA-Z0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                 <button type="submit" class="custom-btn btn-9">중복확인</button>
             </div>
             <div class="int-area" style="width:110%;">
@@ -44,11 +44,11 @@
             </div>
             <div class="int-area">
                 <p>이름</p>
-                <input type="text" style="ime-mode:active;" name="username" id="username" autocomplete="off" required koOnly>
+                <input type="text" style="ime-mode:active;" name="username" id="username" autocomplete="off" required oninput="this.value = this.value.replace(/[^ㄱ-힣.]/g, '').replace(/(\..*)\./g, '$1');">
             </div>
             <div class="int-area" style="width:107%;">
                 <p>휴대전화</p>
-                <input class="with-button"type="text" name="phone" id="phone" placeholder="전화번호 입력" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호 입력'" autocomplete="off" required numberOnly/>
+                <input class="with-button"type="text" name="phone" id="phone" placeholder="전화번호 입력" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호 입력'" autocomplete="off" required  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
                 <button type="submit" class="custom-btn btn-9">인증하기</button>
                 <input type="text" style="margin-top: 20px; width:400px;" name="phone" id="phone" placeholder="인증번호를 입력하세요" onfocus="this.placeholder=''" onblur="this.placeholder='인증번호를 입력하세요'" autocomplete="off" />
             </div>
