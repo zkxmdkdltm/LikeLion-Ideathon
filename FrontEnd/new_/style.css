@@ -96,6 +96,44 @@ a{
 .text-box .fadein{
     display: none;
 }
+
+/*-----------------------------myInfo.html----------------------*/
+.info-box{
+    position: absolute;
+    top:30%;
+    left:20%;
+}
+
+.info{
+   font-size: 30px;
+}
+.info li{
+    margin-top: 40px;
+}
+
+#change-info{
+    font-size: 20px;
+    width: 120px;
+    height: 50px;
+    margin-left: 30px;
+    margin-top: 40px;
+}
+
+#dup-button{
+    font-size: 20px;
+    width: 120px;
+    height: 50px;
+}
+
+.info-box .info p{
+    width: 800px;
+    font-size: 30px;
+}
+
+
+
+
+
 /*------------------------------menu.html-----------------------*/
 main{
     padding-top: 100px;
