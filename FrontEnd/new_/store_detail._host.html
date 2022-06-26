@@ -46,7 +46,7 @@
                   </h2>
                   <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                     <div class="accordion-body">
-                      <div class="food" >
+                      <div class="food" onclick="javascript: this.onclick=null;">
                         <p class="foodName">메뉴이름</p>
                         <p class="sideInfo">메뉴 설명</p>
                         <p class="price">메뉴 가격</p>
@@ -72,7 +72,7 @@
           <div class="follow">
             <div class="hostOption">
               <div class="top">호스트 옵션</div>
-              <div class="follow_content">
+              <form class="follow_content" action="" method="">
               <input type="radio" name="orderFinish"/> <input class="person" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> 명이 모이면 주문 종료 <br>
               <input type="radio" name="orderFinish"/> <input class="min" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> 분 후 주문 종료 <br>
               <input type="radio" name="orderFinish"/> 주문 종료버튼으로 주문 종료 <br>
@@ -80,8 +80,9 @@
               <input type="radio" name="orderCalc"> 각자 계산하기 <br>
               <input type="radio" name="orderCalc"> 내가 모두 계산하기 <br>
               <hr>
-              <p>전체 공개 / 비공개</p> 
-            </div>
+              <input type="radio" name="orderOpenType"> 전체공개
+              <input type="radio" name="orderOpenType"> 비공개
+            </form>
             
             <div class="orderOption">
               <div class="top">내 주문 옵션</div>
