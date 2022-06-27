@@ -599,7 +599,52 @@ main{
 
 }
 
-/*-------------------------paginatino-------------------------*/
+/*-------------------------order_list.html-------------------------*/
+.order-list-main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-box{
+    width: 50%;
+    margin-top:100px;
+    
+}
+.order-box{
+    width: 100%;
+    border: 1px solid black;
+    margin-bottom: 35px;
+    display: flex;
+}
+.order-box *{
+   margin: 10px;
+}
+
+.order-box ul{
+    width: 80%;;
+}
+
+.order-box ul li{
+    font-style: 30px;
+}
+
+.order-box button{
+    float:right;
+    margin-right: 40px;
+}
+.order-box .img{
+    margin:10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    width: 210px;
+    height: 170px;
+    border: 1px solid black;
+
+    text-align: center;
+    line-height: 170px;
+}
+
+/*-------------------------pagination-------------------------*/
 
 .pagination {
     --bs-pagination-color: black;
