@@ -86,3 +86,19 @@ let sumPirce = () => {
   
   sumP.innerText = `${sum}원`;
 }
+
+
+// 찜
+const heart = document.querySelector(".heart");
+
+let activeHeart = () => {
+  const hasClass = heart.classList.contains("full");
+
+  if(!hasClass){
+    heart.classList.add("full");
+    heart.innerText = "🧡"
+  } else {
+    heart.classList.remove("full");
+    heart.innerText = "🤍"
+  };
+}

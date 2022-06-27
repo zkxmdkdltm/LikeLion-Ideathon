@@ -24,18 +24,43 @@
     <div class="box1">
       <div class="menuPage">
         <div class="storeData">
-            <p class="storeName">사천성 정릉점</p>
-            <p class="star">★★★★☆ 4.3</p>
-            <br/>
-            <P class="">tel : 02-123-4567 / 찜 / 공유 </P>
-            <br/>
-            <p>배달주문</p>
-            <p class="atLest">최소 주문 금액 : 10000원</p>
-            <p class="payWay">결제 방법 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 바로결제, 만나서 결제</p>
-            <p class="deliverTime">배달 시간 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 20 ~ 25분 소요 예상</p>
-            <p class="deliverTip">배달팁 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 0 ~ 3500원</p>
-            <button onclick="addCheck(), showMyMenu()">메뉴 저장</button>
-          </div>
+            <p>사천성 정릉점</p>
+            <p>★★★★☆</p>
+
+            <div class="tel">
+              <ul>
+                <li>tel : </li>
+                <li>02-123-4567</li>
+              </ul>
+              <ul>
+                <li>찜</li>
+                <li class="heart" onclick="activeHeart()">🤍</li>
+              </ul>
+              <ul>
+                <li> 공유</li>
+              </ul>
+            </div>
+
+            <div class="deliveryInfo">
+              <ul>
+                <li>최소 주문 금액 : </li>
+                <li>{10000}원</li>
+              </ul>
+              <ul>
+                <li>결제 방법 : </li>
+                <li><input type="radio" name="payWay">바로 결제하기</li>
+                <li><input type="radio" name="payWay">만나서 결제하기</li>
+              </ul>
+              <ul>
+                <li>배달 시간 : </li>
+                <li>{20~25}분 소요 예상</li>
+              </ul>
+              <ul>
+                <li>배달팁 : </li>
+                <li>{3000}원</li>
+              </ul>
+            </div>
+        </div>
 
         <div class="menuAccordion">
             <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -70,6 +95,7 @@
                 </div>
             </div>
         </div>
+        <button class="menuSave" onclick="addCheck(), showMyMenu()">메뉴 저장</button>
     </div>
     </div>
 
@@ -92,6 +118,12 @@
             
             <div class="orderOption">
               <div class="top">내 주문 옵션</div>
+              <div class="deliverTip">
+                <div style="margin-right:135px">배달팁</div>
+                <div class = "deliver_price">3000</div>
+                <div>원</div>
+              </div>
+
               <div class="follow_content order_content">
                 
                   <!-- <div class="orderList"> 구성예시
@@ -102,15 +134,10 @@
                     <div class="P">가격</div>
                   </div>
                    -->
-                  <div class="priceSum"> </div>
               </div>
-              <div class="deliverTip">
-                <div style="margin-right:135px">배달비</div>
-                <div class = "deliver_price">3000</div>
-                <div>원</div>
-              </div>
+              
               <div class="sumPrice">
-                <div> 총 금액 &nbsp;&nbsp;: &nbsp;&nbsp;</div>
+                <div> 총 금액 : </div>
                 <div class="sumP"></div>
               </div>
             </div>
