@@ -20,6 +20,10 @@ def detail(request, id):
     return render(request, 'detail.html', {'order': order})
 
 
+def joinEnd(request):
+    return render(request, 'joinEnd.html')
+
+
 def menu(request):
     return render(request, 'menu.html')
 
@@ -35,4 +39,4 @@ def order(request, id):
 
 
 def orderEnd(request):
-    return render(request, 'order_end.html')
+    return render(request, 'orderEnd.html')

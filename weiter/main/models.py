@@ -41,6 +41,7 @@ class Store(models.Model):
 
     name = models.CharField(max_length=10)
     rate = models.FloatField(null=True)
+    tel = models.CharField(max_length=15)
     min = models.IntegerField()
     delivery_time = models.IntegerField()
     delivery_price = models.IntegerField()
