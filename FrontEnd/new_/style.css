@@ -244,6 +244,7 @@ main{
 }
 
 .data > ul {
+    
     float: left;
     padding: 0;
 }
