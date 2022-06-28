@@ -1,3 +1,4 @@
+from email import message
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate
 from django.contrib import auth
@@ -74,8 +75,8 @@ def login(request):
         return render(request, 'login.html')
     
     elif request.method == "POST":
-        id = request.POST['id']
-        password = request.POST['password']
+        id = request.POST.get('id')
+        password = request.POST.get('password')
         user = authenticate(request, trinity_id=id, password=password)
         
         if user is not None:
@@ -96,25 +97,14 @@ def myinfo(request):
     return render(request, 'myInfo.html')
 
 
-# def myinfochange(request, pk):
-#     form = CustomUserChangeForm()
-#     context = {
-#         'form':form
-#     }
-#     return render(request, 'myInfo.html', context)
-@login_required(login_url='accounts:login')
+@login_required
 def myinfochange(request):
-    # user = get_object_or_404(User, pk=user_id)
     if request.method == "POST":
-        form = CustomUserChangeForm(request.POST, request.FILES,instance=request.user)
-        if form.is_valid():
-            form.save()
-            return redirect('account:myinfo')
-            # old = request.user
-            # old.address = form.cleaned_data['address']
-            # old.nickname = form.cleaned_data['nickname']
-            # old.save()
-            # return redirect('accounts:myinfo')
+        user = request.user
+        user.nickname = request.POST.get('nickname')
+        user.address = request.POST.get('address')
+        user.save()
+        return redirect('accounts:myinfo', user.username)
     return render(request, 'myInfo-change.html')
 
 def validate_password(password):

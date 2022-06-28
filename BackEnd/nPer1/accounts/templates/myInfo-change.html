@@ -29,7 +29,7 @@
             <li>아이디: {{user.trinity_id}}</li>
             <li>비밀번호: {{user.password}}</li>
             <li>이름: {{user.username}}</li>
-            <form method="POST" action="{% url 'accounts:login' %}">
+            <form method="POST" action="{% url 'accounts:myinfo' %}">
             {% csrf_token %}
             <li>
                 <div class="int-area">
