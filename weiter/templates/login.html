@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/button.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'js/register.js' %}"></script>
+    <title>Login</title>
+</head>
+<body>
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'intro' %}">WEITER</a>
+        </li>
+        <li class="intro">
+            <div><a class="" href="{% url 'intro' %}">&lt INTRO</a></div>
+        </li>
+    </ul>
+    <section class="login-form">
+        <form action="">
+            <div class="int-area">
+                <input type="text" name="id" id="id" autocomplete="off" required oninput="this.value = this.value.replace(/[^a-zA-Z0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                <label for="id">USER NAME</label>
+            </div>
+            <div class="int-area">
+                <input type="password" name="pw" id="pw" autocomplete="off" required/>
+                <label for="pw">PASSWORD</label>
+            </div>
+            <div class="btn-area">
+                <button type="button" class="custom-btn btn-9" onclick="location.href='{% url 'host' %}'">로그인</button>
+            </div>
+            <div class="btn-area">
+                <button type="button" class="custom-btn btn-9" onclick="location.href='register.html'">회원가입</button>
+            </div>
+        </form>
+        
+    </section>
+    
+</body>
+</html>
