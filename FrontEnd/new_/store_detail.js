@@ -3,7 +3,7 @@
 var checkIndex = [];
 
 function addCheck(){
-  var chs = document.getElementsByName("choose");
+  let chs = document.getElementsByName("choose");
   checkIndex = [];
   for(var i=0; i<chs.length; i++){
 
@@ -17,13 +17,13 @@ function addCheck(){
 
 // 찾은 인덱스 내 주문 옵션으로 불러오기
 
-let showMyMenu = () => {
+var showMyMenu = () => {
   removeAllchild(); // 초기화
 
   for(var i=0; i<checkIndex.length;i++){
     
     const foodName = document.getElementsByClassName("foodName")[checkIndex[i]].innerText;
-    var price = document.getElementsByClassName("price")[checkIndex[i]].innerText;
+    let price = document.getElementsByClassName("price")[checkIndex[i]].innerText;
 
     let Area = document.querySelector(".order_content");
     let orderList = document.createElement('div');
@@ -59,7 +59,7 @@ let showMyMenu = () => {
 }
 
 //초기화: order content 안에 생성된 자식 요소 모두 삭제하기 
-let removeAllchild = () => {
+var removeAllchild = () => {
   const Area = document.querySelector(".order_content");
   while ( Area.hasChildNodes() ){
      Area.removeChild( Area.firstChild );       
@@ -68,17 +68,17 @@ let removeAllchild = () => {
 
 
 // 내 주문 옵션에 불려온 가격 총합 구하기 + 변경된 수량값 계산하기
-const sumP = document.querySelector(".sumP");
+var sumP = document.querySelector(".sumP");
 
-let sumPirce = () => {
+var sumPirce = () => {
   
   var sum = 0;
   var deliver_price = parseInt(document.getElementsByClassName("deliver_price")[0].innerText); 
 
   for(var i=0; i<checkIndex.length;i++) {
     const changePrice_area = document.getElementsByClassName("P")[i];
-    var count = parseInt(document.getElementsByClassName("amount")[i].value);
-    var price = parseInt(document.getElementsByClassName("price")[checkIndex[i]].innerText);
+    const count = parseInt(document.getElementsByClassName("amount")[i].value);
+    const price = parseInt(document.getElementsByClassName("price")[checkIndex[i]].innerText);
     sum += count * (price*1000) ;
     changePrice_area.innerText= `${count * price*1000}원`;
   }
@@ -89,9 +89,9 @@ let sumPirce = () => {
 
 
 // 찜
-const heart = document.querySelector(".heart");
+var heart = document.querySelector(".heart");
 
-let activeHeart = () => {
+var activeHeart = () => {
   const hasClass = heart.classList.contains("full");
 
   if(!hasClass){
