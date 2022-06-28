@@ -24,6 +24,7 @@ a{
 }
 .nav-item{
     margin:15px;
+    width: 10%;
 }
 .nav-item a:hover{
     color:black;
@@ -180,11 +181,11 @@ main{
 }
 
 .menu:hover {
-    transform: scale(1.5);
-    -webkit-transform: scale(1.5);
-    -moz-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -o-transform: scale(1.5);
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
 }
 
 
@@ -203,26 +204,39 @@ main{
     margin-right: 50px;
     margin-bottom: 20px;
     background-color: #EBEAEA;
-    border-radius: 15px;
-    border: 2px solid black;
     width: 230px;
     height: 220px;
 }
 
-#main > ul > .box > button{
-    color: black;
-}
 #main > ul > li > .img {
     background-color: rgb(255, 255, 255);
-    border-radius: 15px;
     width: 210px;
     height: 110px;
-    border: 1px solid black;
-    margin: auto;
-    margin-top: 10px;
-
     text-align: center;
     line-height: 100px;
+}
+.box {
+    padding: 10px;
+    position: relative;
+}
+
+.box button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: 0;
+    background-color: #c1c1c1;
+    font-weight: bold;
+}
+
+.box ul:first-child li:first-child{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.box ul:first-child li:nth-child(2){
+    font-size: 10px;
+    padding-top: 3px;
 }
 
 .data{
@@ -231,14 +245,18 @@ main{
 }
 
 .data > ul {
-    text-align: center;
+    
     float: left;
+    padding: 0;
 }
+
+
 
 .data > ul > li {
     float: left;
-    margin-right: 20px;
+    margin-right: 5px;
 }
+
 
 .container{
     display: flex;
@@ -265,7 +283,7 @@ main{
 
 .box1 {
     float: left;
-    width: 70%;
+    width: 70%; 
 }
 
 .box2 {
@@ -285,11 +303,57 @@ main{
     margin-bottom: 50px;
 }
 
-p {
-    margin:0;
-    font-size: 15.3px;
-    font-family: 'Noto Sans KR', sans-serif;
+.storeData ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
+
+.storeData li {
+    margin-left: 10px;
+}
+.storeData ul li:first-child {
+    margin: 0;
+}
+
+.storeData p {
+    margin:0;
+}
+.storeData p:first-child {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.storeData p:nth-child(2),
+.tel,
+.deliveryInfo {
+    margin-bottom: 20px;
+}
+
+.heart {
+    cursor: pointer;
+}
+
+.menuSave {
+    width: 80px;
+    height: 40px;
+    font-size: 15px;
+    background-color: white;
+    border-radius: 50px;
+    border: 2px solid black;
+    transition: all 0.3s;
+    margin: 30px 0px;
+    margin-left: 620px;
+}
+
+.menuSave:hover {
+    transform: scale( 1.05 );
+    background-color: #EBEAEA;
+}
+
+/* 가게 정보 end */
+
+
 .foodName {
     font-size: 16.5px;
 }
@@ -316,10 +380,6 @@ p {
     padding: 0;
 }
 
-.choose {
-    
-}
-
 .food {
     padding-left: 30px;
     padding-top: 10px;
@@ -328,6 +388,19 @@ p {
     cursor: pointer;
     
 }
+.food p {
+    margin: 0;
+}
+
+.accordion-button:not(.collapsed) {
+    color: black;
+    background-color: #EBEAEA;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+/* 아코디언 메뉴 end */
 
 .follow {
     position: sticky;
@@ -337,6 +410,7 @@ p {
     width: 300px;
     height: 700px;
     top: 20px;
+    padding-top: 80px;
     background-color: white;
 }
 
@@ -402,7 +476,11 @@ p {
 }
 
 .sumPrice {
-    margin-left: 105px;
+    margin-left: 95px;
+}
+
+.sumP {
+    margin-left: 25px ;
 }
 
 .orderList{
@@ -412,6 +490,10 @@ p {
 
 .orderList > div {
     flex: 1;
+}
+
+.P {
+    margin-left: 2px;
 }
 
 .count > input {
@@ -508,6 +590,9 @@ p {
     border-bottom: 1px solid #c1c1c1;
 }
 
+.uploaded {
+    cursor: pointer;
+}
 .uploaded ul {
     border: 0;
     padding: 0;
@@ -516,7 +601,52 @@ p {
 
 }
 
-/*-------------------------paginatino-------------------------*/
+/*-------------------------order_list.html-------------------------*/
+.order-list-main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-box{
+    width: 50%;
+    margin-top:100px;
+    
+}
+.order-box{
+    width: 100%;
+    border: 1px solid black;
+    margin-bottom: 35px;
+    display: flex;
+}
+.order-box *{
+   margin: 10px;
+}
+
+.order-box ul{
+    width: 80%;;
+}
+
+.order-box ul li{
+    font-style: 30px;
+}
+
+.order-box button{
+    float:right;
+    margin-right: 40px;
+}
+.order-box .img{
+    margin:10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    width: 210px;
+    height: 170px;
+    border: 1px solid black;
+
+    text-align: center;
+    line-height: 170px;
+}
+
+/*-------------------------pagination-------------------------*/
 
 .pagination {
     --bs-pagination-color: black;

@@ -18,23 +18,22 @@
           <a class="nav-link active" href="index.html">WEITER</a>
         </li>
         <li class="intro">
-            <div><a class="" href="./login.html">&lt LOGIN</a></div>
+            <a onclick="history.back()" style="cursor:pointer;">&lt BACK</a>
         </li>
     </ul>
     <section class="register-form">
         <form action="">
-            <div class="int-area" style="width:110%;">
+            <div class="int-area" >
                 <p>아이디</p>
-                <input class="with-button" type="text" value="likelion1234" name="username" id="username" autocomplete="off" required  oninput="this.value = this.value.replace(/[^a-zA-Z0-9.]/g, '').replace(/(\..*)\./g, '$1');">
-                <button type="submit" class="custom-btn btn-9">중복확인</button>
+                <h5>likelion1234</h5>
             </div>
             <div class="int-area" style="width:110%;">
-                <p>닉네임</p>
+                <p>닉네임 변경</p>
                 <input class="with-button"type="text" value="멋쟁이사자처럼" name="username" id="username" autocomplete="off" required>
                 <button type="submit" class="custom-btn btn-9">중복확인</button>
             </div>
             <div class="int-area">
-                <p>비밀번호 (6~16자, 특수문자 포함)</p>
+                <p>비밀번호 변경(6~16자, 특수문자 포함)</p>
                 <input type="password" value=".12341234" name="pw" id="pw" autocomplete="off" onchange="check_pw()" required>
             </div>
             <div class="int-area">
@@ -42,23 +41,20 @@
                 <input type="password" value=".12341234" name="pw" id="pw2" autocomplete="off" onchange="check_pw()" required>
                 <span id="check"></span>
             </div>
-            <div class="int-area">
+            <div class="int-area" >
                 <p>이름</p>
-                <input type="text" value="홍길동" style="ime-mode:active;" name="username" id="username" autocomplete="off" required oninput="this.value = this.value.replace(/[^ㄱ-힣.]/g, '').replace(/(\..*)\./g, '$1');">
+                <h5>홍길동</h5>
             </div>
-            <div class="int-area" style="width:107%;">
+            <div class="int-area" >
                 <p>휴대전화</p>
-                <input class="with-button" value="01012345678" type="text" name="phone" id="phone" placeholder="전화번호 입력" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호 입력'" autocomplete="off" required  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
-                <button type="submit" class="custom-btn btn-9">인증하기</button>
-                <input type="text" style="margin-top: 20px; width:400px;" name="phone" id="phone" placeholder="인증번호를 입력하세요" onfocus="this.placeholder=''" onblur="this.placeholder='인증번호를 입력하세요'" autocomplete="off" />
+                <h5>01012345678</h5>
             </div>
             <div class="int-area">
-                <p>주소</p>
+                <p>주소 변경</p>
                 <input type="text" value="서울특별시 성북구 정릉로 77 (정릉동)" style="ime-mode:active;" name="username" id="username" autocomplete="off" required oninput="this.value = this.value.replace(/[^ㄱ-힣.]/g, '').replace(/(\..*)\./g, '$1');">
             </div>
-
             <div class="btn-area">
-                <button type="button" class="custom-btn btn-9" onclick="location.href='login.html'">가입하기</button>
+                <button type="button" class="custom-btn btn-9" onclick="location.href='myInfo.html'">정보변경</button>
             </div>
         </form>
     </section>

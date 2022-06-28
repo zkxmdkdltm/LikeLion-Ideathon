@@ -36,13 +36,12 @@
 //     }
 // }
 // setInterval(typing, 50)
-$(".0").fadeIn(1000,function(){
-  $(".1").fadeIn(1000, function(){
-    $(".2").fadeIn(1000, function(){
-        $(".3").fadeIn(1000, function(){
-            $(".4").fadeIn(1000);
-        });
-    });
+
+$(".1").fadeIn(1000, function(){
+  $(".2").fadeIn(1000, function(){
+      $(".3").fadeIn(1000, function(){
+          $(".4").fadeIn(1000);
+      });
   });
 });
   
