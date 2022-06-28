@@ -2,14 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from .models import Order, Store, Menu
 
 
-def intro(request):
-    return render(request, 'intro.html')
-
-
-def host(request):
-    return render(request, 'host.html')
-
-
 def board(request):
     orders = Order.objects.all()
     return render(request, 'board.html', {'orders': orders})

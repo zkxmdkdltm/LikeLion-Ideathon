@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {% block head %} {% endblock %}
+  </head>
+  <body>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="">WEITER</a>
+      </li>
+      <li class="intro">
+        <a class="" href="">&lt Role Select</a>
+      </li>
+      <li class="myInfo">
+        <a class="" href="">내정보</a>
+      </li>
+    </ul>
+    {% block body %} {% endblock %}
+  </body>
+</html>
