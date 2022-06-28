@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'home',
     'accounts',
     'order',
+    'django_social_share',
 ]
 
 MIDDLEWARE = [

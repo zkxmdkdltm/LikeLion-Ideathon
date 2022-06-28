@@ -20,8 +20,9 @@ def menu(request):
     return render(request, 'menu.html')
 
 
-def stores(request):
+def stores(request, food):
     stores = Store.objects.all()
+    stores = stores.filter(foodCategory=food)
     return render(request, 'stores.html', {'stores': stores})
 
 
