@@ -69,10 +69,11 @@ var removeAllchild = () => {
 
 // 내 주문 옵션에 불려온 가격 총합 구하기 + 변경된 수량값 계산하기
 var sumP = document.querySelector(".sumP");
+var sum;
 
 var sumPirce = () => {
   
-  var sum = 0;
+  sum = 0;
   var deliver_price = parseInt(document.getElementsByClassName("deliver_price")[0].innerText); 
 
   for(var i=0; i<checkIndex.length;i++) {
@@ -87,6 +88,16 @@ var sumPirce = () => {
   sumP.innerText = `${sum}원`;
 }
 
+const checkMin = () =>{
+  var min_price = (document.getElementById("min_price").innerText);
+  min_price = parseInt(min_price.replace(/[^0-9]/g, ''));
+  console.log(min_price, sum);
+  if(sum < min_price){
+    alert("총 금액이 최소 주문 금액보다 " +(min_price-sum) + "원 부족합니다!");
+  } else{
+    location.href="order_end.html";
+  }
+}
 
 // 찜
 var heart = document.querySelector(".heart");
