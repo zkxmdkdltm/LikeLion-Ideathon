@@ -28,7 +28,7 @@
             <p class="storeName">{{store.name}}</p>
             <p class="star">★★★★☆ {{store.rate}}</p>
             <br/>
-            <P class="">tel : 02-123-4567 / 찜 / 공유 </P>
+            <P class="">tel : {{store.tel}} / 찜 / 공유 </P>
             <br/>
             <p>배달주문</p>
             <p class="atLest">최소 주문 금액 : {{store.min}}원</p>
@@ -54,18 +54,14 @@
                           <p class="sideInfo">메뉴 설명</p>
                           <p class="price">메뉴 가격</p>
                         </div> -->
+                      {% for food in menu %}
                       <div class="food" > 
                         <input name="choose" type="checkbox">
-                        <p class="foodName"> 볶음밥</p>
-                        <p class="sideInfo">고슬고슬 볶음밥 고슬고슬 볶음밥 고슬고슬 볶음밥</p>
-                        <p class="price">6,000</p>  
+                        <p class="foodName"> {{food}}</p>
+                        <p class="sideInfo">{{food.info}}</p>
+                        <p class="price">{{food.price}}</p>  
                       </div>
-                      <div class="food" > 
-                        <input name="choose" type="checkbox">
-                        <p class="foodName"> 짬뽕</p>
-                        <p class="sideInfo">고슬고슬 볶음밥 고슬고슬 볶음밥 고슬고슬 볶음밥</p>
-                        <p class="price">5,000</p>  
-                      </div>
+                      {% endfor %}
                     </form>
                   </div>
                 </div>
@@ -107,7 +103,7 @@
               </div>
               <div class="deliverTip">
                 <div style="margin-right:135px">배달비</div>
-                <div class = "deliver_price">3000</div>
+                <div class = "deliver_price">{{store.delivery_price}}</div>
                 <div>원</div>
               </div>
               <div class="sumPrice">

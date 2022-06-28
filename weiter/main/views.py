@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Order, Store
+from .models import Order, Store, Menu
 
 
 def intro(request):
@@ -35,7 +35,9 @@ def stores(request):
 
 def order(request, id):
     store = get_object_or_404(Store, pk=id)
-    return render(request, 'order.html', {'store': store})
+    menus = Menu.objects.all()
+    menu = menus.filter(store=store)
+    return render(request, 'order.html', {'store': store, 'menu': menu})
 
 
 def orderEnd(request):
