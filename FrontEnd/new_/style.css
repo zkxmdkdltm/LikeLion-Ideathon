@@ -24,6 +24,7 @@ a{
 }
 .nav-item{
     margin:15px;
+    width: 10%;
 }
 .nav-item a:hover{
     color:black;

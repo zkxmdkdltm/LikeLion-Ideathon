@@ -88,16 +88,16 @@ var sumPirce = () => {
   sumP.innerText = `${sum}원`;
 }
 
-const checkMin = () =>{
-  var min_price = (document.getElementById("min_price").innerText);
-  min_price = parseInt(min_price.replace(/[^0-9]/g, ''));
-  console.log(min_price, sum);
-  if(sum < min_price){
-    alert("총 금액이 최소 주문 금액보다 " +(min_price-sum) + "원 부족합니다!");
-  } else{
-    location.href="order_end.html";
-  }
-}
+// const checkMin = () =>{
+//   var min_price = (document.getElementById("min_price").innerText);
+//   min_price = parseInt(min_price.replace(/[^0-9]/g, ''));
+//   console.log(min_price, sum);
+//   if(sum < min_price){
+//     alert("총 금액이 최소 주문 금액보다 " +(min_price-sum) + "원 부족합니다!");
+//   } else{
+//     location.href="order_end.html";
+//   }
+// }
 
 // 찜
 var heart = document.querySelector(".heart");
