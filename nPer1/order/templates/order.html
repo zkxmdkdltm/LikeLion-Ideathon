@@ -65,7 +65,8 @@
                         <input name="choose" type="checkbox">
                         <p class="foodName"> {{food}}</p>
                         <p class="sideInfo">{{food.info}}</p>
-                        <p class="price">{{food.price}}</p>  
+                        <p class="price">{{food.price}}</p>
+                        <input type="hidden" class="foodid" value={{food.id}} />  
                       </div>
                       {% endfor %}
                     </form>
@@ -79,21 +80,20 @@
 
 
         <div class="box2">
+          <form method="POST" action="{% url 'orderEnd' %}">
+          {% csrf_token %}
           <div class="follow">
             <div class="hostOption">
               <div class="top">호스트 옵션</div>
-              <form class="follow_content" action="" method="">
-              <input type="radio" name="orderFinish"/> <input class="person" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> 명이 모이면 주문 종료 <br>
-              <input type="radio" name="orderFinish"/> <input class="min" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> 분 후 주문 종료 <br>
-              <input type="radio" name="orderFinish"/> 주문 종료버튼으로 주문 종료 <br>
+              <br />
+              <input type="radio" value="count" name="host_option"/> <input class="person" name="option_count" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> 명이 모이면 주문 종료 <br>
+              <input type="radio" value="time" name="host_option"/> <input class="min" name="option_time" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> 분 후 주문 종료 <br>
+              <input type="radio" value="button" name="host_option" checked /> 주문 종료버튼으로 주문 종료 <br>
               <hr>
-              <input type="radio" name="orderCalc"> 각자 계산하기 <br>
-              <input type="radio" name="orderCalc"> 내가 모두 계산하기 <br>
-              <hr>
-              <input type="radio" name="orderOpenType"> 전체공개
-              <input type="radio" name="orderOpenType"> 비공개
-            </form>
-            
+              <input type="radio" value="1" name="pay_option" checked > 각자 계산하기 <br>
+              <input type="radio" value="0" name="pay_option"> 내가 모두 계산하기 <br>
+              <br />
+
             <div class="orderOption">
               <div class="top">내 주문 옵션</div>
               <div class="follow_content order_content">
@@ -104,7 +104,7 @@
                       <input type="number" name="amount" value="1" min="1">
                     </div>
                     <div class="P">가격</div>
-                  </div>
+                  </div> 
                    -->
                   <div class="priceSum"> </div>
               </div>
@@ -119,11 +119,14 @@
               </div>
             </div>
             
-
-            <div class="order">
-              <a href="{% url 'orderEnd' %}">주문하기</a>
-            </div>
-          </div>        
+            {% comment %} hidden values {% endcomment %}
+            <input type="hidden" name="store" value={{store.id}}  />
+            
+            <button class="order" type="submit">
+              주문하기
+            </button>
+          </div>   
+        </form>     
         </div>
         
    </main>

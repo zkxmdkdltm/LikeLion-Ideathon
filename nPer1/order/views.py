@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404
+
+from accounts.models import User
 from .models import Order, Store, Menu
 
 
@@ -34,4 +36,34 @@ def order(request, id):
 
 
 def orderEnd(request):
-    return render(request, 'orderEnd.html')
+    if request.method == 'POST':
+        
+        host_option = request.POST['host_option']
+        option_num = None
+
+        if host_option == "count":
+            option_num = request.POST['option_count']
+        elif host_option == "time":
+            option_num = request.POST['option_time']
+
+        # menu append
+        user_menus = []
+        for i in range(int(request.POST['total_count'])):
+            user_menus.append({'food_id': request.POST['food'+str(i)], 'amount': request.POST['amount'+str(i)]})
+
+        menus = {}
+        menus[request.user.id] = user_menus
+
+        order = Order(
+            store = get_object_or_404(Store, pk=request.POST['store']),
+            host_option = request.POST['host_option'],
+            option_num = option_num,
+            pay_option = int(request.POST['pay_option']),
+            users = {},
+            total = 0,
+            menus = menus,
+            author = get_object_or_404(User, id=request.user.id),
+        )
+        order.save()
+        
+        return render(request, 'orderEnd.html')
