@@ -108,3 +108,9 @@ form{
     font-size: 20px;
     cursor: pointer;
 }
+
+.int-area h5{
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
