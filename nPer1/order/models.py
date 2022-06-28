@@ -1,6 +1,7 @@
 from email.policy import default
-from re import T
 from django.db import models
+
+from accounts.models import User
 
 
 class Store(models.Model):
@@ -49,8 +50,8 @@ class Order(models.Model):
 
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     menus = models.JSONField(default=dict)
-    users = models.JSONField(default=dict)
     total = models.IntegerField(default=0)
     host_option = models.CharField(max_length=10, choices=Option_CHOICES)
-    option_num = models.IntegerField(blank=True)
+    option_num = models.IntegerField(null=True)
     pay_option = models.BooleanField(default=True) # True: 각자 계산
+    author = models.ForeignKey(User, on_delete=models.CASCADE)

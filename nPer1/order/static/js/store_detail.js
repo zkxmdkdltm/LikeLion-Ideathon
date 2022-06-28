@@ -20,32 +20,51 @@ function addCheck(){
 var showMyMenu = () => {
   removeAllchild(); // 초기화
 
+  const Area = document.querySelector(".order_content");
+
+  // 총수량
+  const totalCount = document.createElement('input');
+  totalCount.setAttribute('type', 'hidden');
+  totalCount.setAttribute('name', 'total_count');
+  totalCount.setAttribute('value', checkIndex.length);
+
+  Area.appendChild(totalCount);
+
   for(var i=0; i<checkIndex.length;i++){
     
+    const food_id = document.getElementsByClassName("foodid")[checkIndex[i]].value;
     const foodName = document.getElementsByClassName("foodName")[checkIndex[i]].innerText;
     let price = document.getElementsByClassName("price")[checkIndex[i]].innerText;
 
-    let Area = document.querySelector(".order_content");
+    
     let orderList = document.createElement('div');
     orderList.setAttribute('class','orderList');
 
     let fn = document.createElement('div');
     fn.setAttribute('class','FN');
 
+    // hidden value
+    const foodId = document.createElement('input');
+    foodId.setAttribute('type', 'hidden');
+    foodId.setAttribute('name', 'food'+i);
+    foodId.setAttribute('value', food_id);
+
     let count = document.createElement('div');
     count.setAttribute('class','count');
 
     let amount = document.createElement('input');
-    amount.setAttribute('type','number')
+    amount.setAttribute('type','number');
     amount.setAttribute('class','amount');    
     amount.setAttribute('value','1');
     amount.setAttribute('min','1');
-    amount.setAttribute('onchange','sumPirce()')
+    amount.setAttribute('onchange','sumPirce()');
+    amount.setAttribute('name', 'amount'+i);
 
     let p = document.createElement('div');
     p.setAttribute('class','P')
 
     Area.appendChild(orderList);
+    orderList.appendChild(foodId);
     orderList.appendChild(fn);
     orderList.appendChild(count);
     orderList.appendChild(p);
@@ -80,8 +99,8 @@ var sumPirce = () => {
     const changePrice_area = document.getElementsByClassName("P")[i];
     const count = parseInt(document.getElementsByClassName("amount")[i].value);
     const price = parseInt(document.getElementsByClassName("price")[checkIndex[i]].innerText);
-    sum += count * (price*1000) ;
-    changePrice_area.innerText= `${count * price*1000}원`;
+    sum += count * (price) ;
+    changePrice_area.innerText= `${count * price}원`;
   }
   sum += deliver_price;
   
