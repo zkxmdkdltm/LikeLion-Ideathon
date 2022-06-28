@@ -12,70 +12,124 @@
 <body>
     <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link active" href="./index.html">WEITER</a>
+          <a class="nav-link active" href="{% url 'intro' %}">WEITER</a>
         </li>
-        <li class="intro">
-          <a class="" href="./res_list.html">&lt Store Select</a>
+        <li class="store_detail_intro">
+          <a class="" href="{% url 'board' %}">&lt Board Select</a>
         </li>
         <li class="myInfo">
             <a class="" href="./myInfo.html">내정보</a>
         </li>
     </ul>
+    <main style="padding-top: 170px"></main>
+    <div class="box1">
+      <div class="menuPage">
+        <div>추가 주문 중!</div>
+        <div class="storeData">
+          <p>{{store.name}}</p>
+          <p>★★★★☆ {{store.rate}}</p>
 
-   <main style="padding-top: 170px">
-        <div class="menuPage">
-            <div class="storeData">
-                <p class="storeName">사천성 정릉점</p>
-                <p class="star">★★★★☆ 4.3</p>
-                <br/>
-                <P class="">tel : 02-123-4567 / 찜 / 공유 </P>
-                <br/>
-                <p>배달주문</p>
-                <p class="atLest">최소 주문 금액 : 10000원</p>
-                <p class="payWay">결제 방법 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 바로결제, 만나서 결제</p>
-                <p class="deliverTime">배달 시간 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 20 ~ 25분 소요 예상</p>
-                <p class="deliverTip">배달팁 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 0 ~ 3500원</p>
-            </div>
-            <div class="menuAccordion">
-                <div class="accordion" id="accordionPanelsStayOpenExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                            group1
-                        </button>
-                      </h2>
-                      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                        <div class="accordion-body">
-                          <div class="food">
-                            <p class="foodName">메뉴이름</p>
-                            <p class="sideInfo">메뉴 설명</p>
-                            <p class="price">메뉴 가격</p>
-                          </div>
-                          <div class="food" onclick=""> 
-                            <p class="foodName"> 볶음밥</p>
-                            <p class="sideInfo">고슬고슬 볶음밥 고슬고슬 볶음밥 고슬고슬 볶음밥</p>
-                            <p class="price">6,000원</p>
-                          </div>
-                        </div>
+          <div class="tel">
+            <ul>
+              <li>tel : </li>
+              <li>{{store.tel}}</li>
+            </ul>
+            <ul>
+              <li>찜</li>
+              <li class="heart" onclick="activeHeart()">🤍</li>
+            </ul>
+            <ul>
+              <li> 공유</li>
+            </ul>
+          </div>
+
+          <div class="deliveryInfo">
+            <ul>
+              <li>최소 주문 금액 : </li>
+              <li id="min_price">{{store.min}}원</li>
+            </ul>
+            <ul>
+              <li>배달 시간 : </li>
+              <li>{{store.delivery_time}}분 소요 예상</li>
+            </ul>
+            <ul>
+              <li>배달팁 : </li>
+              <li>{{store.delivery_price}}원</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="menuAccordion">
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                        group1
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                    <form class="accordion-body">
+                        <!-- <div class="food"> 구성예시
+                          <input name="choose" type="checkbox">
+                          <p class="foodName">메뉴이름</p>
+                          <p class="sideInfo">메뉴 설명</p>
+                          <p class="price">메뉴 가격</p>
+                        </div> -->
+                      {% for food in menu %}
+                      <div class="food" > 
+                        <input name="choose" type="checkbox">
+                        <p class="foodName"> {{food}}</p>
+                        <p class="sideInfo">{{food.info}}</p>
+                        <p class="price">{{food.price}}</p>  
                       </div>
-                    </div>
+                      {% endfor %}
+                    </form>
+                  </div>
                 </div>
             </div>
         </div>
-        <div class="follow_wrap">
-            <div class="follow">
-                <div class="orderOption">
-                    <div class="top">내 주문 옵션</div>
-                    <div class="follow_content">
-                      
+        <button class="menuSave" onclick="addCheck(), showMyMenu()">메뉴 저장</button>
+    </div>
+    </div>
+
+
+        <div class="box2">
+          <div class="follow">
+            
+            <div class="orderOption">
+              <div class="top">내 주문 옵션</div>
+              <div class="follow_content order_content">
+                
+                  <!-- <div class="orderList"> 구성예시
+                    <div class="FN">음식 종류</div>
+                    <div class="count">
+                      <input type="number" name="amount" value="1" min="1">
                     </div>
-                </div>
-                <div class="order">
-                  <a href="{% url 'joinEnd' %}">주문하기</a>
-                </div>
+                    <div class="P">가격</div>
+                  </div>
+                   -->
+                  <div class="priceSum"> </div>
+              </div>
+              <div class="deliverTip">
+                <div style="margin-right:135px">배달비</div>
+                <div class = "deliver_price">{{store.delivery_price}}</div>
+                <div>원</div>
+              </div>
+              <div class="sumPrice">
+                <div> 총 금액 : </div>
+                <div class="sumP"></div>
+              </div>
             </div>
+            
+
+            <div class="order">
+              <a href="{% url 'orderEnd' %}">주문하기</a>
+            </div>
+          </div>        
         </div>
+        
    </main>
+   <script src="{% static 'js/store_detail.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -195,13 +195,14 @@ main{
     font-family: 'Noto Sans KR', sans-serif; 
 }
 
-#main > ul {
+#main > .box_wrap {
     text-align: center;
+    padding: 0px 150px
 }
 
 #main > ul > .box {
     display: inline-block;
-    margin-right: 50px;
+    margin: 25px;
     margin-bottom: 20px;
     background-color: #EBEAEA;
     width: 230px;
@@ -246,14 +247,14 @@ main{
 
 .data > ul {
     
-    float: left;
+    text-align: left;
     padding: 0;
 }
 
 
 
 .data > ul > li {
-    float: left;
+    /* float: left; */
     margin-right: 5px;
 }
 
@@ -266,6 +267,7 @@ main{
 .pagination{
     color:black;
 }
+
 
 
 /*-------------------------store select-------------------------*/
