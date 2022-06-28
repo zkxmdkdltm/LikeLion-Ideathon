@@ -48,8 +48,8 @@ class Order(models.Model):
     }
 
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
-    menus = models.JSONField(default='{}')
-    users = models.JSONField(default='{}')
+    menus = models.JSONField(default=dict)
+    users = models.JSONField(default=dict)
     total = models.IntegerField(default=0)
     host_option = models.CharField(max_length=10, choices=Option_CHOICES)
     option_num = models.IntegerField(blank=True)
