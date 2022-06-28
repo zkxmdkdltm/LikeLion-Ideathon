@@ -5,3 +5,6 @@ def index(request):
     if request.user.is_authenticated:
         return render(request, 'host.html')
     return render(request, 'index.html')
+
+
+#.12341234

@@ -26,16 +26,16 @@
     </ul>
     <div class="info-box">
         <ul class="info">
-            <li>아이디: {{user.trinity_id}}</li>
-            <li>비밀번호: {{user.password}}</li>
-            <li>이름: {{user.username}}</li>
-            <form method="POST" action="{% url 'accounts:myinfo' %}">
+            <li>아이디: {{user.username}}</li>
+            {% comment %} <li>비밀번호: {{user.password}}</li> {% endcomment %}
+            <li>이름: {{user.name}}</li>
+            <form method="POST" action="{% url 'accounts:info_change' %}">
             {% csrf_token %}
             <li>
                 <div class="int-area">
                     <p>닉네임: 
                         <input class="with-button" style="width:300px;"type="text" name="nickname" id="nickname" autocomplete="off" required>
-                        <button id="dup-button" type="submit" class="custom-btn btn-9">중복확인</button>
+                        {% comment %} <button id="dup-button" type="submit" class="custom-btn btn-9">중복확인</button> {% endcomment %}
                     </p>
                 </div>
             </li>
@@ -43,7 +43,7 @@
                 <div class="int-area">
                     <p>주소: 
                         <input class="with-button" style="width:400px;"type="text" name="address" id="address" autocomplete="off" required>
-                        <button id="dup-button" type="submit" class="custom-btn btn-9">주소찾기</button>
+                        {% comment %} <button id="dup-button" type="submit" class="custom-btn btn-9">주소찾기</button> {% endcomment %}
                     </p>
                 </div>
             </li>

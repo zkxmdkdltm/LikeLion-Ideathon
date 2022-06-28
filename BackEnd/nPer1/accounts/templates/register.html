@@ -27,7 +27,7 @@
             {% csrf_token %}
             <div class="int-area" style="width:110%;">
                 <p>아이디</p>
-                <input class="with-button" type="text" value="qwer1234" name="id" id="id" autocomplete="off" required  oninput="this.value = this.value.replace(/[^a-zA-Z0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                <input class="with-button" type="text" value="qwer1234" name="username" id="username" autocomplete="off" required  oninput="this.value = this.value.replace(/[^a-zA-Z0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                 {% comment %} <button type="submit" class="custom-btn btn-9">중복확인</button> {% endcomment %}
             </div>
             <div class="int-area" style="width:110%;">
@@ -46,7 +46,7 @@
             </div>
             <div class="int-area">
                 <p>이름</p>
-                <input type="text" value="나다" style="ime-mode:active;" name="username" id="username" autocomplete="off" required oninput="this.value = this.value.replace(/[^ㄱ-힣.]/g, '').replace(/(\..*)\./g, '$1');">
+                <input type="text" value="나다" style="ime-mode:active;" name="name" id="name" autocomplete="off" required oninput="this.value = this.value.replace(/[^ㄱ-힣.]/g, '').replace(/(\..*)\./g, '$1');">
             </div>
             <div class="int-area" style="width:107%;">
                 <p>Email</p>

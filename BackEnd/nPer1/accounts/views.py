@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.http import HttpResponseRedirect
+from matplotlib.style import context
 
 from .models import User
 from .forms import CustomUserChangeForm
@@ -21,7 +22,7 @@ from .tokens import account_activation_token
 def register(request):
     if request.method == 'POST':
         context = {}
-        if User.objects.filter(trinity_id=request.POST['id']).exists():
+        if User.objects.filter(username=request.POST['username']).exists():
             context['message'] = "아이디가 중복됩니다."
             return render(request, 'register.html', context)
         if User.objects.filter(nickname=request.POST['nickname']).exists():
@@ -31,12 +32,12 @@ def register(request):
             context['message'] = "알맞지 않은 비밀번호 형식입니다."
             return render(request, 'register.html', context)
         if request.POST['password'] == request.POST['confirm']:
-            user = User(
-                trinity_id=request.POST.get('id'),
+            user = User.objects.create_user(
+                username=request.POST.get('username'),
                 nickname=request.POST['nickname'],
                 password=request.POST['password'],
                 confirm=request.POST['confirm'],
-                username=request.POST['username'],
+                name=request.POST['name'],
                 email=request.POST['email'],
                 is_active = True,
             )
@@ -75,17 +76,17 @@ def login(request):
         return render(request, 'login.html')
     
     elif request.method == "POST":
-        id = request.POST.get('id')
-        password = request.POST.get('password')
-        user = authenticate(request, trinity_id=id, password=password)
-        
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
         if user is not None:
             auth.login(request, user)
             return render(request, 'host.html')
         else:    
             context = {}
             context['message'] = "아이디와 비밀번호를 확인하세요"
-            return render(request, 'login.html', context)
+            return redirect('/')
+        
         
 def logout(request):
     if request.method == "POST":
@@ -100,11 +101,13 @@ def myinfo(request):
 @login_required
 def myinfochange(request):
     if request.method == "POST":
+        if User.objects.filter(nickname=request.POST['nickname']).exists():
+            return render(request, 'myInfo.html', context={'context' : True})
         user = request.user
-        user.nickname = request.POST.get('nickname')
-        user.address = request.POST.get('address')
+        user.nickname = request.POST['nickname']
+        user.address = request.POST['address']
         user.save()
-        return redirect('accounts:myinfo', user.username)
+        return redirect('accounts:myinfo')
     return render(request, 'myInfo-change.html')
 
 def validate_password(password):

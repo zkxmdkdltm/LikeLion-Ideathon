@@ -1,4 +1,5 @@
 from statistics import mode
+from unicodedata import name
 from django.db import models
 
 from django.contrib.auth.models import AbstractUser
@@ -9,7 +10,7 @@ class User(AbstractUser):
         ('F', '여성'),
         ('C', '선택안함'),
     ]
-    trinity_id = models.CharField(max_length=128)
+    name = models.CharField(max_length=128)
     nickname = models.CharField(max_length=10)
     address = models.CharField(max_length=128)
     confirm = models.CharField(max_length=128)    

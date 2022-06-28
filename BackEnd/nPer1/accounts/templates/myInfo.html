@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="{% static 'css/button.css'%}">
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        {% if context %}
+        alert("닉네임이 중복되었습니다.")
+        {% endif %}
+    </script>
     <title>Document</title>
 </head>
 <body>
@@ -25,9 +30,9 @@
     </ul>
     <div class="info-box">
         <ul class="info">
-            <li>아이디: {{user.trinity_id}}</li>
-            <li>비밀번호: {{user.password}} </li>
-            <li>이름: {{user.username}}</li>
+            <li>아이디: {{user.username}}</li>
+            {% comment %} <li>비밀번호: {{user.password}} </li> {% endcomment %}
+            <li>이름: {{user.name}}</li>
             <li>닉네임: {{user.nickname}}</li>
             <li>주소: {{user.address}}</li>
         </ul>
