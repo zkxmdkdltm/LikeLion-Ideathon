@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/button.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'index' %}">WEITER</a>
+        </li>
+        <li class="intro">
+            <a onclick="history.back()" style="cursor:pointer;">&lt BACK</a>
+        </li>
+        <li class="myInfo">
+            <a href="{% url 'accounts:myinfo' %}">내정보</a>
+        </li>
+    </ul>
+    <div class="info-box">
+        <ul class="info">
+            <li>아이디: {{user.trinity_id}}</li>
+            <li>비밀번호: {{user.password}} </li>
+            <li>이름: {{user.username}}</li>
+            <li>닉네임: {{user.nickname}}</li>
+            <li>주소: {{user.address}}</li>
+        </ul>
+        <button id="change-info" type="button" class="custom-btn btn-9" onclick="location.href='{% url 'accounts:info_change' %}'">정보수정</button>
+    </div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

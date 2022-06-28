@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="./login.css">
-    <link rel="stylesheet" href="./button.css">
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+    <link rel="stylesheet" href="{% static 'css/button.css'%}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="register.js"></script>
+    <script src="{% static 'javascript/register.js'%}"></script>
     <title>Login</title>
 </head>
 <body>
     <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link active" href="index.html">WEITER</a>
+          <a class="nav-link active" href="{% url 'index' %}">WEITER</a>
         </li>
         <li class="intro">
-            <div><a class="" href="./index.html">&lt INTRO</a></div>
+            <div><a class="" href="./index.html">lt INTRO</a></div>
         </li>
     </ul>
     <section class="login-form">
@@ -32,13 +33,12 @@
                 <label for="pw">PASSWORD</label>
             </div>
             <div class="btn-area">
-                <button type="button" class="custom-btn btn-9" onclick="location.href='host.html'">로그인</button>
+                <button type="submit" class="custom-btn btn-9" >로그인</button>
             </div>
             <div class="btn-area">
-                <button type="button" class="custom-btn btn-9" onclick="location.href='register.html'">회원가입</button>
+                <button type="button" class="custom-btn btn-9" onclick="location.href='{% url 'accounts:register'%}'" >회원가입</button>
             </div>
         </form>
-        
     </section>
     
 </body>

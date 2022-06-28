@@ -1,0 +1,609 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+bold{
+    font-weight: bold;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.nav{
+    width: 100%;
+    position: fixed;
+    display: block;
+}
+.nav a{
+    color:black;
+    font-size: 45px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.nav-item{
+    margin:15px;
+}
+.nav-item a:hover{
+    color:black;
+}
+.intro{
+    float: left;
+    margin-left: 220px;
+}
+.intro a{
+    font-size: 30px;
+}
+.myInfo{
+    float: right;
+    margin-top: -80px;
+    margin-right: 200px;
+}
+.myInfo a{
+    font-size: 25px;
+}
+
+.text-box{
+    position: absolute;
+    top:40%;
+    left:20%;
+    font-size: 1.5rem;
+}
+.blink{
+    animation:blink 0.5s infinite;
+    font-size: 1.7rem;
+}
+@keyframes blink{
+    to{
+        opacity: 0;
+    }
+}
+
+.text-box h1{
+    display: inline;
+    font-size: 60px;
+}
+
+.word {
+    position: absolute;
+    width: 220px;
+    opacity: 0;
+}
+  
+.letter {
+    display: inline-block;
+    position: relative;
+    float: left;
+    transform: translateZ(25px);
+    transform-origin: 50% 50% 25px;
+  }
+  
+.letter.out {
+    transform: rotateX(90deg);
+    transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  
+.letter.behind {
+    transform: rotateX(-90deg);
+  }
+  
+.letter.in {
+    transform: rotateX(0deg);
+    transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+.text-box .fadein{
+    display: none;
+}
+
+/*-----------------------------myInfo.html----------------------*/
+.info-box{
+    position: absolute;
+    top:30%;
+    left:20%;
+}
+
+.info{
+   font-size: 30px;
+}
+.info li{
+    margin-top: 40px;
+}
+
+#change-info{
+    font-size: 20px;
+    width: 120px;
+    height: 50px;
+    margin-left: 30px;
+    margin-top: 40px;
+}
+
+#dup-button{
+    font-size: 20px;
+    width: 120px;
+    height: 50px;
+}
+
+.info-box .info p{
+    width: 800px;
+    font-size: 30px;
+}
+
+
+
+
+
+/*------------------------------menu.html-----------------------*/
+main{
+    padding-top: 100px;
+}
+
+.menu-box{
+    width: 50%;
+    margin: auto;
+    margin-top: 56px;
+    background-color: white;
+}
+
+.menu-line{
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+}
+.menu-wrap{
+    width: 17%;
+    height: 100%;
+    margin: auto;
+    
+}
+
+.menu-wrap p{
+    margin-top: 15px;
+    text-align: center;
+    font-family: "KOTRAHOPE";
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.menu {
+    background-color: white;
+    width: 100%;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    margin-top : 10%;
+    border: 1px solid black;
+    transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
+    overflow: hidden;
+    cursor: pointer;
+    background-size: 100%;
+}
+
+.menu:hover {
+    transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+}
+
+
+/*-------------------------res_list-------------------------*/
+#main {
+    margin-top: 90px;  
+    font-family: 'Noto Sans KR', sans-serif; 
+}
+
+#main > ul {
+    text-align: center;
+}
+
+#main > ul > .box {
+    display: inline-block;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    background-color: #EBEAEA;
+    width: 230px;
+    height: 220px;
+}
+
+#main > ul > .box > button{
+    color: black;
+}
+#main > ul > li > .img {
+    background-color: rgb(255, 255, 255);
+    width: 210px;
+    height: 110px;
+    text-align: center;
+    line-height: 100px;
+}
+.box {
+    padding: 10px;
+}
+
+.box button a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.box ul:first-child li:first-child{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.box ul:first-child li:nth-child(2){
+    font-size: 10px;
+    padding-top: 3px;
+}
+
+.data{
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.data > ul {
+    text-align: center;
+    float: left;
+}
+
+.data > ul > li {
+    float: left;
+    margin-right: 5px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+.pagination{
+    color:black;
+}
+
+
+/*-------------------------store select-------------------------*/
+
+
+.store_detail_intro{
+    margin-left: 5%;
+}
+.store_detail_intro div{
+    width: 200px;
+}
+.store_detail_intro a{
+    font-size: 30px;
+}
+
+.box1 {
+    float: left;
+    width: 70%; 
+}
+
+.box2 {
+    float: right;
+    width: 30%;
+    height: 100vh;
+}
+.menuPage {
+    margin: auto;
+    margin-left: 350px;
+    background-color: white;
+    width: 700px;
+    margin-bottom: 50px;
+}
+
+.storeData {
+    margin-bottom: 50px;
+}
+
+.storeData ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.storeData li {
+    margin-left: 10px;
+}
+.storeData ul li:first-child {
+    margin: 0;
+}
+
+.storeData p {
+    margin:0;
+}
+.storeData p:first-child {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.storeData p:nth-child(2),
+.tel,
+.deliveryInfo {
+    margin-bottom: 20px;
+}
+
+.heart {
+    cursor: pointer;
+}
+
+.menuSave {
+    width: 80px;
+    height: 40px;
+    font-size: 15px;
+    background-color: white;
+    border-radius: 50px;
+    border: 2px solid black;
+    transition: all 0.3s;
+    margin: 30px 0px;
+    margin-left: 620px;
+}
+
+.menuSave:hover {
+    transform: scale( 1.05 );
+    background-color: #EBEAEA;
+}
+
+/* 가게 정보 end */
+
+
+.foodName {
+    font-size: 16.5px;
+}
+
+.sideInfo {
+    font-size: 13px;
+    color: #555555;
+}
+.accordion {
+    border-radius: 0rem;
+}
+
+.accordion-button {
+    background-color: #EBEAEA;
+    color: black;
+}
+
+.accordion-button.collapsed {
+    color: black;
+
+}
+
+.accordion-body {
+    padding: 0;
+}
+
+.food {
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #c1c1c1;
+    cursor: pointer;
+    
+}
+.food p {
+    margin: 0;
+}
+
+.accordion-button:not(.collapsed) {
+    color: black;
+    background-color: #EBEAEA;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+/* 아코디언 메뉴 end */
+
+.follow {
+    position: sticky;
+    margin: auto;
+    font-family: 'Noto Sans KR', sans-serif;
+    position: sticky;
+    width: 300px;
+    height: 700px;
+    top: 20px;
+    padding-top: 80px;
+    background-color: white;
+}
+
+.top,
+.order {
+    font-size: 13.5px;
+    height: 50px;
+    background-color: #555555;
+    position: sticky;
+    color: white;
+    padding: 15px;
+    font-weight: 100;
+}
+
+.follow_content {
+    padding: 15px;
+}
+
+.person,
+.min {
+    width: 50px;
+    height: 20px;
+    font-size: 15.3px;
+}
+
+.order {
+    text-align: center;
+}
+
+.order a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    padding-bottom: 2px;
+}
+
+.order a:before {
+    content: '';
+    position: absolute; /*부모 요소에는 position: relative를 주어야 한다.*/
+    background-color: white;
+    height: 1px; /*밑줄 굵기*/
+
+    width: 0; /*초기에 보이지 않도록*/
+    bottom: 0; /*a태그 아래에 위치시키기*/
+    transition: 0.7s; /*애니메이션 동작 실행 시간 정의*/
+
+    /*가상 요소를 가운데로 이동시키기*/
+    left: 50%;
+    transform: translateX(-50%) ;
+}
+
+.order a:hover:before {
+    width: 100%;
+}
+
+.deliverTip,
+.sumPrice {
+    padding: 15px;
+}
+.deliverTip > div,
+.sumPrice > div {
+    display: inline-block;
+}
+
+.sumPrice {
+    margin-left: 95px;
+}
+
+.sumP {
+    margin-left: 25px ;
+}
+
+.orderList{
+    display: flex;
+    align-items: center;
+}
+
+.orderList > div {
+    flex: 1;
+}
+
+.P {
+    margin-left: 2px;
+}
+
+.count > input {
+    width: 60px;
+}
+/*-------------------------order end-------------------------*/
+
+.orderEnd_wrap {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.orderEnd_wrap p {
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+.orderEnd_wrap button {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-top: 50px;
+    width: 120px;
+    height: 50px;
+    font-weight: bold;
+}
+
+.orderEnd_wrap .first {
+    margin-right: 20px;
+}
+
+/*-------------------------order bulletin-------------------------*/
+
+.board_wrap {
+    background-color: rgba( 235, 234, 234, 0.5);
+    padding: 0px 20px;
+    width: 1100px;
+    height: 500px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.board_wrap ul {
+    display: flex;
+    margin: 0;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+.board_wrap ul li {
+    flex: 1;
+}
+
+.board_wrap ul li:nth-child(2) {
+    flex: 3;
+}
+
+.board_wrap ul li:nth-child(3) {
+    flex: 1;
+}
+
+.board_wrap button {
+    margin: 0;
+    border: 1px solid black;
+    background-color: #c1c1c1;
+    width: 100px;
+    height: 40px;
+    font-family: 'Noto Sans KR', sans-serif;
+    position: absolute;
+    right: 50px;
+    bottom:20px;
+
+}
+
+.board_wrap .container {
+    position: absolute;
+    bottom: 10px;
+}
+
+.board_wrap .container ul {
+    margin:0;
+    padding:0;
+    border: 0;
+}
+
+.board_wrap .uploaded {
+    padding: 15px 20px;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.uploaded ul {
+    border: 0;
+    padding: 0;
+    font-size: 13px;
+    font-weight: 300;
+
+}
+
+/*-------------------------paginatino-------------------------*/
+
+.pagination {
+    --bs-pagination-color: black;
+    --bs-pagination-border:0;
+    --bs-pagination-bg:0;
+    --bs-pagination-font-size: 13px;
+    --bs-pagination-border-width:0;
+    --bs-pagination-active-bg:#555555;
+    --bs-pagination-disabled-bg:none;
+    --bs-pagination-disabled-color: none;
+    --bs-pagination-hover-color: #c1c1c1;
+    --bs-pagination-focus-box-shadow:none;
+
+}

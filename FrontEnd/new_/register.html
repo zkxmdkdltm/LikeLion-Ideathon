@@ -22,24 +22,25 @@
         </li>
     </ul>
     <section class="register-form">
-        <form action="">
+        <form method="POST" action="{% url 'accounts:register' %}">
+            {% csrf_token %}
             <div class="int-area" style="width:110%;">
                 <p>아이디</p>
-                <input class="with-button" type="text" value="likelion1234" name="username" id="username" autocomplete="off" required  oninput="this.value = this.value.replace(/[^a-zA-Z0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                <input class="with-button" type="text" value="likelion1234" name="id" id="id" autocomplete="off" required  oninput="this.value = this.value.replace(/[^a-zA-Z0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                 <button type="submit" class="custom-btn btn-9">중복확인</button>
             </div>
             <div class="int-area" style="width:110%;">
                 <p>닉네임</p>
-                <input class="with-button"type="text" value="멋쟁이사자처럼" name="username" id="username" autocomplete="off" required>
+                <input class="with-button"type="text" value="멋쟁이사자처럼" name="nickname" id="nickname" autocomplete="off" required>
                 <button type="submit" class="custom-btn btn-9">중복확인</button>
             </div>
             <div class="int-area">
                 <p>비밀번호 (6~16자, 특수문자 포함)</p>
-                <input type="password" value=".12341234" name="pw" id="pw" autocomplete="off" onchange="check_pw()" required>
+                <input type="password" value=".12341234" name="password" id="password" autocomplete="off" onchange="check_pw()" required>
             </div>
             <div class="int-area">
                 <p>비밀번호 확인</p>
-                <input type="password" value=".12341234" name="pw" id="pw2" autocomplete="off" onchange="check_pw()" required>
+                <input type="password" value=".12341234" name="confirm" id="confirm" autocomplete="off" onchange="check_pw()" required>
                 <span id="check"></span>
             </div>
             <div class="int-area">
