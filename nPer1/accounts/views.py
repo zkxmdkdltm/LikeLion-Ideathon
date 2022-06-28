@@ -3,7 +3,6 @@ from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.http import HttpResponseRedirect
-from matplotlib.style import context
 
 from .models import User
 from .forms import CustomUserChangeForm
