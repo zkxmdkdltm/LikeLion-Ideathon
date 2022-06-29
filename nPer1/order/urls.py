@@ -11,4 +11,5 @@ urlpatterns = [
     path('menu/<str:food>', views.stores, name="stores"),
     path('stores/<int:id>/', views.order, name="order"),
     path('stores/orderEnd', views.orderEnd, name="orderEnd"),
+    path('orderFail/<int:id>', views.orderFail, name="orderFail"),
 ]

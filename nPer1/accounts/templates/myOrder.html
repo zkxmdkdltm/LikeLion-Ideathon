@@ -47,19 +47,23 @@
     <div class="allOrder">
         <div class="myMenu">
             <div>내 주문 메뉴</div>
+            {% for menu in my_menu %}
             <ul>
-              <li>메뉴이름</li>
-              <li>{수량}개</li>
-              <li>{메뉴가격}원</li>
+              <li>{{menu.name}}</li>
+              <li>{{menu.amount}}개</li>
+              <li>{{menu.price}}원</li>
           </ul>
+          {% endfor %}
         </div>
         <div class="teamMenu">
             <div>다른 사람 주문 메뉴</div>
+            {% for menu in other_menu %}
             <ul>
-              <li>메뉴이름</li>
-              <li>{수량}개</li>
-              <li>{메뉴가격}원</li>
+              <li>{{menu.name}}</li>
+              <li>{{menu.amount}}개</li>
+              <li>{{menu.price}}원</li>
           </ul>
+          {% endfor %}
         </div>
     </div>
 </div>
@@ -74,18 +78,18 @@
 
             <div class="top">주문 옵션</div>
             <div class="top_content">
-                <span>주문 종료 방법</span><br/>
-                <span>계산 방법</span>
+                <span>주문 종료 방법 : {{host_option}}</span><br/>
+                <span>계산 방법 : {{pay_option}}</span>
             </div>
 
         <div class="orderOption">
             <div class="top">금액</div>
             <div class="follow_content order_content">
                 <span>메뉴이름 : 가격</span><br><br>
-                <span>배달비 : {{order.store.delivery_price}}</span><br>
+                <span>배달비 : {{store.delivery_price}}</span><br>
                 
                 <hr>
-                <span>총 금액 : </span><br>
+                <span>총 금액 : {{total}} </span><br>
             </div> 
 
         
