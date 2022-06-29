@@ -84,14 +84,14 @@
         <div class="orderOption">
             <div class="top">금액</div>
             <div class="follow_content order_content">
-              <span>메뉴 : 가격</span><br>
+              <span style="margin-left:30px;">메뉴</span> <span style="float:right; margin-right:50px;">가격</span><br/><br/>
                 {% for menu in menus %}
-                <span> {{menu.name}} : {{menu.price}} </span><br><br>
+                <span style="margin-left:30px;">{{menu.name}}</span> <span style="float:right; margin-right:30px;">{{menu.price}}원</span><br><br>
                 {% endfor %}
-                <span>배달비 : {{store.delivery_price}}</span><br>
+                <span style="margin-left:30px;">배달비</span> <span style="float:right; margin-right:30px;">{{store.delivery_price}}원</span><br/>
                 
                 <hr>
-                <span id="total">총 금액 : {{total}} </span><br>
+                <span style="margin-left:30px;">총 금액</span> <span style="float:right; margin-right:30px;">{{total}}원</span><br/>
             </div> 
 
         
