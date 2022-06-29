@@ -21,9 +21,9 @@ class Store(models.Model):
     }
     foodCategory = models.CharField(
         max_length=20, choices=MENU_CHOICES)
-    name = models.CharField(max_length=10)
+    name = models.CharField(max_length=30)
     rate = models.FloatField()
-    tel = models.CharField(max_length=15)
+    tel = models.CharField(max_length=30)
     min = models.IntegerField()
     delivery_time = models.IntegerField()
     delivery_price = models.IntegerField()
@@ -35,9 +35,9 @@ class Store(models.Model):
 
 class Menu(models.Model):
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
-    menu = models.CharField(max_length=10)
+    menu = models.CharField(max_length=50)
     price = models.IntegerField()
-    info = models.CharField(max_length=30, blank=True)
+    info = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.menu
