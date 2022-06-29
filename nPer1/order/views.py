@@ -73,7 +73,7 @@ def orderEnd(request):
 
         menus = {}
         menus[request.user.id] = user_menus
-
+        
         order = Order(
             store = get_object_or_404(Store, pk=request.POST['store']),
             host_option = request.POST['host_option'],

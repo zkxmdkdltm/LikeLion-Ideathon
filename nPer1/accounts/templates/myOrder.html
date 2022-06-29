@@ -71,8 +71,8 @@
 
 
     <div class="box2">
-      <form method="POST" action="{% url 'order:orderEnd' %}">
-      {% csrf_token %}
+      {% comment %} <form method="POST" action="{% url 'order:orderEnd' %}">
+      {% csrf_token %} {% endcomment %}
       <div class="follow">
         <div class="hostOption">
 
@@ -85,7 +85,10 @@
         <div class="orderOption">
             <div class="top">금액</div>
             <div class="follow_content order_content">
-                <span>메뉴이름 : 가격</span><br><br>
+              <span>메뉴 : 가격</span><br>
+                {% for menu in menus %}
+                <span> {{menu.name}} : {{menu.price}} </span><br><br>
+                {% endfor %}
                 <span>배달비 : {{store.delivery_price}}</span><br>
                 
                 <hr>
@@ -96,8 +99,8 @@
         {% comment %} hidden values {% endcomment %}
         <input type="hidden" name="store" value={{store.id}}  />
         <div class="allOrderButton">
-            <button class="delOrder">주문 취소</button>
-            <button class="comOrder">주문 완료</button>
+            <button class="delOrder" onclick="location.href='{% url 'accounts:orderCancel' order.id %}'">주문 취소</button>
+            <button class="comOrder" onclick="location.href='{% url 'accounts:payEnd' order.id %}'">주문 완료</button>
         </div>
         
       </div>   

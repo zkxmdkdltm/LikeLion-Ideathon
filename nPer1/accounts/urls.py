@@ -12,6 +12,8 @@ urlpatterns = [
     path('activate/<str:uidb64>/<str:token>', views.activate, name='activate'),
     path('myinfo/', views.myinfo, name='myinfo'),
     path('info_change/', views.myinfochange, name='info_change'),
-    path('myorders/', views.myorders, name='myorders'),
-    path('myOrder/<int:id>', views.myOrder, name='myOrder')
+    path('myorders/<int:id>', views.myorders, name='myorders'),
+    path('myOrder/<int:id>', views.myOrder, name='myOrder'),
+    path('orderCancel/<int:id>', views.orderCancel, name='orderCancel'),
+    path('payEnd/<int:id>', views.payEnd, name='payEnd'),
 ]
