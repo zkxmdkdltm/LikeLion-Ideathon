@@ -1,7 +1,7 @@
 from accounts.models import User
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Menu, Order, Store
+from .models import Menu, Order, Store, Log
 from django.http import HttpResponseRedirect
 import requests
 
@@ -70,6 +70,8 @@ def joinEnd(request):
         return redirect(next_url) 
         
 def pay_join(request):
+    order_id = request.session['order_id']
+    tid = request.session['tid']
     URL = 'https://kapi.kakao.com/v1/payment/approve'
     headers = {
             "Authorization": "KakaoAK " + "8113b3e4cef95643b26b5a0b702df4f2",   # 변경불가
@@ -78,14 +80,20 @@ def pay_join(request):
     
     params = {
         "cid": "TC0ONETIME",    # 테스트용 코드
-        "tid": request.session['tid'],  # 결제 요청시 세션에 저장한 tid
-        "partner_order_id": request.session['order_id'],     # 주문번호
+        "tid": tid,  # 결제 요청시 세션에 저장한 tid
+        "partner_order_id": order_id,     # 주문번호
         "partner_user_id": request.user.id,    # 유저 아이디
         "pg_token": request.GET.get("pg_token"),     # 쿼리 스트링으로 받은 pg토큰
     }
 
     res = requests.post(URL, headers=headers, params=params)
+    log = Log(
+        order = get_object_or_404(Order, pk=order_id),
+        user = request.user,
+        tid = tid
+    )
 
+    log.save()
     return render(request, 'joinEnd.html')
 
 
@@ -180,6 +188,8 @@ def orderEnd(request):
 
 
 def pay_approve(request):
+    order_id = request.session['order_id']
+    tid = request.session['tid']
     URL = 'https://kapi.kakao.com/v1/payment/approve'
     headers = {
             "Authorization": "KakaoAK " + "8113b3e4cef95643b26b5a0b702df4f2",   # 변경불가
@@ -188,19 +198,27 @@ def pay_approve(request):
     
     params = {
         "cid": "TC0ONETIME",    # 테스트용 코드
-        "tid": request.session['tid'],  # 결제 요청시 세션에 저장한 tid
-        "partner_order_id": request.session['order_id'],     # 주문번호
+        "tid": tid,  # 결제 요청시 세션에 저장한 tid
+        "partner_order_id": order_id,     # 주문번호
         "partner_user_id": request.user.id,    # 유저 아이디
         "pg_token": request.GET.get("pg_token"),     # 쿼리 스트링으로 받은 pg토큰
     }
 
     res = requests.post(URL, headers=headers, params=params)
 
-    order = get_object_or_404(Order, pk=request.session['order_id'])
+    order = get_object_or_404(Order, pk=order_id)
     order.state = "주문중"
     order.save()
 
-    return render(request, 'orderEnd.html', {'order_id': request.session['order_id']})
+    log = Log(
+        order = get_object_or_404(Order, pk=order_id),
+        user = request.user,
+        tid = tid
+    )
+
+    log.save()
+
+    return render(request, 'orderEnd.html', {'order_id': order_id})
 
 
 def orderFail(request, id):
