@@ -670,7 +670,12 @@ main{
 }
 
 /*-------------------------pagination-------------------------*/
-
+.board_wrap{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
 .pagination {
     --bs-pagination-color: black;
     --bs-pagination-border:0;
