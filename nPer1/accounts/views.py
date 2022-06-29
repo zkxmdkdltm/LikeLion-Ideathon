@@ -1,10 +1,8 @@
 from email import message
-from xxlimited import foo
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.http import HttpResponseRedirect
-from matplotlib import use
 
 from .models import User
 from order.models import Order, Store, Menu
