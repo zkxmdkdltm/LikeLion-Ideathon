@@ -37,6 +37,8 @@ def register(request):
                 password=request.POST['password'],
                 confirm=request.POST['confirm'],
                 name=request.POST['name'],
+                address=request.POST['address'],
+                address_detail=request.POST['address_detail'],
                 email=request.POST['email'],
                 is_active = True,
             )
@@ -218,6 +220,6 @@ def validate_password(password):
             flag = True
             break
     if (flag and (6 <= len(password) <= 16)):
-        return True
-    return False
+        return False
+    return True
 

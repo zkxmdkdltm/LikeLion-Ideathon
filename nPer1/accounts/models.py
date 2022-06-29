@@ -1,3 +1,4 @@
+from pyexpat import model
 from statistics import mode
 from unicodedata import name
 from django.db import models
@@ -13,6 +14,7 @@ class User(AbstractUser):
     name = models.CharField(max_length=128)
     nickname = models.CharField(max_length=10)
     address = models.CharField(max_length=128)
+    address_detail = models.CharField(max_length=128)
     confirm = models.CharField(max_length=128)    
     gender = models.CharField(blank=True, choices=GENDER_CHOICES, max_length=255)
     email = models.TextField(blank=True, max_length=255)
