@@ -84,5 +84,5 @@ def orderEnd(request):
             author = get_object_or_404(User, id=request.user.id),
         )
         order.save()
-        print(request.POST)
-        return render(request, 'orderEnd.html')
+        order_id = order.id
+        return render(request, 'orderEnd.html', {'order_id': order_id})
