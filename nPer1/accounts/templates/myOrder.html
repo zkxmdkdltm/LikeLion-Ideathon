@@ -102,7 +102,7 @@
             {% if order.state == "주문완료"%}
             <button class="comOrder" style="background-color:#EBEAEA; color:black;">주문이 완료되었습니다</button>
             {% endif %}
-            <button class="comOrder" onclick="location.href='{% url 'accounts:payEnd' order.id %}'">주문 완료</button>
+            <button class="comOrder" onclick="location.href='{% url 'accounts:payEnd' user.id %}'">주문 완료</button>
             {% endif %}
         </div>
         

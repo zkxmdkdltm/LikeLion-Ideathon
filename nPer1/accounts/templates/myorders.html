@@ -23,7 +23,7 @@
           <button
             id="dup-button"
             class="custom-btn btn-9"
-            onclick="location.href='{% url 'accounts:myOrder' order.id %}'"
+            onclick="location.href='{% url 'accounts:myOrder' order.id user.id %}'"
           >
             주문상세
           </button>
