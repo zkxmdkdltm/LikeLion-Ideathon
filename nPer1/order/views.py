@@ -8,7 +8,7 @@ import requests
 
 def board(request):
     if request.method == 'GET':
-        orders = Order.objects.all()
+        orders = Order.objects.all().order_by('-create_at')
         paginator = Paginator(orders, 5)
         pagnum = request.GET.get('page')
         orders = paginator.get_page(pagnum)
