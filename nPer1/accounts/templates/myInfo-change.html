@@ -15,13 +15,12 @@
             <li>아이디: {{user.username}}</li>
             {% comment %} <li>비밀번호: {{user.password}}</li> {% endcomment %}
             <li>이름: {{user.name}}</li>
-            <form method="POST" action="{% url 'accounts:info_change' %}">
+            <form method="POST" action="{% url 'accounts:info_change' %}" style="margin-top:0px">
             {% csrf_token %}
             <li>
-                <div class="int-area">
+                <div class="int-area" >
                     <p>닉네임: 
                         <input class="with-button" style="width:300px;"type="text" name="nickname" id="nickname" autocomplete="off" required>
-                        {% comment %} <button id="dup-button" type="submit" class="custom-btn btn-9">중복확인</button> {% endcomment %}
                     </p>
                 </div>
             </li>
