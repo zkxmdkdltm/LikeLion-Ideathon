@@ -13,14 +13,15 @@
 
 <main class="order-list-main" style="z-index: 999">
   <div class="main-box">
-    {% for order in orders %}
+    {% if orders %} {% for order in orders %}
     <div class="order-box">
-      <div class="img">img</div>
+      <img class="img" src={{order.store.image.url}} />
       <ul>
-        <li><h3>[{{order.state}}] {{order.store}}</h3></li>
-        <hr />
-        <li><h5>{{order.create_at}}</h5></li>
-
+        <li><h3>{{order.create_at}} - {{order.state}}</h3></li>
+        <li><h3>{{order.store}}</h3></li>
+        {% if user.id == order.author.id %}
+        <li><h3>host</h3></li>
+        {% endif %}
         <li>
           <button
             id="dup-button"
@@ -32,7 +33,11 @@
         </li>
       </ul>
     </div>
-    {% endfor %}
+    {% endfor %} {% else %}
+    <div class="orderEnd_wrap">
+      <h1>주문 내역이 없습니다.</h1>
+    </div>
+    {% endif %}
   </div>
 </main>
 
