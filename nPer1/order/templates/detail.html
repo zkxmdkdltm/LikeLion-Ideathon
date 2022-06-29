@@ -66,7 +66,8 @@
                         <input name="choose" type="checkbox">
                         <p class="foodName"> {{food}}</p>
                         <p class="sideInfo">{{food.info}}</p>
-                        <p class="price">{{food.price}}</p>  
+                        <p class="price">{{food.price}}</p>
+                        <input type="hidden" class="foodid" value={{food.id}} />  
                       </div>
                       {% endfor %}
                     </form>
@@ -80,8 +81,9 @@
 
 
         <div class="box2">
+          <form method="POST" action="{% url 'order:joinEnd' %}">
+          {% csrf_token %}
           <div class="follow">
-            
             <div class="orderOption">
               <div class="top">내 주문 옵션</div>
               <div class="follow_content order_content">
@@ -98,7 +100,7 @@
               </div>
               <div class="deliverTip">
                 <div style="margin-right:135px">배달비</div>
-                <div class = "deliver_price">{{store.delivery_price}}</div>
+                <div class = "deliver_price">{{order.store.delivery_price}}</div>
                 <div>원</div>
               </div>
               <div class="sumPrice">
@@ -107,11 +109,14 @@
               </div>
             </div>
             
-
-            <div class="order">
-              <a href="{% url 'order:orderEnd' %}">주문하기</a>
-            </div>
-          </div>        
+            {% comment %} hidden values {% endcomment %}
+            <input type="hidden" name="store" value={{store.id}}  />
+            
+            <button class="order" type="submit">
+              주문하기
+            </button>
+          </div>   
+        </form>        
         </div>
         
    </main>
