@@ -1,11 +1,13 @@
 from email import message
+from xxlimited import foo
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.http import HttpResponseRedirect
+from matplotlib import use
 
 from .models import User
-from order.models import Order, Store
+from order.models import Order, Store, Menu
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
@@ -41,17 +43,17 @@ def register(request):
                 is_active = True,
             )
             user.save()
-            current_site = get_current_site(request) 
-            message = render_to_string('activation_email.html', {
-                'user': user,
-                'domain': current_site.domain,
-                'uid': urlsafe_b64encode(force_bytes(user.pk)),
-                'token': account_activation_token.make_token(user),
-            })
-            mail_title = "계정 활성화 확인 이메일"
-            mail_to = request.POST["email"]
-            email = EmailMessage(mail_title, message, to=[mail_to])
-            email.send()
+            # current_site = get_current_site(request) 
+            # message = render_to_string('activation_email.html', {
+            #     'user': user,
+            #     'domain': current_site.domain,
+            #     'uid': urlsafe_b64encode(force_bytes(user.pk)),
+            #     'token': account_activation_token.make_token(user),
+            # })
+            # mail_title = "계정 활성화 확인 이메일"
+            # mail_to = request.POST["email"]
+            # email = EmailMessage(mail_title, message, to=[mail_to])
+            # email.send()
             auth.login(request, user)
             return render(request, 'host.html')
     return render(request, 'register.html')
@@ -105,8 +107,51 @@ total 총 주문 금액
 
 def myOrder(request, id):
     order = get_object_or_404(Order,pk=id)
+    user = User.objects.get(username=order.author)
+    
+    pay_option = "호스트가 한 번에 계산"
+    if (order.pay_option):
+        pay_option = "각자 계산"
+        
+    host_option = "호스트가 종료"
+    if (order.host_option == "time"):
+        host_option = "시간이 만료"
+    elif (order.host_option == ""):
+        host_option = "정원 충족"
+            
     menus = order.menus
-    return render(request, 'myOrder.html', {'store' : order.store})
+    my_menu = []
+    other_menu = []
+    total = order.store.delivery_price
+    
+    for key in list(menus.keys()):
+        temp_list = []
+        temp_dic = {}        
+        for i in range(len(menus[key])):
+            store = menus[key][i]
+            food = get_object_or_404(Menu, pk=int(store["food_id"]))
+            temp_dic["name"] = food.menu
+            temp_dic["amount"] = store["amount"]
+            temp_dic["price"] = int(store["amount"]) * int(food.price)
+            total += temp_dic["price"]
+            temp_list.append(temp_dic)
+        
+        if int(user.id) == int(key):
+            my_menu = temp_list
+        else:
+            other_menu.append(temp_dic)
+            
+    
+    context = {
+        'store' : order.store,
+        'host_option' : host_option,
+        'total' : total,
+        'pay_option' : pay_option,
+        'my_menu': my_menu,
+        'other_menu' : other_menu,
+    }
+    
+    return render(request, 'myOrder.html', context)
 
 def myorders(request):
     orders = Order.objects.all()
