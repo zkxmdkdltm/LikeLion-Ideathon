@@ -148,3 +148,18 @@ var activeHeart = () => {
   };
 }
 
+var star = document.querySelector(".star").innerText;
+var star_rate = document.querySelector(".star");
+if(star == "5.0") {
+  star_rate.innerText = "★★★★★";
+} else if(star == "4.0"){
+  star_rate.innerText = "★★★★☆";
+} else if(star == "3.0"){
+  star_rate.innerText = "★★★☆☆";
+}else if(star == "2.0"){
+  star_rate.innerText = "★★☆☆☆";
+}else if(star == "1.0"){
+  star_rate.innerText = "★☆☆☆☆";
+} else if(star == "0"){
+  star_rate.innerText = "☆☆☆☆☆";
+} 
