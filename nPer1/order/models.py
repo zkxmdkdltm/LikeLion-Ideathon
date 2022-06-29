@@ -20,10 +20,10 @@ class Store(models.Model):
         ('치킨', '치킨'),
     }
     foodCategory = models.CharField(
-        max_length=20, choices=MENU_CHOICES, null=True)
+        max_length=20, choices=MENU_CHOICES)
     name = models.CharField(max_length=10)
-    rate = models.FloatField(null=True)
-    tel = models.CharField(max_length=15, null=True)
+    rate = models.FloatField()
+    tel = models.CharField(max_length=15)
     min = models.IntegerField()
     delivery_time = models.IntegerField()
     delivery_price = models.IntegerField()
@@ -36,7 +36,7 @@ class Menu(models.Model):
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     menu = models.CharField(max_length=10)
     price = models.IntegerField()
-    info = models.CharField(max_length=30, null=True)
+    info = models.CharField(max_length=30, blank=True)
 
     def __str__(self):
         return self.menu
@@ -48,6 +48,11 @@ class Order(models.Model):
         ('time', 'time'),
     }
 
+    STATE_CHOICES = {
+        ('주문중', '주문중'),
+        ('주문완료', '주문완료'),
+    }
+
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     menus = models.JSONField(default=dict)
     total = models.IntegerField(default=0)
@@ -55,6 +60,8 @@ class Order(models.Model):
     option_num = models.IntegerField(null=True)
     pay_option = models.BooleanField(default=True) # True: 각자 계산
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    create_at = models.DateTimeField(auto_now=True)
+    state = models.CharField(max_length=10, choices=STATE_CHOICES, default='주문중')
 
     def __str__(self):
             return self.store
