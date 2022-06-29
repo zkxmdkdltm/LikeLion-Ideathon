@@ -1,5 +1,4 @@
-{% extends 'base.html' %} {% block head %} {% load static %} {% load
-social_share %}
+{% extends 'base.html' %} {% block head %} {% load static %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
@@ -7,8 +6,8 @@ social_share %}
   integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
   crossorigin="anonymous"
 />
-<link rel="stylesheet" href="./button.css" />
-<link rel="stylesheet" href="./style.css" />
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/button.css' %}" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script
   src="{% static 'js/jquery.twbsPagination.js' %}"
@@ -16,13 +15,16 @@ social_share %}
 ></script>
 {% endblock %} {% block body %}
 
-<main class="order-list-main">
+<main class="order-list-main" style="z-index: 999">
   <div class="main-box">
+    {% for order in orders %}
+    <form method="POST" action="{% url 'accounts:myorders' %}">
+    {% csrf_token %}
     <div class="order-box">
       <div class="img">img</div>
       <ul>
-        <li><h3>2022.09.24 - 주문 중</h3></li>
-        <li><h3>사천성 정릉점</h3></li>
+        <li><h3>{{order.create_at}} - {{order.state}}</h3></li>
+        <li><h3>{{order.store}}</h3></li>
         <li>
           <button id="dup-button" type="submit" class="custom-btn btn-9">
             주문상세
@@ -33,43 +35,17 @@ social_share %}
         </li>
       </ul>
     </div>
-    <div class="order-box">
-      <div class="img">img</div>
-      <ul>
-        <li><h3>2022.09.24 - 주문 중</h3></li>
-        <li><h3>사천성 정릉점</h3></li>
-        <li>
-          <button id="dup-button" type="submit" class="custom-btn btn-9">
-            주문상세
-          </button>
-          <button id="naverPayBtn" type="submit" class="custom-btn btn-9">
-            주문하기
-          </button>
-        </li>
-      </ul>
-    </div>
-    <div class="order-box">
-      <div class="img">img</div>
-      <ul>
-        <li><h3>2022.09.24 - 주문 중</h3></li>
-        <li><h3>사천성 정릉점</h3></li>
-        <li>
-          <button id="dup-button" type="submit" class="custom-btn btn-9">
-            주문상세
-          </button>
-          <button id="naverPayBtn" type="submit" class="custom-btn btn-9">
-            주문하기
-          </button>
-        </li>
-      </ul>
-    </div>
+    </form>
+    {% endfor %}
   </div>
 </main>
+
 <div class="container">
   <nav aria-label="Page navigation">
     <ul class="bulletin" id="pagination"></ul>
   </nav>
 </div>
+
 <script type="text/javascript">
   $(function () {
     window.pagObj = $("#pagination")
