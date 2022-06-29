@@ -88,13 +88,15 @@ def login(request):
         
         
 def logout(request):
-    if request.method == "POST":
-        auth.logout(request)
-        return HttpResponseRedirect('/')
-    return render(request, 'login.html')
+    auth.logout(request)
+    return HttpResponseRedirect('/')
 
 def myinfo(request):
     return render(request, 'myInfo.html')
+
+
+def myorders(request):
+    return render(request, 'myorders.html')
 
 
 @login_required

@@ -1,18 +1,28 @@
-{% extends 'base.html' %} {% block head %}
-{% load static %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/button.css' %}">
-    <title>Document</title>
-{% endblock %}
+{% extends 'base.html' %} {% block head %} {% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+  crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/button.css' %}" />
+<title>Document</title>
+{% endblock %} {% block body %}
 
-{% block body %}
-
-    <div class="orderEnd_wrap">
-        <p>모집글이 작성되었습니다!</p>
-        <p>하단의 공유하기 버튼을 눌러 친구들에게 공유해보세요! </p>
-        <button type="button" class="custom-btn btn-9 first" onclick="alert('url')">공유하기</button>
-        <button type="button" class="custom-btn btn-9" onclick="location.href=''">홈으로</button>
-    </div>
+<div class="orderEnd_wrap">
+  <p>모집글이 작성되었습니다!</p>
+  <p>하단의 공유하기 버튼을 눌러 친구들에게 공유해보세요!</p>
+  <button type="button" class="custom-btn btn-9 first" onclick="alert('url')">
+    공유하기
+  </button>
+  <button
+    type="button"
+    class="custom-btn btn-9"
+    onclick="location.href='{% url 'home:intro' %}'"
+  >
+    홈으로
+  </button>
+</div>
 {% endblock %}
