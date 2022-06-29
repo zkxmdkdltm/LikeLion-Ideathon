@@ -11,7 +11,9 @@ def board(request):
 
 def detail(request, id):
     order = get_object_or_404(Order, pk=id)
-    return render(request, 'detail.html', {'order': order})
+    menus = Menu.objects.all()
+    menu = menus.filter(store=order.store)
+    return render(request, 'detail.html', {'order': order, 'menu': menu})
 
 
 def joinEnd(request):

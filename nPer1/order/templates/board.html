@@ -20,7 +20,7 @@
         </ul>
         {% for order in orders %}
         <div class="uploaded">
-            <a href="{% url 'detail' order.id %}">
+            <a href="{% url 'order:detail' order.id %}">
                 <ul>
                     <li>{{order.id}}</li>
                     <li>{{order.store}}</li>
@@ -36,7 +36,7 @@
                 <ul class="bulletin" id="pagination"></ul>
             </nav>
         </div>
-        <button type="button" class="custom-btn btn-9" onclick="location.href='{% url 'menu' %}'">글쓰기</button>
+        <button type="button" class="custom-btn btn-9" onclick="location.href='{% url 'order:menu' %}'">글쓰기</button>
 
         <script type="text/javascript">
             $(function () {

@@ -15,10 +15,10 @@
 <body>
     <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link active" href="{% url 'index' %}">WEITER</a>
+          <a class="nav-link active" href="{% url 'home:intro' %}">WEITER</a>
         </li>
         <li class="intro">
-            <a onclick="location.href={% url 'index' %}" style="cursor:pointer;">&lt INTRO</a>
+            <a href="{% url 'home:intro' %}" style="cursor:pointer;">&lt INTRO</a>
         </li>
         <li class="myInfo">
             <a class="" href="{% url 'accounts:myinfo'%}">내정보</a>
@@ -34,8 +34,8 @@
         <span class="fadein 3">또는 다른 호스트의 주문에 참여 해 보세요!</span><br/>
     </div>
     <div class="btns">
-     
-        <button type="button" class="custom-btn btn-9" onclick="location.href='order_bulletin.html'">탐색</button>
+        <button type="button" class="custom-btn btn-9" onclick="location.href='{% url 'order:menu' %}'">탐색</button>
+        <button type="button" class="custom-btn btn-9" onclick="location.href='{% url 'order:board' %}'">참여</button>
     </div>
     {% load static %}
     <script src="{% static 'javascript/host.js'%}"></script>

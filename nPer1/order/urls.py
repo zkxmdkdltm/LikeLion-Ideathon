@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+app_name = 'order'
+
 urlpatterns = [
     path('board/', views.board, name="board"),
     path('board/<int:id>/', views.detail, name="detail"),

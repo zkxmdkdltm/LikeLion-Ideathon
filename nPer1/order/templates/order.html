@@ -80,7 +80,7 @@
 
 
         <div class="box2">
-          <form method="POST" action="{% url 'orderEnd' %}">
+          <form method="POST" action="{% url 'order:orderEnd' %}">
           {% csrf_token %}
           <div class="follow">
             <div class="hostOption">

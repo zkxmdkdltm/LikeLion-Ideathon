@@ -25,7 +25,7 @@
                             <li>배달비 {{store.delivery_price}}원</li>
                         </ul>
                         <button type="button" class="custom-btn btn-9" >
-                            <a href="{% url 'order' store.id %}">주문하기</a>
+                            <a href="{% url 'order:order' store.id %}">주문하기</a>
                         </button>
                     </div>
                 </li>

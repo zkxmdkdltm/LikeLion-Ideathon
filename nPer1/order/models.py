@@ -55,3 +55,6 @@ class Order(models.Model):
     option_num = models.IntegerField(null=True)
     pay_option = models.BooleanField(default=True) # True: 각자 계산
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+            return self.store
