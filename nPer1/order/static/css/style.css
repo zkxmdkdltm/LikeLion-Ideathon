@@ -545,7 +545,7 @@ main{
     margin-right: 20px;
 }
 
-/*-------------------------order bulletin-------------------------*/
+/*-------------------------board-------------------------*/
 
 .board_wrap {
     background-color: rgba( 235, 234, 234, 0.5);
@@ -572,11 +572,14 @@ main{
 }
 
 .board_wrap ul li:nth-child(2) {
-    flex: 3;
+    flex: 2;
 }
 
 .board_wrap ul li:nth-child(3) {
     flex: 1;
+}
+.board_wrap ul li:nth-child(5) {
+    flex: 0.5;
 }
 
 .board_wrap button {
