@@ -19,6 +19,9 @@
       <ul>
         <li><h3>{{order.create_at}} - {{order.state}}</h3></li>
         <li><h3>{{order.store}}</h3></li>
+        {% if user.id == order.author.id %}
+        <li><h3>host</h3></li>
+        {% endif %}
         <li>
           <button
             id="dup-button"
