@@ -13,7 +13,7 @@
 
 <main class="order-list-main" style="z-index: 999">
   <div class="main-box">
-    {% for order in orders %}
+    {% if orders %} {% for order in orders %}
     <div class="order-box">
       <div class="img">img</div>
       <ul>
@@ -32,7 +32,11 @@
         </li>
       </ul>
     </div>
-    {% endfor %}
+    {% endfor %} {% else %}
+    <div class="orderEnd_wrap">
+      <h1>주문 내역이 없습니다.</h1>
+    </div>
+    {% endif %}
   </div>
 </main>
 
