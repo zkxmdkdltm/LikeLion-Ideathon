@@ -129,4 +129,4 @@ def pay_approve(request):
 def orderFail(request, id):
     order = get_object_or_404(Order, pk=id)
     order.delete()
-    redirect('home:intro')
+    return HttpResponseRedirect('/')
