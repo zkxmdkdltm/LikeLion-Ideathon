@@ -8,6 +8,7 @@
 />
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <link rel="stylesheet" href="{% static 'css/button.css' %}" />
+<script src="{% static 'js/script.js' %}"></script>
 <title>Document</title>
 {% endblock %} {% block body %}
 
@@ -17,7 +18,7 @@
   <button
     type="button"
     class="custom-btn btn-9 first"
-    onclick="alert('http://127.0.0.1:8000/order/board/'+{{order_id}}+'/')"
+    onclick="copyURL('http://127.0.0.1:8000/order/board/'+{{order_id}}+'/');"
   >
     공유하기
   </button>

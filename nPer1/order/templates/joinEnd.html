@@ -8,11 +8,16 @@
 />
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <link rel="stylesheet" href="{% static 'css/button.css' %}" />
+<script src="{% static 'js/script.js' %}"></script>
 <title>Document</title>
 {% endblock %} {% block body %}
 <div class="orderEnd_wrap">
   <p>주문이 정상처리 되었습니다!</p>
-  <button type="button" class="custom-btn btn-9 first" onclick="alert('url')">
+  <button
+    type="button"
+    class="custom-btn btn-9 first"
+    onclick="copyURL('http://127.0.0.1:8000/order/board/'+{{order_id}}+'/');"
+  >
     공유하기
   </button>
   <button
