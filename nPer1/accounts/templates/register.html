@@ -10,6 +10,8 @@
 />
 <link rel="stylesheet" href="{% static 'css/button.css'%}" />
 <link rel="stylesheet" href="{% static 'css/register.css'%}" />
+<link rel="stylesheet" href="{% static 'css/style.css'%}" />
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="{% static 'javascript/register.js'%}"></script>
 {% endblock %} {% block body %}
@@ -21,7 +23,7 @@
       <input
         class="with-button"
         type="text"
-        value="qwer1234"
+        placeholder="ID"
         name="username"
         id="username"
         autocomplete="off"
@@ -34,7 +36,7 @@
       <input
         class="with-button"
         type="text"
-        value="프로틴형님"
+        placeholder="NICKNAME"
         name="nickname"
         id="nickname"
         autocomplete="off"
@@ -45,7 +47,7 @@
       <p>비밀번호 (6~16자, 특수문자 포함)</p>
       <input
         type="password"
-        value=".12341234"
+        placeholder="PASSWORD"
         name="password"
         id="password"
         autocomplete="off"
@@ -57,7 +59,7 @@
       <p>비밀번호 확인</p>
       <input
         type="password"
-        value=".12341234"
+        placeholder="PASSWORD"
         name="confirm"
         id="confirm"
         autocomplete="off"
@@ -70,20 +72,21 @@
       <p>이름</p>
       <input
         type="text"
-        value="나다"
+        placeholder="NAME"
         style="ime-mode: active"
         name="name"
         id="name"
         autocomplete="off"
         required
-        oninput="this.value = this.value.replace(/[^ㄱ-힣.]/g, '').replace(/(\..*)\./g, '$1');"
+        oninput="this.value =
+      this.value.replace(/[^ㄱ-힣.]/g, '').replace(/(\..*)\./g, '$1');"
       />
     </div>
     <div class="int-area" style="width: 107%">
       <p>Email</p>
       <input
         class="with-button"
-        value="e_hyeok9@kookmin.ac.kr"
+        placeholder="E-Mail"
         type="text"
         name="email"
         id="email"
@@ -102,7 +105,12 @@
         name="address"
         readonly
       />
-      <input type="text" placeholder="상세주소" name="address_detail" />
+      <input
+        type="text"
+        placeholder="상세주소"
+        name="address_detail"
+        style="margin-top: 20px"
+      />
     </div>
     <div class="btn-area">
       <button type="submit" class="custom-btn btn-9">가입하기</button>

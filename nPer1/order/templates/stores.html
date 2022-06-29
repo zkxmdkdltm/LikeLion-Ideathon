@@ -1,176 +1,169 @@
-{% extends 'base.html' %} {% block head %}
-{% load static %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?after ">
-    <link rel="stylesheet" href="{% static 'css/button.css' %}?after " type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{% static 'js/jquery.twbsPagination.js' %}" type="text/javascript"></script>
-{% endblock %}
-
-{% block body %}
-    <main>
-        <div id ="main">
-            <ul class="box_wrap">
-                {% for store in stores %}
-                <li class="box">
-                    <div class="img"> img </div>
-                    <div class="data">
-                        <ul>
-                            <li>{{store.name}}</li>
-                            <li>⭐⭐⭐⭐⭐</li>
-                        </ul>
-                        <ul>
-                            <li>45분 소요</li>
-                            <li>배달비 {{store.delivery_price}}원</li>
-                        </ul>
-                        <button type="button" class="custom-btn btn-9" >
-                            <a href="{% url 'order:order' store.id %}">주문하기</a>
-                        </button>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-            <ul class="box_wrap">
-                <li class="box">
-                    <div class="img"> img </div>
-                    <div class="data">
-                        <ul>
-                            <li>가게이름</li>
-                            <li>⭐⭐⭐⭐⭐</li>
-                        </ul>
-                        <ul>
-                            <li>배달 시간</li>
-                            <li>배달비</li>
-                        </ul>
-                        <button type="button" class="custom-btn btn-9" >
-                            주문하기
-                        </button>
-                    </div>
-                </li>
-                <li class="box">
-                    <div class="img"> img </div>
-                    <div class="data">
-                        <ul>
-                            <li>가게이름</li>
-                            <li>⭐⭐⭐⭐⭐</li>
-                        </ul>
-                        <ul>
-                            <li>배달 시간</li>
-                            <li>배달비</li>
-                        </ul>
-                        <button type="button" class="custom-btn btn-9" >
-                            주문하기
-                        </button>
-                    </div>
-                </li>
-                <li class="box">
-                    <div class="img"> img </div>
-                    <div class="data">
-                        <ul>
-                            <li>가게이름</li>
-                            <li>⭐⭐⭐⭐⭐</li>
-                        </ul>
-                        <ul>
-                            <li>배달 시간</li>
-                            <li>배달비</li>
-                        </ul>
-                        <button type="button" class="custom-btn btn-9" >
-                            주문하기
-                        </button>
-                    </div>
-                </li>
-                <li class="box">
-                    <div class="img"> img </div>
-                    <div class="data">
-                        <ul>
-                            <li>가게이름</li>
-                            <li>⭐⭐⭐⭐⭐</li>
-                        </ul>
-                        <ul>
-                            <li>배달시간</li>
-                            <li>배달비</li>
-                        </ul>
-                        <button type="button" class="custom-btn btn-9" >
-                            주문하기
-                        </button>
-                    </div>
-                </li>
-                <li class="box">
-                    <div class="img"> img </div>
-                    <div class="data">
-                        <ul>
-                            <li>가게이름</li>
-                            <li>⭐⭐⭐⭐⭐</li>
-                        </ul>
-                        <ul>
-                            <li>배달 시간</li>
-                            <li>배달비</li>
-                        </ul>
-                        <button type="button" class="custom-btn btn-9" >
-                            주문하기
-                        </button>
-                    </div>
-                </li>
-                <li class="box">
-                    <div class="img"> img </div>
-                    <div class="data">
-                        <ul>
-                            <li>가게이름</li>
-                            <li>⭐⭐⭐⭐⭐</li>
-                        </ul>
-                        <ul>
-                            <li>30분 소요</li>
-                            <li>배달비 : 3000원</li>
-                        </ul>
-                        <button type="button" class="custom-btn btn-9" >
-                            주문하기
-                        </button>
-                    </div>
-                </li>
-                <li class="box">
-                    <div class="img"> img </div>
-                    <div class="data">
-                        <ul>
-                            <li>가게이름</li>
-                            <li>⭐⭐⭐⭐⭐</li>
-                        </ul>
-                        <ul>
-                            <li>배달 시간</li>
-                            <li>배달비</li>
-                        </ul>
-                        <button type="button" class="custom-btn btn-9" >
-                            주문하기
-                        </button>
-                    </div>
-                </li>
-                <li class="box">
-                    <div class="img"> img </div>
-                    <div class="data">
-                        <ul>
-                            <li>가게이름</li>
-                            <li>⭐⭐⭐⭐⭐</li>
-                        </ul>
-                        <ul>
-                            <li>배달 시간</li>
-                            <li>배달비</li>
-                        </ul>
-                        <button type="button" class="custom-btn btn-9" >
-                            주문하기
-                        </button>
-                    </div>
-                </li>
-            </ul>
+{% extends 'base.html' %} {% block head %} {% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+  crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="{% static 'css/style.css' %}?after " />
+<link
+  rel="stylesheet"
+  href="{% static 'css/button.css' %}?after "
+  type="text/css"
+/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+  src="{% static 'js/jquery.twbsPagination.js' %}"
+  type="text/javascript"
+></script>
+{% endblock %} {% block body %}
+<main>
+  <div id="main">
+    <ul class="box_wrap">
+      {% for store in stores %}
+      <li class="box">
+        <div class="img">img</div>
+        <div class="data">
+          <ul>
+            <li>{{store.name}}</li>
+            <li>⭐⭐⭐⭐⭐</li>
+          </ul>
+          <ul>
+            <li>45분 소요</li>
+            <li>배달비 {{store.delivery_price}}원</li>
+          </ul>
+          <button type="button" class="custom-btn btn-9">
+            <a href="{% url 'order:order' store.id %}">주문하기</a>
+          </button>
         </div>
-    </main>
-    <div class="container">
-        <nav aria-label="Page navigation">
-            <ul class="" id="pagination"></ul>
-        </nav>
-    </div>
+      </li>
+      {% endfor %}
+    </ul>
+    <ul class="box_wrap">
+      <li class="box">
+        <div class="img">img</div>
+        <div class="data">
+          <ul>
+            <li>가게이름</li>
+            <li>⭐⭐⭐⭐⭐</li>
+          </ul>
+          <ul>
+            <li>배달 시간</li>
+            <li>배달비</li>
+          </ul>
+          <button type="button" class="custom-btn btn-9">주문하기</button>
+        </div>
+      </li>
+      <li class="box">
+        <div class="img">img</div>
+        <div class="data">
+          <ul>
+            <li>가게이름</li>
+            <li>⭐⭐⭐⭐⭐</li>
+          </ul>
+          <ul>
+            <li>배달 시간</li>
+            <li>배달비</li>
+          </ul>
+          <button type="button" class="custom-btn btn-9">주문하기</button>
+        </div>
+      </li>
+      <li class="box">
+        <div class="img">img</div>
+        <div class="data">
+          <ul>
+            <li>가게이름</li>
+            <li>⭐⭐⭐⭐⭐</li>
+          </ul>
+          <ul>
+            <li>배달 시간</li>
+            <li>배달비</li>
+          </ul>
+          <button type="button" class="custom-btn btn-9">주문하기</button>
+        </div>
+      </li>
+      <li class="box">
+        <div class="img">img</div>
+        <div class="data">
+          <ul>
+            <li>가게이름</li>
+            <li>⭐⭐⭐⭐⭐</li>
+          </ul>
+          <ul>
+            <li>배달시간</li>
+            <li>배달비</li>
+          </ul>
+          <button type="button" class="custom-btn btn-9">주문하기</button>
+        </div>
+      </li>
+      <li class="box">
+        <div class="img">img</div>
+        <div class="data">
+          <ul>
+            <li>가게이름</li>
+            <li>⭐⭐⭐⭐⭐</li>
+          </ul>
+          <ul>
+            <li>배달 시간</li>
+            <li>배달비</li>
+          </ul>
+          <button type="button" class="custom-btn btn-9">주문하기</button>
+        </div>
+      </li>
+      <li class="box">
+        <div class="img">img</div>
+        <div class="data">
+          <ul>
+            <li>가게이름</li>
+            <li>⭐⭐⭐⭐⭐</li>
+          </ul>
+          <ul>
+            <li>30분 소요</li>
+            <li>배달비 : 3000원</li>
+          </ul>
+          <button type="button" class="custom-btn btn-9">주문하기</button>
+        </div>
+      </li>
+      <li class="box">
+        <div class="img">img</div>
+        <div class="data">
+          <ul>
+            <li>가게이름</li>
+            <li>⭐⭐⭐⭐⭐</li>
+          </ul>
+          <ul>
+            <li>배달 시간</li>
+            <li>배달비</li>
+          </ul>
+          <button type="button" class="custom-btn btn-9">주문하기</button>
+        </div>
+      </li>
+      <li class="box">
+        <div class="img">img</div>
+        <div class="data">
+          <ul>
+            <li>가게이름</li>
+            <li>⭐⭐⭐⭐⭐</li>
+          </ul>
+          <ul>
+            <li>배달 시간</li>
+            <li>배달비</li>
+          </ul>
+          <button type="button" class="custom-btn btn-9">주문하기</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</main>
+<div class="container">
+  <nav aria-label="Page navigation">
+    <ul class="" id="pagination"></ul>
+  </nav>
+</div>
 
-    <!-- Modal -->
-    <!-- <div id="staticBackdrop" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!-- Modal -->
+<!-- <div id="staticBackdrop" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -187,20 +180,26 @@
             </div>
         </div>
     </div> -->
-    
-    <script type="text/javascript">
-        $(function () {
-            window.pagObj = $('#pagination').twbsPagination({
-                totalPages: 20,
-                visiblePages: 5,
-                onPageClick: function (event, page) {
-                    console.info(page + ' (from options)');
-                }
-            }).on('page', function (event, page) {
-                console.info(page + ' (from event listening)');
-            });
-        });
-    </script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+  $(function () {
+    window.pagObj = $("#pagination")
+      .twbsPagination({
+        totalPages: 20,
+        visiblePages: 5,
+        onPageClick: function (event, page) {
+          console.info(page + " (from options)");
+        },
+      })
+      .on("page", function (event, page) {
+        console.info(page + " (from event listening)");
+      });
+  });
+</script>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+  crossorigin="anonymous"
+></script>
 {% endblock %}
