@@ -1,8 +1,10 @@
 from email import message
+import math
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.http import HttpResponseRedirect
+import requests
 
 from .models import User
 from order.models import Order, Store, Menu, Log
