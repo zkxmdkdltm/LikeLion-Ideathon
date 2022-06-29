@@ -155,6 +155,7 @@ def myOrder(request, id):
         menus.append(temp)
     
     context = {
+        'host_id' : user.id,
         'order' : order,
         'store' : order.store,
         'host_option' : host_option,
@@ -196,7 +197,9 @@ def orderCancel(request, id):
     return render(request, 'host.html')
 
 def payEnd(request, id):
-    order = get_object_or_404(Order, pk=id)
+    order = get_object_or_404(Order,pk=id)
+    user = User.objects.get(username=order.author)
+    
     order.state = "주문완료"
     return render(request, 'payEnd.html')
 

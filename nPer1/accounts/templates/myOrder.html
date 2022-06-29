@@ -99,8 +99,10 @@
         {% comment %} hidden values {% endcomment %}
         <input type="hidden" name="store" value={{store.id}}  />
         <div class="allOrderButton">
-            <button class="delOrder" onclick="location.href='{% url 'accounts:orderCancel' order.id %}'">주문 취소</button>
+            {% comment %} <button class="delOrder" onclick="location.href='{% url 'accounts:orderCancel' order.id %}'">주문 취소</button> {% endcomment %}
+            {% if user.id == host_id%}
             <button class="comOrder" onclick="location.href='{% url 'accounts:payEnd' order.id %}'">주문 완료</button>
+            {% endif %}
         </div>
         
       </div>   
