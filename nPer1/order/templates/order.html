@@ -74,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <button class="menuSave" onclick="addCheck(), showMyMenu()">메뉴 저장</button>
+        <button class="menuSave" onclick="addCheck(), showMyMenu(), clickedCount()">메뉴 저장</button>
     </div>
     </div>
 
@@ -122,7 +122,7 @@
             {% comment %} hidden values {% endcomment %}
             <input type="hidden" name="store" value={{store.id}}  />
             
-            <button class="order" type="submit">
+            <button class="order" type="button">
               주문하기
             </button>
           </div>   

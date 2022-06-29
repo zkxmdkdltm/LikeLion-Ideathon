@@ -2,6 +2,14 @@
 // 체크된 메뉴 인덱스 찾기
 var checkIndex = [];
 
+var menuSaveClick = document.querySelector(".menuSave");
+var clickCount = 0;
+
+var clickedCount = () => {
+  clickCount += 1;
+  console.log(clickCount);
+}
+
 function addCheck(){
   let chs = document.getElementsByName("choose");
   checkIndex = [];
@@ -19,7 +27,7 @@ function addCheck(){
 
 var showMyMenu = () => {
   removeAllchild(); // 초기화
-
+  
   const Area = document.querySelector(".order_content");
 
   // 총수량
