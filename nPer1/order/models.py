@@ -49,6 +49,7 @@ class Order(models.Model):
     }
 
     STATE_CHOICES = {
+        ('결제전', '결제전'),
         ('주문중', '주문중'),
         ('주문완료', '주문완료'),
     }
@@ -61,7 +62,7 @@ class Order(models.Model):
     pay_option = models.BooleanField(default=True) # True: 각자 계산
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     create_at = models.DateTimeField(auto_now=True)
-    state = models.CharField(max_length=10, choices=STATE_CHOICES, default='주문중')
+    state = models.CharField(max_length=10, choices=STATE_CHOICES, default='결제전')
 
     def __str__(self):
             return self.store.name
