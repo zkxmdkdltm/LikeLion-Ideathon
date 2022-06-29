@@ -20,10 +20,6 @@
           <li>{{store.tel}}</li>
         </ul>
         <ul>
-          <li>찜</li>
-          <li class="heart" onclick="activeHeart()">🤍</li>
-        </ul>
-        <ul>
           <li><button type="button" class="btn btn-light">{% post_to_facebook post.get_absolute_url "Facebook" %}</button></li>
         </ul>
       </div>
@@ -101,6 +97,9 @@
         <div class="allOrderButton">
             {% comment %} <button class="delOrder" onclick="location.href='{% url 'accounts:orderCancel' order.id %}'">주문 취소</button> {% endcomment %}
             {% if user.id == host_id%}
+            {% if order.state == "주문완료"%}
+            <button class="comOrder" style="background-color:#EBEAEA; color:black;">주문이 완료되었습니다</button>
+            {% endif %}
             <button class="comOrder" onclick="location.href='{% url 'accounts:payEnd' order.id %}'">주문 완료</button>
             {% endif %}
         </div>

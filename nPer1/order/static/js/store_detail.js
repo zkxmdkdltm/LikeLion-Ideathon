@@ -34,9 +34,9 @@ var showMyMenu = () => {
     orderButton.setAttribute('type','submit');
     orderButton.innerText="주문하기";
   }
-
+  
   const Area = document.querySelector(".order_content");
-
+  
   // 총수량
   const totalCount = document.createElement('input');
   totalCount.setAttribute('type', 'hidden');
