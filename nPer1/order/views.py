@@ -148,6 +148,10 @@ def pay_approve(request):
         'amount': amount,
     }
 
+    order = get_object_or_404(Order, pk=request.session['order_id'])
+    order.state = "주문중"
+    order.save()
+
     return render(request, 'orderEnd.html', {'order_id': request.session['order_id']})
 
 
