@@ -15,7 +15,7 @@
   <div class="main-box">
     {% if orders %} {% for order in orders %}
     <div class="order-box">
-      <div class="img">img</div>
+      <img class="img" src={{order.store.image.url}} />
       <ul>
         <li><h3>{{order.create_at}} - {{order.state}}</h3></li>
         <li><h3>{{order.store}}</h3></li>
