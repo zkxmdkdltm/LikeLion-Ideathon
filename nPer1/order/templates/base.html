@@ -13,10 +13,10 @@
         <a class="nav-link active" href="{% url 'home:intro' %}">WEITER</a>
       </li>
       <li class="intro">
-        <a class="" href="">&lt Role Select</a>
-      </li>
+        <a onclick="history.back()" style="cursor:pointer;">&lt BACK</a>
+    </li>
       <li class="myInfo">
-        <a class="" href="">내정보</a>
+        <a class="" href="{% url 'accounts:myInfo' %">내정보</a>
       </li>
     </ul>
     {% block body %} {% endblock %}

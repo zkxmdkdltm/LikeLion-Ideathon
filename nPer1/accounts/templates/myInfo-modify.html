@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/button.css'%}">
+    <link rel="stylesheet" href="{% static 'css/register.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'javascript/register.js'%}"></script>
+
+    <title>Register</title>
+</head>
+<body>
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">WEITER</a>
+        </li>
+        <li class="intro">
+            <a onclick="history.back()" style="cursor:pointer;">&lt BACK</a>
+        </li>
+    </ul>
+    <section class="register-form">
+        <form action="">
+            <div class="int-area" >
+                <p>아이디</p>
+                <h5>{{user.username}}</h5>
+            </div>
+            <div class="int-area" style="width:110%;">
+                <p>닉네임 변경</p>
+                <input class="with-button"type="text" value="멋쟁이사자처럼" name="username" id="username" autocomplete="off" required>
+                <button type="submit" class="custom-btn btn-9">중복확인</button>
+            </div>
+            <div class="int-area">
+                <p>비밀번호 변경(6~16자, 특수문자 포함)</p>
+                <input type="password" value=".12341234" name="pw" id="pw" autocomplete="off" onchange="check_pw()" required>
+            </div>
+            <div class="int-area">
+                <p>비밀번호 확인</p>
+                <input type="password" value=".12341234" name="pw" id="pw2" autocomplete="off" onchange="check_pw()" required>
+                <span id="check"></span>
+            </div>
+            <div class="int-area" >
+                <p>이름</p>
+                <h5>홍길동</h5>
+            </div>
+            <div class="int-area" >
+                <p>휴대전화</p>
+                <h5>01012345678</h5>
+            </div>
+            <div class="int-area">
+                <p>주소:</p>
+                <input type="text" placeholder="주소" id="address_kakao" name="address" readonly>
+                <input type="text" placeholder="상세주소" name="address_detail">
+            </div>
+            <div class="btn-area">
+                <button type="button" class="custom-btn btn-9" onclick="location.href='myInfo.html'">정보변경</button>
+            </div>
+        </form>
+    </section>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        window.onload = function(){
+            document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+                //카카오 지도 발생
+                new daum.Postcode({
+                    oncomplete: function(data) { //선택시 입력값 세팅
+                        document.getElementById("address_kakao").value = data.address; // 주소 넣기
+                        document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+                    }
+                }).open();
+            });
+        }
+    </script>
+</body>
+</html>
