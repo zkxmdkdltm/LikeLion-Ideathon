@@ -28,15 +28,65 @@ def joinEnd(request):
     if request.method == 'POST':
 
         # menu append
+        menu_total = 0
         user_menus = []
         for i in range(int(request.POST['total_count'])):
             user_menus.append({'food_id': request.POST['food'+str(i)], 'amount': request.POST['amount'+str(i)]})
+            menu_total += get_object_or_404(Menu, pk=request.POST['food'+str(i)]).price
         
         order = get_object_or_404(Order, pk=request.POST['order_id'])
         order.menus[request.user.id] = user_menus
+        order.total += menu_total
         order.save()
+
+
+        # 카카오페이 결제 준비
+        URL = 'https://kapi.kakao.com/v1/payment/ready'
+
+        headers = {
+            "Authorization": "KakaoAK " + "8113b3e4cef95643b26b5a0b702df4f2",   # 변경불가
+            "Content-type": "application/x-www-form-urlencoded;charset=utf-8",  # 변경불가
+        }
+
+        params = { 
+            "cid": "TC0ONETIME",    # 테스트용 코드
+            "partner_order_id": order.id,     # 주문번호
+            "partner_user_id": request.user.id,    # 유저 아이디
+            "item_name": "Weiter 금액 결제",        # 구매 물품 이름
+            "quantity": "1",                # 구매 물품 수량
+            "total_amount": menu_total + order.store.delivery_price,        # 구매 물품 가격
+            "tax_free_amount": "0",         # 구매 물품 비과세
+            "approval_url": "http://localhost:8000/order/pay/join",
+            "cancel_url": "http://localhost:8000/order/joinFail/"+str(order.id),
+            "fail_url": "http://localhost:8000/order/joinFail/"+str(order.id),
+        }
+
+        # 카카오페이 준비 api 요청 결과
+        res = requests.post(URL, headers=headers, params=params)
+        print(res.json())
+        request.session['tid'] = res.json()['tid']
+        request.session['order_id'] = order.id      # 결제 승인시 사용할 tid를 세션에 저장
+        next_url = res.json()['next_redirect_pc_url']   # 결제 페이지로 넘어갈 url을 저장
+        return redirect(next_url) 
         
-        return render(request, 'joinEnd.html')
+def pay_join(request):
+    URL = 'https://kapi.kakao.com/v1/payment/approve'
+    headers = {
+            "Authorization": "KakaoAK " + "8113b3e4cef95643b26b5a0b702df4f2",   # 변경불가
+            "Content-type": "application/x-www-form-urlencoded;charset=utf-8",  # 변경불가
+        }
+    
+    params = {
+        "cid": "TC0ONETIME",    # 테스트용 코드
+        "tid": request.session['tid'],  # 결제 요청시 세션에 저장한 tid
+        "partner_order_id": request.session['order_id'],     # 주문번호
+        "partner_user_id": request.user.id,    # 유저 아이디
+        "pg_token": request.GET.get("pg_token"),     # 쿼리 스트링으로 받은 pg토큰
+    }
+
+    res = requests.post(URL, headers=headers, params=params)
+
+    return render(request, 'joinEnd.html')
 
 
 def menu(request):
@@ -141,12 +191,6 @@ def pay_approve(request):
     }
 
     res = requests.post(URL, headers=headers, params=params)
-    amount = res.json()['amount']['total']
-    res = res.json()
-    context = {
-        'res': res,
-        'amount': amount,
-    }
 
     order = get_object_or_404(Order, pk=request.session['order_id'])
     order.state = "주문중"
