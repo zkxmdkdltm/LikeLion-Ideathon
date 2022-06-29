@@ -99,11 +99,13 @@
         <input type="hidden" name="store" value={{store.id}}  />
         <div class="allOrderButton">
             {% comment %} <button class="delOrder" onclick="location.href='{% url 'accounts:orderCancel' order.id %}'">주문 취소</button> {% endcomment %}
-            {% if user.id == host_id%}
-            {% if order.state == "주문완료"%}
+            {% if user.id == host_id %}
+            {% if order.state == "주문완료" %}
             <button class="comOrder" style="background-color:#EBEAEA; color:black;">주문이 완료되었습니다</button>
             {% endif %}
+            {% if order.state != "주문완료" %}
             <button class="comOrder" onclick="checkMin({{order.id}})" >주문 완료</button>
+            {% endif %}
             {% endif %}
         </div>
         
