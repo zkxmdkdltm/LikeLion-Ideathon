@@ -113,7 +113,7 @@
             {% comment %} hidden values {% endcomment %}
             <input type="hidden" name="store" value={{store.id}}  />
             
-            <button class="order" type="button">
+            <button class="order" type="button" id="naverPayBtn">
               주문하기
             </button>
           </div>   
@@ -121,6 +121,28 @@
         </div>
         
    </main>
+   <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
+<script>
+    var oPay = Naver.Pay.create({
+          "mode" : "development", // development or production
+          "clientId": "u86j4ripEt8LRfPGzQ8" // clientId
+    });
+
+    //직접 만드신 네이버페이 결제버튼에 click Event를 할당하세요
+    var elNaverPayBtn = document.getElementById("naverPayBtn");
+
+    elNaverPayBtn.addEventListener("click", function() {
+        oPay.open({
+          "merchantUserKey": "WEITER",
+          "merchantPayKey": "WEITER",
+          "productName": "WEITER",
+          "totalPayAmount": "10000",
+          "taxScopeAmount": "10000",
+          "taxExScopeAmount": "0",
+          "returnUrl": "사용자 결제 완료 후 결제 결과를 받을 URL"
+        });
+    });
+</script>
    <script src="{% static 'js/store_detail.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 {% endblock %}
