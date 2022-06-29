@@ -17,7 +17,18 @@ def detail(request, id):
 
 
 def joinEnd(request):
-    return render(request, 'joinEnd.html')
+    if request.method == 'POST':
+
+        # menu append
+        user_menus = []
+        for i in range(int(request.POST['total_count'])):
+            user_menus.append({'food_id': request.POST['food'+str(i)], 'amount': request.POST['amount'+str(i)]})
+        
+        order = get_object_or_404(Order, pk=request.POST['order_id'])
+        order.menus[request.user.id] = user_menus
+        order.save()
+        
+        return render(request, 'joinEnd.html')
 
 
 def menu(request):
@@ -66,5 +77,5 @@ def orderEnd(request):
             author = get_object_or_404(User, id=request.user.id),
         )
         order.save()
-        
+        print(request.POST)
         return render(request, 'orderEnd.html')

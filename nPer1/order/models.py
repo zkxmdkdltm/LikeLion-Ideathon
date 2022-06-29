@@ -64,4 +64,4 @@ class Order(models.Model):
     state = models.CharField(max_length=10, choices=STATE_CHOICES, default='주문중')
 
     def __str__(self):
-            return self.store
+            return self.store.name
