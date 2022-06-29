@@ -5,7 +5,7 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 
 from .models import User
-from order.models import Order
+from order.models import Order, Store
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
@@ -94,6 +94,19 @@ def logout(request):
 def myinfo(request):
     return render(request, 'myInfo.html')
 
+"""
+host option 주문 종료 방법 
+option num 몇 명 혹은 몇 분에 대한 정보
+pay option bool 트루가 각자 계산 / 펄스 호스트가 한 번에 계산
+total 총 주문 금액
+"""
+
+
+
+def myOrder(request, id):
+    order = get_object_or_404(Order,pk=id)
+    menus = order.menus
+    return render(request, 'myOrder.html', {'store' : order.store})
 
 def myorders(request):
     orders = Order.objects.all()
