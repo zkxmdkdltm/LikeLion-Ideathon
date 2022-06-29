@@ -105,7 +105,7 @@ total 총 주문 금액
 
 
 
-def myOrder(request, id):
+def myOrder(request, id, user_id):
     order = get_object_or_404(Order,pk=id)
     user = User.objects.get(username=order.author)
     
@@ -143,7 +143,7 @@ def myOrder(request, id):
             else:
                 menu[food.menu] = temp_dic["price"]
                 
-        if int(user.id) == int(key):
+        if int(user_id) == int(key):
             my_menu = temp_list
         else:
             other_menu += temp_list
@@ -225,7 +225,7 @@ def payEnd(request, id):
     order.state = "주문완료"
     order.save()
 
-    return render(request, 'payEnd.html')
+    return render(request, 'payEnd.html', context={'order' : order})
 
 @login_required
 def myinfochange(request):

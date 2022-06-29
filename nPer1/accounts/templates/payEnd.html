@@ -12,7 +12,7 @@
 {% endblock %} {% block body %}
 <div class="orderEnd_wrap">
   <p>주문이 완료되었습니다!</p>
-  <button type="button" class="custom-btn btn-9 first"  onclick="location.href='{% url 'accounts:myorders' user.id%}'" >
+  <button type="button" class="custom-btn btn-9 first"  onclick="location.href='{% url 'accounts:myorders' order.id user.id%}'" >
     내 주문
   </button>
   <button
