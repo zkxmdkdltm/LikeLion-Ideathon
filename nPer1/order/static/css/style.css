@@ -679,3 +679,63 @@ main{
     --bs-pagination-focus-box-shadow:none;
 
 }
+
+/*------------------------allOrder-------------------------*/
+
+.allOrder {
+    display: flex;
+}
+
+.myMenu div {
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    padding: 15px;
+}
+
+.teamMenu div {
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    padding: 15px;
+}
+
+.myMenu,
+.teamMenu {
+    width: 300px;
+    height: 500px;
+}
+
+.myMenu {
+    background-color: #EBEAEA;
+    margin-right: 20px;
+}
+.teamMenu {
+    background-color: #EBEAEA;
+}
+
+.top_content {
+    padding: 15px;
+}
+
+.allOrderButton {
+    text-align: center;
+}
+
+.delOrder {
+    font-size: 13.5px;
+    margin-bottom:15px ;
+    border: none;
+    width: 300px;
+    height: 50px;
+    background-color: #c2c1c1;
+}
+.comOrder {
+    font-size: 13.5px;
+    margin-bottom:15px ;
+    border: none;
+    width: 300px;
+    height: 50px;
+    background-color: #555555;
+    color: white;
+}
