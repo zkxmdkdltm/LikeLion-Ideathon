@@ -138,8 +138,6 @@ var sumPirce = () => {
   sumP.innerText = `${sum}원`;
 }
 
-
-
 function copyURL(url) {
   var textarea = document.createElement("textarea");
 	document.body.appendChild(textarea);
