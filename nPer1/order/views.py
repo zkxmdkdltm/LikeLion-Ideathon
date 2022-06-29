@@ -87,7 +87,7 @@ def orderEnd(request):
             host_option = request.POST['host_option'],
             option_num = option_num,
             pay_option = int(request.POST['pay_option']),
-            total = 0,
+            total = menu_total,
             menus = menus,
             author = get_object_or_404(User, id=request.user.id),
         )
