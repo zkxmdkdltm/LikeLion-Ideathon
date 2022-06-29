@@ -4,6 +4,7 @@ var checkIndex = [];
 
 var menuSaveClick = document.querySelector(".menuSave");
 var clickCount = 0;
+var orderButton = document.querySelector(".order");
 
 var clickedCount = () => {
   clickCount += 1;
@@ -13,6 +14,12 @@ var clickedCount = () => {
 function addCheck(){
   let chs = document.getElementsByName("choose");
   checkIndex = [];
+
+  if(clickCount > 0) {
+    orderButton.removeAttribute('type');
+    orderButton.setAttribute('type','submit');
+  }
+
   for(var i=0; i<chs.length; i++){
 
       if(chs[i].checked==true){
