@@ -3,6 +3,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Menu, Order, Store
 from django.http import HttpResponseRedirect
+import requests
 
 
 def board(request):
@@ -58,6 +59,8 @@ def order(request, id):
 def orderEnd(request):
     if request.method == 'POST':
         
+        # order 정보 저장
+        
         host_option = request.POST['host_option']
         option_num = None
 
@@ -66,15 +69,20 @@ def orderEnd(request):
         elif host_option == "time":
             option_num = request.POST['option_time']
 
+        # 총 메뉴 금액
+        menu_total = 0
+
         # menu append
         user_menus = []
         for i in range(int(request.POST['total_count'])):
             user_menus.append({'food_id': request.POST['food'+str(i)], 'amount': request.POST['amount'+str(i)]})
+            menu_total += get_object_or_404(Menu, pk=request.POST['food'+str(i)]).price
 
         menus = {}
         menus[request.user.id] = user_menus
 
         order = Order(
+            state = "결제전",
             store = get_object_or_404(Store, pk=request.POST['store']),
             host_option = request.POST['host_option'],
             option_num = option_num,
@@ -84,10 +92,40 @@ def orderEnd(request):
             author = get_object_or_404(User, id=request.user.id),
         )
         order.save()
-        order_id = order.id
-        return render(request, 'orderEnd.html', {'order_id': order_id})
 
+        # 카카오페이 결제 준비
+        URL = 'https://kapi.kakao.com/v1/payment/ready'
 
+        headers = {
+            "Authorization": "KakaoAK " + "8113b3e4cef95643b26b5a0b702df4f2",   # 변경불가
+            "Content-type": "application/x-www-form-urlencoded;charset=utf-8",  # 변경불가
+        }
+
+        params = { 
+            "cid": "TC0ONETIME",    # 테스트용 코드
+            "partner_order_id": order.id,     # 주문번호
+            "partner_user_id": request.user.id,    # 유저 아이디
+            "item_name": "Weiter 금액 결제",        # 구매 물품 이름
+            "quantity": "1",                # 구매 물품 수량
+            "total_amount": menu_total + order.store.delivery_price,        # 구매 물품 가격
+            "tax_free_amount": "0",         # 구매 물품 비과세
+            "approval_url": "http://localhost:8000/order/pay/approve/",
+            "cancel_url": "http://localhost:8000/order/orderFail/"+str(order.id),
+            "fail_url": "http://localhost:8000/order/orderFail/"+str(order.id),
+        }
+
+        # 카카오페이 준비 api 요청 결과
+        res = requests.post(URL, headers=headers, params=params)
+        request.session['tid'] = res.json()['tid']      # 결제 승인시 사용할 tid를 세션에 저장
+        next_url = res.json()['next_redirect_pc_url']   # 결제 페이지로 넘어갈 url을 저장
+        return redirect(next_url+"&id="+str(order.id)) 
+
+    elif request.method == 'GET':
+        return render(request, 'orderEnd.html', {'order_id': order.id})
+
+def pay_approve(request):
+    return HttpResponseRedirect('/')
+        
 def orderFail(request, id):
     order = get_object_or_404(Order, pk=id)
     order.delete()
