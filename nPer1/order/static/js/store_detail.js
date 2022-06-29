@@ -7,18 +7,12 @@ var clickCount = 0;
 var orderButton = document.querySelector(".order");
 
 var clickedCount = () => {
-  clickCount += 1;
-  console.log(clickCount);
+  clickCount+=1;
 }
 
 function addCheck(){
   let chs = document.getElementsByName("choose");
   checkIndex = [];
-
-  if(clickCount > 0) {
-    orderButton.removeAttribute('type');
-    orderButton.setAttribute('type','submit');
-  }
 
   for(var i=0; i<chs.length; i++){
 
@@ -34,7 +28,12 @@ function addCheck(){
 
 var showMyMenu = () => {
   removeAllchild(); // 초기화
-  
+
+  if(clickCount > 0) {
+    orderButton.removeAttribute('type');
+    orderButton.setAttribute('type','submit');
+  }
+
   const Area = document.querySelector(".order_content");
 
   // 총수량
