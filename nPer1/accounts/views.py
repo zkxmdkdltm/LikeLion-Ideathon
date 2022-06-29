@@ -95,6 +95,10 @@ def myinfo(request):
     return render(request, 'myInfo.html')
 
 
+def myorders(request):
+    return render(request, 'myorders.html')
+
+
 @login_required
 def myinfochange(request):
     if request.method == "POST":
