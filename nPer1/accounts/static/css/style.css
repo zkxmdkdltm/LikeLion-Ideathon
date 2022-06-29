@@ -774,3 +774,7 @@ main{
     flex: 1;
     text-align: center;
 }
+
+.star {
+    color: rgb(250, 175, 0);
+}

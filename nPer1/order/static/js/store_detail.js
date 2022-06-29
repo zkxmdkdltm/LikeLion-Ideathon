@@ -147,20 +147,6 @@ function copyURL(url) {
 
 
 
-// 찜
-var heart = document.querySelector(".heart");
-
-var activeHeart = () => {
-  const hasClass = heart.classList.contains("full");
-
-  if(!hasClass){
-    heart.classList.add("full");
-    heart.innerText = "🧡"
-  } else {
-    heart.classList.remove("full");
-    heart.innerText = "🤍"
-  };
-}
 
 var star = document.querySelector(".star").innerText;
 var star_rate = document.querySelector(".star");
@@ -176,4 +162,4 @@ if(star == "5.0") {
   star_rate.innerText = "★☆☆☆☆";
 } else if(star == "0"){
   star_rate.innerText = "☆☆☆☆☆";
-} 
+}   
