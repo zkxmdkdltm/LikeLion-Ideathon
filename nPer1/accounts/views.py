@@ -124,11 +124,12 @@ def myOrder(request, id):
     other_menu = []
     menu = {}
     total = order.store.delivery_price
-    
+
     for key in list(menus.keys()):
         temp_list = []
         temp_dic = {}        
-        for i in range(len(menus[key])):               
+        for i in range(len(menus[key])):
+            temp_dic = {}               
             store = menus[key][i]
             food = get_object_or_404(Menu, pk=int(store["food_id"])) 
             temp_dic["name"] = food.menu
@@ -141,11 +142,11 @@ def myOrder(request, id):
                 menu[food.menu] += temp_dic["price"]
             else:
                 menu[food.menu] = temp_dic["price"]
-        
+                
         if int(user.id) == int(key):
             my_menu = temp_list
         else:
-            other_menu.append(temp_dic)
+            other_menu += temp_list
             
     menus = []
     for key in list(menu.keys()):
