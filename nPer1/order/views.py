@@ -89,6 +89,10 @@ def pay_join(request):
     return render(request, 'joinEnd.html')
 
 
+def joinFail(request):
+    return render(request, 'joinFail.html')
+
+
 def menu(request):
     return render(request, 'menu.html')
 
