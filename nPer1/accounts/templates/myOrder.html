@@ -12,7 +12,7 @@
   <div class="menuPage">
     <div class="storeData">
       <p>{{store.name}}</p>
-      <p>★★★★☆ {{store.rate}}</p>
+      <p>{{store.rate}}</p>
 
       <div class="tel">
         <ul>
@@ -47,10 +47,19 @@
     <div class="allOrder">
         <div class="myMenu">
             <div>내 주문 메뉴</div>
+            <ul>
+              <li>메뉴이름</li>
+              <li>{수량}개</li>
+              <li>{메뉴가격}원</li>
+          </ul>
         </div>
         <div class="teamMenu">
             <div>다른 사람 주문 메뉴</div>
-            <div></div>
+            <ul>
+              <li>메뉴이름</li>
+              <li>{수량}개</li>
+              <li>{메뉴가격}원</li>
+          </ul>
         </div>
     </div>
 </div>

@@ -744,3 +744,25 @@ main{
     background-color: #555555;
     color: white;
 }
+
+.myMenu ul {
+    display: flex;
+    padding: 10px;
+    margin: 0;
+}
+
+.myMenu li {
+    flex: 1;
+    text-align: center;
+}
+
+.teamMenu ul {
+    display: flex;
+    padding: 10px;
+    margin: 0;
+}
+
+.teamMenu li {
+    flex: 1;
+    text-align: center;
+}
