@@ -678,8 +678,11 @@ main{
 
 /*-------------------------pagination-------------------------*/
 
+.board_wrap{
+    
+}
 .pagination {
-    --bs-pagination-color: black;
+    /* --bs-pagination-color: black;
     --bs-pagination-border:0;
     --bs-pagination-bg:0;
     --bs-pagination-font-size: 13px;
@@ -688,7 +691,8 @@ main{
     --bs-pagination-disabled-bg:none;
     --bs-pagination-disabled-color: none;
     --bs-pagination-hover-color: #c1c1c1;
-    --bs-pagination-focus-box-shadow:none;
+    --bs-pagination-focus-box-shadow:none; */
+    
 
 }
 
