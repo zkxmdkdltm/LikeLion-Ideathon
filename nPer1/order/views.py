@@ -109,24 +109,49 @@ def orderEnd(request):
             "quantity": "1",                # 구매 물품 수량
             "total_amount": menu_total + order.store.delivery_price,        # 구매 물품 가격
             "tax_free_amount": "0",         # 구매 물품 비과세
-            "approval_url": "http://localhost:8000/order/pay/approve/",
+            "approval_url": "http://localhost:8000/order/pay/approve",
             "cancel_url": "http://localhost:8000/order/orderFail/"+str(order.id),
             "fail_url": "http://localhost:8000/order/orderFail/"+str(order.id),
         }
 
         # 카카오페이 준비 api 요청 결과
         res = requests.post(URL, headers=headers, params=params)
-        request.session['tid'] = res.json()['tid']      # 결제 승인시 사용할 tid를 세션에 저장
+        request.session['tid'] = res.json()['tid']
+        request.session['order_id'] = order.id      # 결제 승인시 사용할 tid를 세션에 저장
         next_url = res.json()['next_redirect_pc_url']   # 결제 페이지로 넘어갈 url을 저장
-        return redirect(next_url+"&id="+str(order.id)) 
+        return redirect(next_url) 
 
     elif request.method == 'GET':
         return render(request, 'orderEnd.html', {'order_id': order.id})
 
+
 def pay_approve(request):
-    return HttpResponseRedirect('/')
-        
+    URL = 'https://kapi.kakao.com/v1/payment/approve'
+    headers = {
+            "Authorization": "KakaoAK " + "8113b3e4cef95643b26b5a0b702df4f2",   # 변경불가
+            "Content-type": "application/x-www-form-urlencoded;charset=utf-8",  # 변경불가
+        }
+    
+    params = {
+        "cid": "TC0ONETIME",    # 테스트용 코드
+        "tid": request.session['tid'],  # 결제 요청시 세션에 저장한 tid
+        "partner_order_id": request.session['order_id'],     # 주문번호
+        "partner_user_id": request.user.id,    # 유저 아이디
+        "pg_token": request.GET.get("pg_token"),     # 쿼리 스트링으로 받은 pg토큰
+    }
+
+    res = requests.post(URL, headers=headers, params=params)
+    amount = res.json()['amount']['total']
+    res = res.json()
+    context = {
+        'res': res,
+        'amount': amount,
+    }
+
+    return render(request, 'orderEnd.html', {'order_id': request.session['order_id']})
+
+
 def orderFail(request, id):
     order = get_object_or_404(Order, pk=id)
     order.delete()
-    redirect('home:intro')
+    return HttpResponseRedirect('/')
