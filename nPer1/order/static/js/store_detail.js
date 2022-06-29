@@ -132,6 +132,20 @@ var sumPirce = () => {
 //     location.href="order_end.html";
 //   }
 // }
+function copyURL(url) {
+  var textarea = document.createElement("textarea");
+	document.body.appendChild(textarea);
+	textarea.value = url;
+	textarea.select();
+	document.execCommand("copy");
+	document.body.removeChild(textarea);
+	alert("URL이 복사되었습니다.")
+
+}
+
+
+
+
 
 
 var star = document.querySelector(".star").innerText;

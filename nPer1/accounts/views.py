@@ -37,6 +37,8 @@ def register(request):
                 password=request.POST['password'],
                 confirm=request.POST['confirm'],
                 name=request.POST['name'],
+                address=request.POST['address'],
+                address_detail=request.POST['address_detail'],
                 email=request.POST['email'],
                 is_active = True,
             )
@@ -120,41 +122,83 @@ def myOrder(request, id):
     menus = order.menus
     my_menu = []
     other_menu = []
+    menu = {}
     total = order.store.delivery_price
     
     for key in list(menus.keys()):
         temp_list = []
         temp_dic = {}        
-        for i in range(len(menus[key])):
+        for i in range(len(menus[key])):               
             store = menus[key][i]
-            food = get_object_or_404(Menu, pk=int(store["food_id"]))
+            food = get_object_or_404(Menu, pk=int(store["food_id"])) 
             temp_dic["name"] = food.menu
             temp_dic["amount"] = store["amount"]
             temp_dic["price"] = int(store["amount"]) * int(food.price)
             total += temp_dic["price"]
             temp_list.append(temp_dic)
+            
+            if food.menu in list(menu.keys()):
+                menu[food.menu] += temp_dic["price"]
+            else:
+                menu[food.menu] = temp_dic["price"]
         
         if int(user.id) == int(key):
             my_menu = temp_list
         else:
             other_menu.append(temp_dic)
             
+    menus = []
+    for key in list(menu.keys()):
+        temp = dict()
+        temp["name"] = key
+        temp["price"] = menu[key]
+        menus.append(temp)
     
     context = {
+        'order' : order,
         'store' : order.store,
         'host_option' : host_option,
         'total' : total,
         'pay_option' : pay_option,
         'my_menu': my_menu,
         'other_menu' : other_menu,
+        'menus' : menus,
     }
     
     return render(request, 'myOrder.html', context)
 
-def myorders(request):
+def myorders(request , id):
     orders = Order.objects.all()
-    return render(request, 'myorders.html', {'orders' : orders})
+    user = get_object_or_404(User, pk=id)
+    value = []
+    # 오더 안에 메뉴 안에 번호들이 유저 번호
+    
+    for order in orders:
+        # 내가 글쓴 사람일 경우 추가
+        if int(user.id) in list(map(int, order.menus)):
+            value.append(order)
+            continue
+        # 내가 글에 참여한 사람일 경우 추가
+        for order_id in order.menus:
+            if int(order_id) == int(user.id):
+                value.append(order)
+                break
+    
+    context = {
+        'orders' : value
+    }
+    
+    return render(request, 'myorders.html', context)
 
+def orderCancel(request, id):
+    order = get_object_or_404(Order, pk=id)
+    order.delete()
+    return render(request, 'host.html')
+
+def payEnd(request, id):
+    order = get_object_or_404(Order, pk=id)
+    order.state = "주문완료"
+    return render(request, 'payEnd.html')
 
 @login_required
 def myinfochange(request):
@@ -176,6 +220,6 @@ def validate_password(password):
             flag = True
             break
     if (flag and (6 <= len(password) <= 16)):
-        return True
-    return False
+        return False
+    return True
 
