@@ -8,16 +8,18 @@
 />
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <link rel="stylesheet" href="{% static 'css/button.css' %}" />
+<script src="{% static 'js/store_detail.js' %}"></script>
 <title>Document</title>
 {% endblock %} {% block body %}
 
 <div class="orderEnd_wrap">
+
   <p>모집글이 작성되었습니다!</p>
   <p>하단의 공유하기 버튼을 눌러 친구들에게 공유해보세요!</p>
   <button
     type="button"
     class="custom-btn btn-9 first"
-    onclick="alert('http://127.0.0.1:8000/order/board/'+{{order_id}}+'/')"
+    onclick="copyURL('http://127.0.0.1:8000/order/board/'+{{order_id}}+'/');"
   >
     공유하기
   </button>

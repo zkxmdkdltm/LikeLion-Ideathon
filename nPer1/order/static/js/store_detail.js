@@ -132,6 +132,20 @@ var sumPirce = () => {
 //     location.href="order_end.html";
 //   }
 // }
+function copyURL(url) {
+  var textarea = document.createElement("textarea");
+	document.body.appendChild(textarea);
+	textarea.value = url;
+	textarea.select();
+	document.execCommand("copy");
+	document.body.removeChild(textarea);
+	alert("URL이 복사되었습니다.")
+
+}
+
+
+
+
 
 // 찜
 var heart = document.querySelector(".heart");
@@ -147,3 +161,19 @@ var activeHeart = () => {
     heart.innerText = "🤍"
   };
 }
+
+var star = document.querySelector(".star").innerText;
+var star_rate = document.querySelector(".star");
+if(star == "5.0") {
+  star_rate.innerText = "★★★★★";
+} else if(star == "4.0"){
+  star_rate.innerText = "★★★★☆";
+} else if(star == "3.0"){
+  star_rate.innerText = "★★★☆☆";
+}else if(star == "2.0"){
+  star_rate.innerText = "★★☆☆☆";
+}else if(star == "1.0"){
+  star_rate.innerText = "★☆☆☆☆";
+} else if(star == "0"){
+  star_rate.innerText = "☆☆☆☆☆";
+} 

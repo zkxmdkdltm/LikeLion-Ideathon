@@ -13,7 +13,7 @@
         <div>추가 주문 중!</div>
         <div class="storeData">
           <p>{{order.store}}</p>
-          <p>★★★★☆ {{order.store.rate}}</p>
+          <p class="star">{{order.store.rate}}</p>
 
           <div class="tel">
             <ul>
@@ -75,7 +75,7 @@
                 </div>
             </div>
         </div>
-        <button class="menuSave" onclick="addCheck(), showMyMenu(), clickedCount()">메뉴 저장</button>
+        <button class="menuSave" onclick="clickedCount(), addCheck(), showMyMenu()">메뉴 저장</button>
     </div>
     </div>
 
