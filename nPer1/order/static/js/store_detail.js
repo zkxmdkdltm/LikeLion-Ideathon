@@ -32,6 +32,7 @@ var showMyMenu = () => {
   if(clickCount > 0) {
     orderButton.removeAttribute('type');
     orderButton.setAttribute('type','submit');
+    orderButton.innerText="주문하기";
   }
 
   const Area = document.querySelector(".order_content");
