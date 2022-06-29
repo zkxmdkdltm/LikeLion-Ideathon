@@ -13,4 +13,5 @@ urlpatterns = [
     path('myinfo/', views.myinfo, name='myinfo'),
     path('info_change/', views.myinfochange, name='info_change'),
     path('myorders/', views.myorders, name='myorders'),
+    path('myOrder/<int:id>', views.myOrder, name='myOrder')
 ]

@@ -1,0 +1,97 @@
+{% extends 'base.html' %} {% block head %}
+{% load static %} {% load social_share %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock %}
+
+{% block body %}
+<main style="padding-top: 170px"></main>
+<div class="box1">
+  <div class="menuPage">
+    <div class="storeData">
+      <p>{{store.name}}</p>
+      <p>★★★★☆ {{store.rate}}</p>
+
+      <div class="tel">
+        <ul>
+          <li>tel : </li><link rel="stylesheet" href="{% static 'css/style.css' %}" />
+          <li>{{store.tel}}</li>
+        </ul>
+        <ul>
+          <li>찜</li>
+          <li class="heart" onclick="activeHeart()">🤍</li>
+        </ul>
+        <ul>
+          <li><button type="button" class="btn btn-light">{% post_to_facebook post.get_absolute_url "Facebook" %}</button></li>
+        </ul>
+      </div>
+
+      <div class="deliveryInfo">
+        <ul>
+          <li>최소 주문 금액 : </li>
+          <li id="min_price">{{store.min}}원</li>
+        </ul>
+        <ul>
+          <li>배달 시간 : </li>
+          <li>{{store.delivery_time}}분 소요 예상</li>
+        </ul>
+        <ul>
+          <li>배달팁 : </li>
+          <li>{{store.delivery_price}}원</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="allOrder">
+        <div class="myMenu">
+            <div>내 주문 메뉴</div>
+        </div>
+        <div class="teamMenu">
+            <div>다른 사람 주문 메뉴</div>
+            <div></div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+    <div class="box2">
+      <form method="POST" action="{% url 'order:orderEnd' %}">
+      {% csrf_token %}
+      <div class="follow">
+        <div class="hostOption">
+
+            <div class="top">주문 옵션</div>
+            <div class="top_content">
+                <span>주문 종료 방법</span><br/>
+                <span>계산 방법</span>
+            </div>
+
+        <div class="orderOption">
+            <div class="top">금액</div>
+            <div class="follow_content order_content">
+                <span>메뉴이름 : 가격</span><br><br>
+                <span>배달비 : {{order.store.delivery_price}}</span><br>
+                
+                <hr>
+                <span>총 금액 : </span><br>
+            </div> 
+
+        
+        {% comment %} hidden values {% endcomment %}
+        <input type="hidden" name="store" value={{store.id}}  />
+        <div class="allOrderButton">
+            <button class="delOrder">주문 취소</button>
+            <button class="comOrder">주문 완료</button>
+        </div>
+        
+      </div>   
+    </form>     
+</div>
+    
+</main>
+<script src="{% static 'js/store_detail.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+{% endblock %}
