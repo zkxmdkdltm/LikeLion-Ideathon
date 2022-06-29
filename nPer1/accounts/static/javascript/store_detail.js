@@ -50,9 +50,9 @@ var showMyMenu = () => {
       orderButton.innerText="주문하기";
     }
   }
-  
+
   const Area = document.querySelector(".order_content");
-  
+
   // 총수량
   const totalCount = document.createElement('input');
   totalCount.setAttribute('type', 'hidden');
@@ -137,8 +137,6 @@ var sumPirce = () => {
   
   sumP.innerText = `${sum}원`;
 }
-
-
 
 function copyURL(url) {
   var textarea = document.createElement("textarea");

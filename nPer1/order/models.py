@@ -27,6 +27,7 @@ class Store(models.Model):
     min = models.IntegerField()
     delivery_time = models.IntegerField()
     delivery_price = models.IntegerField()
+    image = models.ImageField(upload_to = "store/")
 
     def __str__(self):
         return self.name
