@@ -105,7 +105,7 @@ total 총 주문 금액
 
 
 
-def myOrder(request, id, user_id):
+def myOrder(request, id):
     order = get_object_or_404(Order,pk=id)
     user = User.objects.get(username=order.author)
     
@@ -143,7 +143,7 @@ def myOrder(request, id, user_id):
             else:
                 menu[food.menu] = temp_dic["price"]
                 
-        if int(user_id) == int(key):
+        if int(request.user.id) == int(key):
             my_menu = temp_list
         else:
             other_menu += temp_list
