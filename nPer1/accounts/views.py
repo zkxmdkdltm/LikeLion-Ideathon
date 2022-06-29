@@ -185,7 +185,7 @@ def myorders(request , id):
             if int(order_id) == int(user.id):
                 value.append(order)
                 break
-    
+    value = sorted(value, key=lambda x : x.create_at, reverse=True)
     context = {
         'orders' : value
     }
