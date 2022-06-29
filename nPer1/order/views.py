@@ -21,7 +21,7 @@ def detail(request, id):
         menu = menus.filter(store=order.store)
         return render(request, 'detail.html', {'order': order, 'menu': menu})
     else:
-        return HttpResponseRedirect('/accounts/myorder/' + str(id))
+        return HttpResponseRedirect('/accounts/myOrder/' + str(id))
 
 def joinEnd(request):
     if request.method == 'POST':
