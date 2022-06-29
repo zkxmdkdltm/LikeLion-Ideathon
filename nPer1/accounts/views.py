@@ -5,7 +5,7 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 
 from .models import User
-from .forms import CustomUserChangeForm
+from order.models import Order
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
@@ -96,7 +96,8 @@ def myinfo(request):
 
 
 def myorders(request):
-    return render(request, 'myorders.html')
+    orders = Order.objects.all()
+    return render(request, 'myorders.html', {'orders' : orders})
 
 
 @login_required

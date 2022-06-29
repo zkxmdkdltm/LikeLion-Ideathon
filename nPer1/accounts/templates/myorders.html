@@ -17,11 +17,14 @@
 
 <main class="order-list-main" style="z-index: 999">
   <div class="main-box">
+    {% for order in orders %}
+    <form method="POST" action="{% url 'accounts:myorders' %}">
+    {% csrf_token %}
     <div class="order-box">
       <div class="img">img</div>
       <ul>
-        <li><h3>2022.09.24 - 주문 중</h3></li>
-        <li><h3>사천성 정릉점</h3></li>
+        <li><h3>{{order.create_at}} - {{order.state}}</h3></li>
+        <li><h3>{{order.store}}</h3></li>
         <li>
           <button id="dup-button" type="submit" class="custom-btn btn-9">
             주문상세
@@ -32,43 +35,17 @@
         </li>
       </ul>
     </div>
-    <div class="order-box">
-      <div class="img">img</div>
-      <ul>
-        <li><h3>2022.09.24 - 주문 중</h3></li>
-        <li><h3>사천성 정릉점</h3></li>
-        <li>
-          <button id="dup-button" type="submit" class="custom-btn btn-9">
-            주문상세
-          </button>
-          <button id="naverPayBtn" type="submit" class="custom-btn btn-9">
-            주문하기
-          </button>
-        </li>
-      </ul>
-    </div>
-    <div class="order-box">
-      <div class="img">img</div>
-      <ul>
-        <li><h3>2022.09.24 - 주문 중</h3></li>
-        <li><h3>사천성 정릉점</h3></li>
-        <li>
-          <button id="dup-button" type="submit" class="custom-btn btn-9">
-            주문상세
-          </button>
-          <button id="naverPayBtn" type="submit" class="custom-btn btn-9">
-            주문하기
-          </button>
-        </li>
-      </ul>
-    </div>
+    </form>
+    {% endfor %}
   </div>
 </main>
+
 <div class="container">
   <nav aria-label="Page navigation">
     <ul class="bulletin" id="pagination"></ul>
   </nav>
 </div>
+
 <script type="text/javascript">
   $(function () {
     window.pagObj = $("#pagination")
