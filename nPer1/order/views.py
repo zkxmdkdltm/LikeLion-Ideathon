@@ -1,6 +1,6 @@
 from accounts.models import User
 from django.core.paginator import Paginator
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import Menu, Order, Store
 from django.http import HttpResponseRedirect
 
@@ -86,3 +86,9 @@ def orderEnd(request):
         order.save()
         order_id = order.id
         return render(request, 'orderEnd.html', {'order_id': order_id})
+
+
+def orderFail(request, id):
+    order = get_object_or_404(Order, pk=id)
+    order.delete()
+    redirect('intro')
