@@ -51,6 +51,7 @@
           </ul>
           {% endfor %}
         </div>
+        {% if user.id == host_id%}
         <div class="teamMenu">
             <div>다른 사람 주문 메뉴</div>
             {% for menu in other_menu %}
@@ -61,6 +62,7 @@
           </ul>
           {% endfor %}
         </div>
+        {% endif %}
     </div>
 </div>
 </div>

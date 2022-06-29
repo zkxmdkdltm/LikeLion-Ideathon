@@ -124,11 +124,12 @@ def myOrder(request, id):
     other_menu = []
     menu = {}
     total = order.store.delivery_price
-    
+
     for key in list(menus.keys()):
         temp_list = []
         temp_dic = {}        
-        for i in range(len(menus[key])):               
+        for i in range(len(menus[key])):
+            temp_dic = {}               
             store = menus[key][i]
             food = get_object_or_404(Menu, pk=int(store["food_id"])) 
             temp_dic["name"] = food.menu
@@ -141,11 +142,11 @@ def myOrder(request, id):
                 menu[food.menu] += temp_dic["price"]
             else:
                 menu[food.menu] = temp_dic["price"]
-        
+                
         if int(user.id) == int(key):
             my_menu = temp_list
         else:
-            other_menu.append(temp_dic)
+            other_menu += temp_list
             
     menus = []
     for key in list(menu.keys()):
@@ -198,9 +199,32 @@ def orderCancel(request, id):
 
 def payEnd(request, id):
     order = get_object_or_404(Order,pk=id)
-    user = User.objects.get(username=order.author)
-    
+    logs = Log.objects.filter(order=order)
+    delivery_price = order.store.delivery_price
+    person = len(order.menus)
+        
+    # 거스름돈 반환용 카카오페이 결제취소
+    URL = 'https://kapi.kakao.com/v1/payment/cancel'
+
+    headers = {
+            "Authorization": "KakaoAK " + "8113b3e4cef95643b26b5a0b702df4f2",   # 변경불가
+            "Content-type": "application/x-www-form-urlencoded;charset=utf-8",  # 변경불가
+    }
+
+    for log in logs:
+
+        cancel_amount = delivery_price - math.floor(delivery_price/person)
+        params = { 
+                "cid": "TC0ONETIME",    # 테스트용 코드
+                "tid": log.tid,
+                "cancel_amount": cancel_amount,
+                "cancel_tax_free_amount": "0",
+        }
+        res = requests.post(URL, headers=headers, params=params)
+
     order.state = "주문완료"
+    order.save()
+
     return render(request, 'payEnd.html')
 
 @login_required

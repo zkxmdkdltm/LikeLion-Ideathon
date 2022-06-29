@@ -66,3 +66,9 @@ class Order(models.Model):
 
     def __str__(self):
             return self.store.name
+
+
+class Log(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    tid = models.CharField(max_length=256)
