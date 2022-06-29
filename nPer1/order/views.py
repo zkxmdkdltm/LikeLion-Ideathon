@@ -2,11 +2,16 @@ from django.shortcuts import render, get_object_or_404
 
 from accounts.models import User
 from .models import Order, Store, Menu
+from django.core.paginator import Paginator
 
 
 def board(request):
-    orders = Order.objects.all()
-    return render(request, 'board.html', {'orders': orders})
+    if request.method == 'GET':
+        orders = Order.objects.all()
+        paginator = Paginator(orders, 5)
+        pagnum = request.GET.get('page')
+        orders = paginator.get_page(pagnum)
+        return render(request, 'board.html', {'orders': orders})
 
 
 def detail(request, id):
