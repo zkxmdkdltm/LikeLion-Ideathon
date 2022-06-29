@@ -15,10 +15,12 @@
   <div class="main-box">
     {% for order in orders %}
     <div class="order-box">
-      <img class="img" src={{order.store.image.url}} />
+      <div class="img">img</div>
       <ul>
-        <li><h3>{{order.create_at}} - {{order.state}}</h3></li>
-        <li><h3>{{order.store}}</h3></li>
+        <li><h3>[{{order.state}}] {{order.store}}</h3></li>
+        <hr />
+        <li><h5>{{order.create_at}}</h5></li>
+
         <li>
           <button
             id="dup-button"
