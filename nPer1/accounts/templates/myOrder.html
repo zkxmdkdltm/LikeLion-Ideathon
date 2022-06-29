@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-<link rel="stylesheet" href="{% static '{% static 'css/style.css' %}' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 {% endblock %}
 
 {% block body %}
@@ -16,7 +16,7 @@
 
       <div class="tel">
         <ul>
-          <li>tel : </li>
+          <li>tel : </li><link rel="stylesheet" href="{% static 'css/style.css' %}" />
           <li>{{store.tel}}</li>
         </ul>
         <ul>
@@ -47,10 +47,19 @@
     <div class="allOrder">
         <div class="myMenu">
             <div>내 주문 메뉴</div>
+            <ul>
+              <li>메뉴이름</li>
+              <li>{수량}개</li>
+              <li>{메뉴가격}원</li>
+          </ul>
         </div>
         <div class="teamMenu">
             <div>다른 사람 주문 메뉴</div>
-            <div></div>
+            <ul>
+              <li>메뉴이름</li>
+              <li>{수량}개</li>
+              <li>{메뉴가격}원</li>
+          </ul>
         </div>
     </div>
 </div>

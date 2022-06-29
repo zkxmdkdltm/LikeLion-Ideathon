@@ -18,24 +18,21 @@
 <main class="order-list-main" style="z-index: 999">
   <div class="main-box">
     {% for order in orders %}
-    <form method="POST" action="{% url 'accounts:myorders' %}">
-      {% csrf_token %}
-      <div class="order-box">
-        <div class="img">img</div>
-        <ul>
-          <li><h3>{{order.create_at}} - {{order.state}}</h3></li>
-          <li><h3>{{order.store}}</h3></li>
-          <li>
-            <button id="dup-button" type="submit" class="custom-btn btn-9">
-              주문상세
-            </button>
-            <button id="naverPayBtn" type="submit" class="custom-btn btn-9">
-              주문하기
-            </button>
-          </li>
-        </ul>
-      </div>
-    </form>
+    <div class="order-box">
+      <div class="img">img</div>
+      <ul>
+        <li><h3>{{order.create_at}} - {{order.state}}</h3></li>
+        <li><h3>{{order.store}}</h3></li>
+        <li>
+          <button id="dup-button" class="custom-btn btn-9" onclick="location.href='{% url 'accounts:myOrder' order.id %}'">
+            주문상세
+          </button>
+          <button id="naverPayBtn" class="custom-btn btn-9">
+            주문하기
+          </button>
+        </li>
+      </ul>
+    </div>
     {% endfor %}
   </div>
 </main>

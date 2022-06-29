@@ -15,8 +15,6 @@ a{
     width: 100%;
     position: fixed;
     display: block;
-    background-color: white;
-    z-index: 999;
 }
 .nav a{
     color:black;
@@ -148,16 +146,6 @@ a{
     font-size: 30px;
 }
 
-/* ------------------------------orderInfo.html-------------------------- */
-.order-info-main{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-.order-info-main table{
-    margin-top: 100px;
-    font-size: 20px;
-}
 
 
 
@@ -696,62 +684,24 @@ main{
 
 }
 
-/*------------------------allOrder-------------------------*/
-
-.allOrder {
+.myMenu ul {
     display: flex;
+    padding: 10px;
+    margin: 0;
 }
 
-.myMenu div {
-    width: 300px;
-    height: 50px;
-    text-align: center;
-    padding: 15px;
-}
-
-.teamMenu div {
-    width: 300px;
-    height: 50px;
-    text-align: center;
-    padding: 15px;
-}
-
-.myMenu,
-.teamMenu {
-    width: 300px;
-    height: 500px;
-}
-
-.myMenu {
-    background-color: #EBEAEA;
-    margin-right: 20px;
-}
-.teamMenu {
-    background-color: #EBEAEA;
-}
-
-.top_content {
-    padding: 15px;
-}
-
-.allOrderButton {
+.myMenu li {
+    flex: 1;
     text-align: center;
 }
 
-.delOrder {
-    font-size: 13.5px;
-    margin-bottom:15px ;
-    border: none;
-    width: 300px;
-    height: 50px;
-    background-color: #c2c1c1;
+.teamMenu ul {
+    display: flex;
+    padding: 10px;
+    margin: 0;
 }
-.comOrder {
-    font-size: 13.5px;
-    margin-bottom:15px ;
-    border: none;
-    width: 300px;
-    height: 50px;
-    background-color: #555555;
-    color: white;
+
+.teamMenu li {
+    flex: 1;
+    text-align: center;
 }

@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404
-
 from accounts.models import User
-from .models import Order, Store, Menu
 from django.core.paginator import Paginator
+from django.shortcuts import get_object_or_404, render
+from .models import Menu, Order, Store
+from django.http import HttpResponseRedirect
 
 
 def board(request):
@@ -16,10 +16,12 @@ def board(request):
 
 def detail(request, id):
     order = get_object_or_404(Order, pk=id)
-    menus = Menu.objects.all()
-    menu = menus.filter(store=order.store)
-    return render(request, 'detail.html', {'order': order, 'menu': menu})
-
+    if order.author != request.user:
+        menus = Menu.objects.all()
+        menu = menus.filter(store=order.store)
+        return render(request, 'detail.html', {'order': order, 'menu': menu})
+    else:
+        return HttpResponseRedirect('/accounts/myorder/' + str(id))
 
 def joinEnd(request):
     if request.method == 'POST':
