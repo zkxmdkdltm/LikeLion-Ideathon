@@ -91,4 +91,4 @@ def orderEnd(request):
 def orderFail(request, id):
     order = get_object_or_404(Order, pk=id)
     order.delete()
-    redirect('intro')
+    redirect('home:intro')
