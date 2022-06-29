@@ -130,10 +130,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
 SITE_ID = 1
 
 EMAIL_BACKEND = my_settings.EMAIL['EMAIL_BACKEND']
@@ -149,3 +145,8 @@ ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
