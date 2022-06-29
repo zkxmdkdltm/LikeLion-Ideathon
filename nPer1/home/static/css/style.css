@@ -24,6 +24,7 @@ a{
 }
 .nav-item{
     margin:15px;
+    width: 10%;
 }
 .nav-item a:hover{
     color:black;
@@ -180,11 +181,11 @@ main{
 }
 
 .menu:hover {
-    transform: scale(1.5);
-    -webkit-transform: scale(1.5);
-    -moz-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -o-transform: scale(1.5);
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
 }
 
 
@@ -194,22 +195,20 @@ main{
     font-family: 'Noto Sans KR', sans-serif; 
 }
 
-#main > ul {
+#main > .box_wrap {
     text-align: center;
+    padding: 0px 150px
 }
 
 #main > ul > .box {
     display: inline-block;
-    margin-right: 50px;
+    margin: 25px;
     margin-bottom: 20px;
     background-color: #EBEAEA;
     width: 230px;
     height: 220px;
 }
 
-#main > ul > .box > button{
-    color: black;
-}
 #main > ul > li > .img {
     background-color: rgb(255, 255, 255);
     width: 210px;
@@ -219,13 +218,17 @@ main{
 }
 .box {
     padding: 10px;
+    position: relative;
 }
 
-.box button a{
-    text-decoration: none;
-    color: inherit;
+.box button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: 0;
+    background-color: #c1c1c1;
+    font-weight: bold;
 }
-
 
 .box ul:first-child li:first-child{
     font-size: 15px;
@@ -243,14 +246,16 @@ main{
 }
 
 .data > ul {
-    text-align: center;
-    float: left;
+    text-align: left;
+    padding: 0;
 }
 
+
+
 .data > ul > li {
-    float: left;
     margin-right: 5px;
 }
+
 
 .container{
     display: flex;
@@ -261,6 +266,10 @@ main{
     color:black;
 }
 
+.box button a {
+    text-decoration: none;
+    color: inherit;
+}
 
 /*-------------------------store select-------------------------*/
 
@@ -584,6 +593,9 @@ main{
     border-bottom: 1px solid #c1c1c1;
 }
 
+.uploaded {
+    cursor: pointer;
+}
 .uploaded ul {
     border: 0;
     padding: 0;
@@ -592,7 +604,52 @@ main{
 
 }
 
-/*-------------------------paginatino-------------------------*/
+/*-------------------------order_list.html-------------------------*/
+.order-list-main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-box{
+    width: 50%;
+    margin-top:100px;
+    
+}
+.order-box{
+    width: 100%;
+    border: 1px solid black;
+    margin-bottom: 35px;
+    display: flex;
+}
+.order-box *{
+   margin: 10px;
+}
+
+.order-box ul{
+    width: 80%;;
+}
+
+.order-box ul li{
+    font-style: 30px;
+}
+
+.order-box button{
+    float:right;
+    margin-right: 40px;
+}
+.order-box .img{
+    margin:10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    width: 210px;
+    height: 170px;
+    border: 1px solid black;
+
+    text-align: center;
+    line-height: 170px;
+}
+
+/*-------------------------pagination-------------------------*/
 
 .pagination {
     --bs-pagination-color: black;

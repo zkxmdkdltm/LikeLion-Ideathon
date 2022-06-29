@@ -246,7 +246,6 @@ main{
 }
 
 .data > ul {
-    
     text-align: left;
     padding: 0;
 }
@@ -254,7 +253,6 @@ main{
 
 
 .data > ul > li {
-    /* float: left; */
     margin-right: 5px;
 }
 
@@ -268,6 +266,10 @@ main{
     color:black;
 }
 
+.box button a {
+    text-decoration: none;
+    color: inherit;
+}
 
 /*-------------------------store select-------------------------*/
 
