@@ -39,9 +39,17 @@ a{
 .myInfo{
     float: right;
     margin-top: -80px;
-    margin-right: 200px;
+    margin-right: 400px;
 }
 .myInfo a{
+    font-size: 25px;
+}
+.order-list{
+    float: right;
+    margin-top: -80px;
+    margin-right: 200px;
+}
+.order-list a{
     font-size: 25px;
 }
 
@@ -120,7 +128,7 @@ a{
     margin-top: 40px;
 }
 
-#dup-button{
+.order-box ul li button{
     font-size: 20px;
     width: 120px;
     height: 50px;

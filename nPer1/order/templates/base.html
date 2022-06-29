@@ -16,7 +16,10 @@
         <a onclick="history.back()" style="cursor:pointer;">&lt BACK</a>
     </li>
       <li class="myInfo">
-        <a class="" href="{% url 'accounts:myInfo' %">내정보</a>
+        <a class="" href="{% url accounts:myInfo %">내정보</a>
+      </li>
+      <li class="order-list">
+        <a class="" href="{% url accounts:myInfo %">주문내역</a>
       </li>
     </ul>
     {% block body %} {% endblock %}
