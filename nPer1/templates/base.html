@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <title>Document</title>
+    <title>WEITER</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     {% block head %} {% endblock %}
@@ -12,15 +12,14 @@
       <li class="nav-item">
         <a class="nav-link active" href="{% url 'home:intro' %}">WEITER</a>
       </li>
-      <li class="intro">
-        <a onclick="history.back()" style="cursor: pointer">&lt BACK</a>
-      </li>
+      {% if user.is_authenticated %}
       <li class="myInfo">
-        <a class="" href="{% url accounts:myInfo %}">내정보</a>
+        <a class="" href="{% url 'accounts:myinfo' %}">내정보</a>
       </li>
       <li class="order-list">
-        <a class="" href="{% url accounts:myInfo %}">주문내역</a>
+        <a class="" href="{% url 'accounts:myinfo' %}">주문내역</a>
       </li>
+      {% endif %}
     </ul>
     {% block body %} {% endblock %}
   </body>

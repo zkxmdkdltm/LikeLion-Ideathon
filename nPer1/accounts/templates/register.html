@@ -1,84 +1,134 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/button.css'%}">
-    <link rel="stylesheet" href="{% static 'css/register.css'%}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{% static 'javascript/register.js'%}"></script>
+{% extends 'base.html' %} {% block head %}
 
-    <title>Register</title>
-</head>
-<body>
-    <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="{% url 'home:intro' %}">WEITER</a>
-        </li>
-        <li class="intro">
-            <div><a class="" href="{% url 'accounts:login'%}">lt LOGIN</a></div>
-        </li>
-    </ul>
-    <section class="register-form">
-        <form method="POST" action="{% url 'accounts:register' %}">
-            {% csrf_token %}
-            <div class="int-area" style="width:110%;">
-                <p>아이디</p>
-                <input class="with-button" type="text" value="qwer1234" name="username" id="username" autocomplete="off" required  oninput="this.value = this.value.replace(/[^a-zA-Z0-9.]/g, '').replace(/(\..*)\./g, '$1');">
-                {% comment %} <button type="submit" class="custom-btn btn-9">중복확인</button> {% endcomment %}
-            </div>
-            <div class="int-area" style="width:110%;">
-                <p>닉네임</p>
-                <input class="with-button"type="text" value="프로틴형님" name="nickname" id="nickname" autocomplete="off" required>
-                {% comment %} <button type="submit" class="custom-btn btn-9">중복확인</button> {% endcomment %}
-            </div>
-            <div class="int-area">
-                <p>비밀번호 (6~16자, 특수문자 포함)</p>
-                <input type="password" value=".12341234" name="password" id="password" autocomplete="off" onchange="check_pw()" required>
-            </div>
-            <div class="int-area">
-                <p>비밀번호 확인</p>
-                <input type="password" value=".12341234" name="confirm" id="confirm" autocomplete="off" onchange="check_pw()" required>
-                <span id="check"></span>
-            </div>
-            <div class="int-area">
-                <p>이름</p>
-                <input type="text" value="나다" style="ime-mode:active;" name="name" id="name" autocomplete="off" required oninput="this.value = this.value.replace(/[^ㄱ-힣.]/g, '').replace(/(\..*)\./g, '$1');">
-            </div>
-            <div class="int-area" style="width:107%;">
-                <p>Email</p>
-                <input class="with-button" value="e_hyeok9@kookmin.ac.kr" type="text" name="email" id="email" placeholder="Email 입력" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호 입력'" autocomplete="off"/>
-                {% comment %} <button type="submit" class="custom-btn btn-9">인증하기</button> {% endcomment %}
-                {% comment %} <input type="text" style="margin-top: 20px; width:400px;" name="email_verify" id="email_verify" placeholder="인증번호를 입력하세요" onfocus="this.placeholder=''" onblur="this.placeholder='인증번호를 입력하세요'" autocomplete="off" /> {% endcomment %}
-            </div>
-            <div class="int-area">
-                <p>주소</p>
-                <input type="text" placeholder="주소" id="address_kakao" name="address" readonly>
-                <input type="text" placeholder="상세주소" name="address_detail">
-            </div>
-            <div class="btn-area">
-                <button type="submit" class="custom-btn btn-9" >가입하기</button>
-            </div>
-        </form>
-    </section> <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script>
-        window.onload = function(){
-            document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
-                //카카오 지도 발생
-                new daum.Postcode({
-                    oncomplete: function(data) { //선택시 입력값 세팅
-                        document.getElementById("address_kakao").value = data.address; // 주소 넣기
-                        document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
-                    }
-                }).open();
-            });
-        }
-    </script>
-    {% if message %}
-    <script>alert('{{ message }}');</script>
-    {% endif %}
-</body>
-</html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% load static %}
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+  crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="{% static 'css/button.css'%}" />
+<link rel="stylesheet" href="{% static 'css/register.css'%}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{% static 'javascript/register.js'%}"></script>
+{% endblock %} {% block body %}
+<section class="register-form">
+  <form method="POST" action="{% url 'accounts:register' %}">
+    {% csrf_token %}
+    <div class="int-area" style="width: 110%">
+      <p>아이디</p>
+      <input
+        class="with-button"
+        type="text"
+        value="qwer1234"
+        name="username"
+        id="username"
+        autocomplete="off"
+        required
+        oninput="this.value = this.value.replace(/[^a-zA-Z0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+      />
+    </div>
+    <div class="int-area" style="width: 110%">
+      <p>닉네임</p>
+      <input
+        class="with-button"
+        type="text"
+        value="프로틴형님"
+        name="nickname"
+        id="nickname"
+        autocomplete="off"
+        required
+      />
+    </div>
+    <div class="int-area">
+      <p>비밀번호 (6~16자, 특수문자 포함)</p>
+      <input
+        type="password"
+        value=".12341234"
+        name="password"
+        id="password"
+        autocomplete="off"
+        onchange="check_pw()"
+        required
+      />
+    </div>
+    <div class="int-area">
+      <p>비밀번호 확인</p>
+      <input
+        type="password"
+        value=".12341234"
+        name="confirm"
+        id="confirm"
+        autocomplete="off"
+        onchange="check_pw()"
+        required
+      />
+      <span id="check"></span>
+    </div>
+    <div class="int-area">
+      <p>이름</p>
+      <input
+        type="text"
+        value="나다"
+        style="ime-mode: active"
+        name="name"
+        id="name"
+        autocomplete="off"
+        required
+        oninput="this.value = this.value.replace(/[^ㄱ-힣.]/g, '').replace(/(\..*)\./g, '$1');"
+      />
+    </div>
+    <div class="int-area" style="width: 107%">
+      <p>Email</p>
+      <input
+        class="with-button"
+        value="e_hyeok9@kookmin.ac.kr"
+        type="text"
+        name="email"
+        id="email"
+        placeholder="Email 입력"
+        onfocus="this.placeholder=''"
+        onblur="this.placeholder='전화번호 입력'"
+        autocomplete="off"
+      />
+    </div>
+    <div class="int-area">
+      <p>주소</p>
+      <input
+        type="text"
+        placeholder="주소"
+        id="address_kakao"
+        name="address"
+        readonly
+      />
+      <input type="text" placeholder="상세주소" name="address_detail" />
+    </div>
+    <div class="btn-area">
+      <button type="submit" class="custom-btn btn-9">가입하기</button>
+    </div>
+  </form>
+</section>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+  window.onload = function () {
+    document
+      .getElementById("address_kakao")
+      .addEventListener("click", function () {
+        //주소입력칸을 클릭하면
+        //카카오 지도 발생
+        new daum.Postcode({
+          oncomplete: function (data) {
+            //선택시 입력값 세팅
+            document.getElementById("address_kakao").value = data.address; // 주소 넣기
+            document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+          },
+        }).open();
+      });
+  };
+</script>
+{% if message %}
+<script>
+  alert("{{ message }}");
+</script>
+{% endif %} {% endblock %}

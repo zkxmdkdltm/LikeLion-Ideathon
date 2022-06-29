@@ -1,32 +1,14 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% extends 'base.html' %} {% block head %}
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
     <link rel="stylesheet" href="{% static 'css/button.css'%}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{% endblock %}
 
-    <title>Document</title>
-</head>
-<body>
-    <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="{% url 'home:intro' %}">WEITER</a>
-        </li>
-        <li class="intro">
-            <a href="{% url 'home:intro' %}" style="cursor:pointer;">&lt INTRO</a>
-        </li>
-        <li class="myInfo">
-            <a class="" href="{% url 'accounts:myinfo' %}">내정보</a>
-        </li>
-        <li class="order-list">
-            <a class="" href="{% url accounts:myInfo %">주문내역</a>
-          </li>
-    </ul>
+{% block body %}
 
     <div class="text-box">
         <h1 style="font-size:60px;">HOST</h1>
@@ -43,5 +25,4 @@
     {% load static %}
     <script src="{% static 'javascript/host.js'%}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-</body>
-</html>
+{% endblock %}
