@@ -87,7 +87,7 @@ def orderEnd(request):
             host_option = request.POST['host_option'],
             option_num = option_num,
             pay_option = int(request.POST['pay_option']),
-            total = 0,
+            total = menu_total,
             menus = menus,
             author = get_object_or_404(User, id=request.user.id),
         )
@@ -147,6 +147,10 @@ def pay_approve(request):
         'res': res,
         'amount': amount,
     }
+
+    order = get_object_or_404(Order, pk=request.session['order_id'])
+    order.state = "주문중"
+    order.save()
 
     return render(request, 'orderEnd.html', {'order_id': request.session['order_id']})
 
