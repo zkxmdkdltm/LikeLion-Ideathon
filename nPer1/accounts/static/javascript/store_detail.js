@@ -104,7 +104,7 @@ var showMyMenu = () => {
   }
 
   sumPirce();
-}
+
 
 //초기화: order content 안에 생성된 자식 요소 모두 삭제하기 
 var removeAllchild = () => {
