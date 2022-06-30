@@ -66,6 +66,7 @@ def joinEnd(request):
         print(res.json())
         request.session['tid'] = res.json()['tid']
         request.session['order_id'] = order.id      # 결제 승인시 사용할 tid를 세션에 저장
+        request.session.set_expiry(6000)
         next_url = res.json()['next_redirect_pc_url']   # 결제 페이지로 넘어갈 url을 저장
         return redirect(next_url) 
         
@@ -180,6 +181,7 @@ def orderEnd(request):
         res = requests.post(URL, headers=headers, params=params)
         request.session['tid'] = res.json()['tid']
         request.session['order_id'] = order.id      # 결제 승인시 사용할 tid를 세션에 저장
+        request.session.set_expiry(6000)
         next_url = res.json()['next_redirect_pc_url']   # 결제 페이지로 넘어갈 url을 저장
         return redirect(next_url) 
 
