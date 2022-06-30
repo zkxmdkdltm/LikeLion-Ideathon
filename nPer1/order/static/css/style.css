@@ -138,6 +138,10 @@ a{
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+.info li:nth-child(2){
+    flex: 1.5;
+}
+
 #change-info{
     font-size: 13px;
     width: 120px;

@@ -10,32 +10,40 @@
     {% endblock %}
 
 {% block body %}
-    <div class="info-box">
-        <ul class="info">
-            <li>아이디: {{user.username}}</li>
-            {% comment %} <li>비밀번호: {{user.password}}</li> {% endcomment %}
-            <li>이름: {{user.name}}</li>
-            <form method="POST" action="{% url 'accounts:info_change' %}" style="margin-top:0px">
-            {% csrf_token %}
-            <li>
-                <div class="int-area" >
-                    <p>닉네임: 
-                        <input class="with-button" style="width:300px;"type="text" name="nickname" id="nickname" autocomplete="off" required>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="int-area">
-                    <p>주소</p>
-                    <input type="text" placeholder="주소" id="address_kakao" name="address" readonly>
-                    <input type="text" placeholder="상세주소" name="address_detail">
-                </div>
-            </li>
-
+<div class="info-box">
+    <div class="info">
+        <ul>
+            <li>아이디</li>
+            <li>{{user.username}}</li>
         </ul>
-        <button id="change-info" type="submit" class="custom-btn btn-9" >정보수정</button>
-    </form>
+        <hr>
+        <!-- <ul>
+            <li>비밀번호</li>
+            <li>{{user.password}}</li>
+        </ul> -->
+        <ul>
+            <li>이름</li>
+            <li>{{user.name}}</li>
+        </ul>
+        <hr>
+        <form method="POST" action="{% url 'accounts:info_change' %}" style="margin-top:0px"></form>
+         {% csrf_token %}
+        <ul class="int-area">
+            <li>닉네임</li>
+            <li><input style="width:100%; " class="with-button" type="text" name="nickname" id="nickname" autocomplete="off" required></li>
+        </ul>
+        <hr>
+        <ul class="int-area">
+            <li>주소</li>
+            <li>
+                <input type="text" placeholder="주소" id="address_kakao" name="address" readonly>
+                <input style="margin-top:10px;" type="text" placeholder="상세주소" name="address_detail">
+            </li>
+        </ul>
     </div>
+    <button  id="change-info" type="submit" class="custom-btn btn-9" >정보수정완료</button>
+</form>
+</div>
     
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>

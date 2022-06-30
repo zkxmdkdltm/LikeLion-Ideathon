@@ -45,7 +45,7 @@ form{
     width: 400px;
 }
 
-.int-area{
+.info{
     width: 100%;
     position: relative;
     margin-top: 20px;
@@ -80,7 +80,6 @@ form{
 }
 
 .int-area .with-button{
-    width: 64%;
     display: inline-block;
 }
 .btn-9{

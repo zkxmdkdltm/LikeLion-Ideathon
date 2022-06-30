@@ -18,7 +18,6 @@ a{
 }
 .nav-item{
     margin:15px;
-    width:10%;
 }
 .nav-item a:hover{
     color:black;
@@ -37,7 +36,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 105vh;
+    height: 110vh;
 }
 
 
@@ -46,7 +45,7 @@ form{
     width: 400px;
 }
 
-.int-area{
+.info{
     width: 100%;
     position: relative;
     margin-top: 20px;
@@ -81,7 +80,6 @@ form{
 }
 
 .int-area .with-button{
-    width: 64%;
     display: inline-block;
 }
 .btn-9{
@@ -107,10 +105,4 @@ form{
     border: 1px solid black;
     font-size: 20px;
     cursor: pointer;
-}
-
-.int-area h5{
-    padding-left: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid black;
 }

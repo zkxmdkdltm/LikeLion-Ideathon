@@ -15,12 +15,10 @@ a{
     width: 100%;
     position: fixed;
     display: block;
-    background-color: white;
-    z-index: 999;
 }
 .nav a{
     color:black;
-    font-size: 30px;
+    font-size: 45px;
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -28,8 +26,8 @@ a{
     margin:15px;
     width: 10%;
 }
-.nav a:hover{
-    color: rgb(248, 180, 53);
+.nav-item a:hover{
+    color:black;
 }
 .intro{
     float: left;
@@ -44,27 +42,27 @@ a{
     margin-right: 600px;
 }
 .myInfo a{
-    font-size: 21px;
+    font-size: 25px;
 }
 .order-list{
     float: right;
     margin-top: -80px;
-    margin-right: 300px;
+    margin-right: 400px;
 }
 .order-list a{
-    font-size: 21px;
+    font-size: 25px;
 }
 .log-out{
     float: right;
     margin-top: -80px;
-    margin-right: 150px;
+    margin-right: 200px;
 }
 .log-out a{
-    font-size: 21px;
+    font-size: 25px
 }
 .text-box{
     position: absolute;
-    top:30%;
+    top:40%;
     left:20%;
     font-size: 1.5rem;
 }
@@ -121,7 +119,7 @@ a{
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 30%;
+    
 }
 
 .info{
@@ -139,7 +137,9 @@ a{
     font-size: 18px;
     font-family: 'Noto Sans KR', sans-serif;
 }
-
+.info li:nth-child(2){
+    flex: 1.5;
+}
 #change-info{
     font-size: 13px;
     width: 120px;
@@ -158,9 +158,6 @@ a{
     width: 800px;
     font-size: 30px;
 }
-
-
-
 
 
 
@@ -474,14 +471,14 @@ main{
     text-align: center;
 }
 
-.order a {
+.order{
     position: relative;
     text-decoration: none;
     color: white;
     padding-bottom: 2px;
 }
 
-.order a:before {
+.order:before {
     content: '';
     position: absolute; /*부모 요소에는 position: relative를 주어야 한다.*/
     background-color: white;
@@ -496,7 +493,7 @@ main{
     transform: translateX(-50%) ;
 }
 
-.order a:hover:before {
+.order:hover:before {
     width: 100%;
 }
 
@@ -537,10 +534,11 @@ main{
 
 .orderEnd_wrap {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
+    
 }
 
 .orderEnd_wrap p {
@@ -551,7 +549,6 @@ main{
 
 .orderEnd_wrap button {
     font-family: 'Noto Sans KR', sans-serif;
-    margin-top: 50px;
     width: 120px;
     height: 50px;
     font-weight: bold;
@@ -597,7 +594,6 @@ main{
 .board_wrap ul li:nth-child(5) {
     flex: 0.5;
 }
-
 .board_wrap button {
     margin: 0;
     border: 1px solid black;
@@ -684,12 +680,7 @@ main{
 }
 
 /*-------------------------pagination-------------------------*/
-.board_wrap{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
+
 .pagination {
     --bs-pagination-color: black;
     --bs-pagination-border:0;
@@ -784,8 +775,4 @@ main{
 .teamMenu li {
     flex: 1;
     text-align: center;
-}
-
-.star {
-    color: rgb(250, 175, 0);
 }
