@@ -5,13 +5,14 @@
     <title>WEITER</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     {% block head %} {% endblock %}
   </head>
   <body>
     <ul class="nav">
       <li class="nav-item">
         <a class="nav-link active" href="{% url 'home:intro' %}"
-          ><img style="width: 200px" src="{% static 'img/logo.png' %}"
+          ><img style="width: 220px" src="{% static 'img/BOLD.png' %}"
         /></a>
       </li>
       {% if user.is_authenticated %}

@@ -118,35 +118,23 @@ a{
 /*-----------------------------myInfo.html----------------------*/
 .info-box{
     position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 30%;
+    top:30%;
+    left:20%;
 }
 
 .info{
    font-size: 30px;
-   width: 40%;
-   width: 100%;
-   margin-bottom: 70px;
 }
-.info ul {
-    margin: 20px;
-    padding: 0;
-    display: flex;
-}
-.info li {
-    flex: 1;
-    font-size: 18px;
-    font-family: 'Noto Sans KR', sans-serif;
+.info li{
+    margin-top: 40px;
 }
 
 #change-info{
-    font-size: 13px;
+    font-size: 20px;
     width: 120px;
     height: 50px;
-    margin: auto;
-    display: block;
+    margin-left: 30px;
+    margin-top: 40px;
 }
 
 .order-box ul li button{
@@ -159,6 +147,8 @@ a{
     width: 800px;
     font-size: 30px;
 }
+
+
 
 
 
