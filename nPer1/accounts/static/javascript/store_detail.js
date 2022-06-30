@@ -24,18 +24,7 @@ function addCheck(){
   console.log(checkIndex);
 }
 
-const checkMin = (url) =>{
-  
-  var min_price = (document.getElementById("min_price").innerText);
-  min_price = parseInt(min_price.replace(/[^0-9]/g, ''));
-  var sum = (document.getElementById("total").innerText);
-  sum = parseInt(sum.replace(/[^0-9]/g, ''));
-  if(sum < min_price){
-    alert("총 금액이 최소 주문 금액보다 " +(min_price-sum) + "원 부족합니다!");
-  } else{
-    location.href="http://localhost:8000/accounts/payEnd/"+url;
-  }
-}
+
 
 // 찾은 인덱스 내 주문 옵션으로 불러오기
 
@@ -47,7 +36,6 @@ var showMyMenu = () => {
       orderButton.setAttribute('type','submit');
       orderButton.innerText="주문하기";
     }
-  }
 
   const Area = document.querySelector(".order_content");
 
@@ -152,8 +140,10 @@ function copyURL(url) {
 
 // 별점구하기
 var star=[];
-let star_rate = document.querySelectorAll(".star");
+var star_rate = document.querySelectorAll(".star");
+
 var star = () => {
+  var star_rate = document.querySelectorAll(".star");
   star = [];
   for(var i=0;i<star_rate.length;i++){
          star.push(i);
@@ -179,3 +169,16 @@ var star = () => {
   }
 }
 star();
+
+var checkMin = (url) =>{
+  
+  var min_price = (document.getElementById("min_price").innerText);
+  min_price = parseInt(min_price.replace(/[^0-9]/g, ''));
+  var sum = (document.getElementById("total").innerText);
+  sum = parseInt(sum.replace(/[^0-9]/g, ''));
+  if(sum < min_price){
+    alert("총 금액이 최소 주문 금액보다 " +(min_price-sum) + "원 부족합니다!");
+  } else{
+    location.href="http://localhost:8000/accounts/payEnd/"+url;
+  }
+}
