@@ -15,10 +15,11 @@
   <div class="main-box">
     {% if orders %} {% for order in orders %}
     <div class="order-box">
-      <img class="img" src={{order.store.image.url}} />
+      <img class="img" src="{{order.store.image.url}}" />
       <ul>
-        <li><h3>{{order.create_at}} - {{order.state}}</h3></li>
-        <li><h3>{{order.store}}</h3></li>
+        <li><h3>[{{order.state}}] {{order.store}}</h3></li>
+        <hr />
+        <li><h5>{{order.create_at}}</h5></li>
         {% if user.id == order.author.id %}
         <li><h3>host</h3></li>
         {% endif %}

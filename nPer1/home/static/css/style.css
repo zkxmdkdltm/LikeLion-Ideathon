@@ -41,26 +41,26 @@ a{
 .myInfo{
     float: right;
     margin-top: -80px;
-    margin-right: 600px;
+    margin-right: 450px;
 }
 .myInfo a{
-    font-size: 25px;
+    font-size: 21px;
 }
 .order-list{
     float: right;
     margin-top: -80px;
-    margin-right: 400px;
+    margin-right: 300px;
 }
 .order-list a{
-    font-size: 25px;
+    font-size: 21px;
 }
 .log-out{
     float: right;
     margin-top: -80px;
-    margin-right: 200px;
+    margin-right: 150px;
 }
 .log-out a{
-    font-size: 25px
+    font-size: 21px;
 }
 .text-box{
     position: absolute;
