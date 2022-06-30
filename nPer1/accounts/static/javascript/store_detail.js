@@ -43,11 +43,6 @@ var showMyMenu = () => {
   removeAllchild(); // 초기화
 
   if(clickCount > 0) {
-    var min_price = (document.getElementById("min_price").innerText);
-    min_price = parseInt(min_price.replace(/[^0-9]/g, ''));
-    if(sum < min_price){
-      alert("총 금액이 최소 주문 금액보다 " +(min_price-sum) + "원 부족합니다!");
-    } else{
       orderButton.removeAttribute('type');
       orderButton.setAttribute('type','submit');
       orderButton.innerText="주문하기";
