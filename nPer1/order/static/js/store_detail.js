@@ -25,7 +25,7 @@ function addCheck(){
   console.log(checkIndex);
 }
 
-const checkMin = () =>{
+var checkMin = () =>{
   var min_price = (document.getElementById("min_price").innerText);
   min_price = parseInt(min_price.replace(/[^0-9]/g, ''));
   if(sum < min_price){
