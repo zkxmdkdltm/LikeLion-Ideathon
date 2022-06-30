@@ -151,11 +151,13 @@ function copyURL(url) {
 
 
 // 별점구하기
+var star=[];
 let star_rate = document.querySelectorAll(".star");
-
+var star = () => {
   star = [];
   for(var i=0;i<star_rate.length;i++){
          star.push(i);
+         console.log(star);
   }
 
   for(var i=0;i<star_rate.length;i++){
@@ -175,4 +177,5 @@ let star_rate = document.querySelectorAll(".star");
       star_rate[i].innerText = "☆☆☆☆☆";
     }   
   }
+}
 star();
