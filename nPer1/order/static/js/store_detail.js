@@ -1,5 +1,5 @@
 
-// 체크된 메뉴 인덱스 찾기
+
 var checkIndex = [];
 
 var menuSaveClick = document.querySelector(".menuSave");
@@ -10,6 +10,7 @@ var clickedCount = () => {
   clickCount+=1;
 }
 
+// 체크된 메뉴 인덱스 찾기
 function addCheck(){
   let chs = document.getElementsByName("choose");
   checkIndex = [];
@@ -152,22 +153,47 @@ function copyURL(url) {
 }
 
 
+// function addCheck(){
+//   let chs = document.getElementsByName("choose");
+//   checkIndex = [];
+
+//   for(var i=0; i<chs.length; i++){
+
+//       if(chs[i].checked==true){
+
+//          checkIndex.push(i);
+//       }
+//   }
+//   console.log(checkIndex);
+// }
 
 
+var star = [];
+var star = () => {
 
+  let star_rate = document.querySelectorAll(".star");
+  
+  star = [];
+  for(var i=0;i<star_rate.length;i++){
+         star.push(i);
+  }
 
-var star = document.querySelector(".star").innerText;
-var star_rate = document.querySelector(".star");
-if(star == "5.0") {
-  star_rate.innerText = "★★★★★";
-} else if(star == "4.0"){
-  star_rate.innerText = "★★★★☆";
-} else if(star == "3.0"){
-  star_rate.innerText = "★★★☆☆";
-}else if(star == "2.0"){
-  star_rate.innerText = "★★☆☆☆";
-}else if(star == "1.0"){
-  star_rate.innerText = "★☆☆☆☆";
-} else if(star == "0"){
-  star_rate.innerText = "☆☆☆☆☆";
-}   
+  for(var i=0;i<star_rate.length;i++){
+    var starText = star_rate[i].innerText;
+    console.log(starText);
+    if(starText == "5.0") {
+      star_rate[i].innerText = "★★★★★";
+    } else if(starText == "4.0"){
+      star_rate[i].innerText = "★★★★☆";
+    } else if(starText == "3.0"){
+      star_rate[i].innerText = "★★★☆☆";
+    }else if(starText == "2.0"){
+      star_rate[i].innerText = "★★☆☆☆";
+    }else if(starText == "1.0"){
+      star_rate[i].innerText = "★☆☆☆☆";
+    } else if(starText == "0"){
+      star_rate[i].innerText = "☆☆☆☆☆";
+    }   
+  }
+}
+star();
