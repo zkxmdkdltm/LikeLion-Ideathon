@@ -22,12 +22,12 @@ a{
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
 }
-.nav a:hover{
-    color: rgb(248, 180, 53);
-}
 .nav-item{
     margin:15px;
     width: 10%;
+}
+.nav a:hover{
+    color:rgb(248, 180, 53);
 }
 .intro{
     float: left;
@@ -42,27 +42,27 @@ a{
     margin-right: 600px;
 }
 .myInfo a{
-    font-size: 21px;
+    font-size: 25px;
 }
 .order-list{
     float: right;
     margin-top: -80px;
-    margin-right: 300px;
+    margin-right: 400px;
 }
 .order-list a{
-    font-size: 21px;
+    font-size: 25px;
 }
 .log-out{
     float: right;
     margin-top: -80px;
-    margin-right: 150px;
+    margin-right: 200px;
 }
 .log-out a{
-    font-size: 21px;
+    font-size: 25px
 }
 .text-box{
     position: absolute;
-    top:30%;
+    top:40%;
     left:20%;
     font-size: 1.5rem;
 }
@@ -119,7 +119,7 @@ a{
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 30%;
+    
 }
 
 .info{
@@ -137,11 +137,9 @@ a{
     font-size: 18px;
     font-family: 'Noto Sans KR', sans-serif;
 }
-
 .info li:nth-child(2){
     flex: 1.5;
 }
-
 #change-info{
     font-size: 13px;
     width: 120px;
@@ -151,15 +149,16 @@ a{
 }
 
 .order-box ul li button{
-    font-size: 20px;
-    width: 120px;
-    height: 50px;
+    font-size: 15px;
+    width: 80px;
+    height: 40px;
 }
 
 .info-box .info p{
     width: 800px;
     font-size: 30px;
 }
+
 
 
 
@@ -472,14 +471,14 @@ main{
     text-align: center;
 }
 
-.order a {
+.order{
     position: relative;
     text-decoration: none;
     color: white;
     padding-bottom: 2px;
 }
 
-.order a:before {
+.order:before {
     content: '';
     position: absolute; /*부모 요소에는 position: relative를 주어야 한다.*/
     background-color: white;
@@ -494,7 +493,7 @@ main{
     transform: translateX(-50%) ;
 }
 
-.order a:hover:before {
+.order:hover:before {
     width: 100%;
 }
 
@@ -535,10 +534,11 @@ main{
 
 .orderEnd_wrap {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
+    
 }
 
 .orderEnd_wrap p {
@@ -549,7 +549,6 @@ main{
 
 .orderEnd_wrap button {
     font-family: 'Noto Sans KR', sans-serif;
-    margin-top: 50px;
     width: 120px;
     height: 50px;
     font-weight: bold;
@@ -595,7 +594,6 @@ main{
 .board_wrap ul li:nth-child(5) {
     flex: 0.5;
 }
-
 .board_wrap button {
     margin: 0;
     border: 1px solid black;
@@ -643,7 +641,7 @@ main{
     justify-content: center;
 }
 .main-box{
-    width: 50%;
+    width: 40%;
     margin-top:100px;
     
 }
@@ -658,11 +656,12 @@ main{
 }
 
 .order-box ul{
-    width: 80%;;
+    width: 80%;
+    padding: 0;
 }
 
 .order-box ul li{
-    font-style: 30px;
+    font-size: 15px;
 }
 
 .order-box button{
@@ -683,11 +682,8 @@ main{
 
 /*-------------------------pagination-------------------------*/
 
-.board_wrap{
-    
-}
 .pagination {
-    /* --bs-pagination-color: black;
+    --bs-pagination-color: black;
     --bs-pagination-border:0;
     --bs-pagination-bg:0;
     --bs-pagination-font-size: 13px;
@@ -696,9 +692,68 @@ main{
     --bs-pagination-disabled-bg:none;
     --bs-pagination-disabled-color: none;
     --bs-pagination-hover-color: #c1c1c1;
-    --bs-pagination-focus-box-shadow:none; */
-    
+    --bs-pagination-focus-box-shadow:none;
 
+}
+
+/*------------------------allOrder-------------------------*/
+
+.allOrder {
+    display: flex;
+}
+
+.myMenu div {
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    padding: 15px;
+}
+
+.teamMenu div {
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    padding: 15px;
+}
+
+.myMenu,
+.teamMenu {
+    width: 300px;
+    height: 500px;
+}
+
+.myMenu {
+    background-color: #EBEAEA;
+    margin-right: 20px;
+}
+.teamMenu {
+    background-color: #EBEAEA;
+}
+
+.top_content {
+    padding: 15px;
+}
+
+.allOrderButton {
+    text-align: center;
+}
+
+.delOrder {
+    font-size: 13.5px;
+    margin-bottom:15px ;
+    border: none;
+    width: 300px;
+    height: 50px;
+    background-color: #c2c1c1;
+}
+.comOrder {
+    font-size: 13.5px;
+    margin-bottom:15px ;
+    border: none;
+    width: 300px;
+    height: 50px;
+    background-color: #555555;
+    color: white;
 }
 
 .myMenu ul {

@@ -17,11 +17,11 @@
     <div class="order-box">
       <img class="img" src="{{order.store.image.url}}" />
       <ul>
-        <li><h3>[{{order.state}}] {{order.store}}</h3></li>
+        <li><h3 style="font-size:15px;">[{{order.state}}] {{order.store}}</h3></li>
         <hr />
-        <li><h5>{{order.create_at}}</h5></li>
+        <li><h5 style="font-size:12px;">{{order.create_at}}</h5></li>
         {% if user.id == order.author.id %}
-        <li><h3>host</h3></li>
+        <li><h3 style="font-size:15px;">host</h3></li>
         {% endif %}
         <li>
           <button
