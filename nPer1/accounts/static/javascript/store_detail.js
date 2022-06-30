@@ -155,20 +155,29 @@ function copyURL(url) {
 
 
 
+// 별점구하기
+let star_rate = document.querySelectorAll(".star");
 
+  star = [];
+  for(var i=0;i<star_rate.length;i++){
+         star.push(i);
+  }
 
-var star = document.querySelector(".star").innerText;
-var star_rate = document.querySelector(".star");
-if(star == "5.0") {
-  star_rate.innerText = "★★★★★";
-} else if(star == "4.0"){
-  star_rate.innerText = "★★★★☆";
-} else if(star == "3.0"){
-  star_rate.innerText = "★★★☆☆";
-}else if(star == "2.0"){
-  star_rate.innerText = "★★☆☆☆";
-}else if(star == "1.0"){
-  star_rate.innerText = "★☆☆☆☆";
-} else if(star == "0"){
-  star_rate.innerText = "☆☆☆☆☆";
-}   
+  for(var i=0;i<star_rate.length;i++){
+    var starText = star_rate[i].innerText;
+    console.log(starText);
+    if(starText == "5.0") {
+      star_rate[i].innerText = "★★★★★";
+    } else if(starText == "4.0"){
+      star_rate[i].innerText = "★★★★☆";
+    } else if(starText == "3.0"){
+      star_rate[i].innerText = "★★★☆☆";
+    }else if(starText == "2.0"){
+      star_rate[i].innerText = "★★☆☆☆";
+    }else if(starText == "1.0"){
+      star_rate[i].innerText = "★☆☆☆☆";
+    } else if(starText == "0"){
+      star_rate[i].innerText = "☆☆☆☆☆";
+    }   
+  }
+star();
