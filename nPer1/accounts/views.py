@@ -1,13 +1,11 @@
 from email import message
-import math
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.http import HttpResponseRedirect
-import requests
 
 from .models import User
-from order.models import Order, Store, Menu, Log
+from order.models import Order, Store, Menu
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
@@ -96,6 +94,7 @@ def logout(request):
     return HttpResponseRedirect('/')
 
 def myinfo(request):
+    print(request.user.address_detail)
     return render(request, 'myInfo.html')
 
 """
@@ -237,6 +236,7 @@ def myinfochange(request):
         user = request.user
         user.nickname = request.POST['nickname']
         user.address = request.POST['address']
+        user.address_detail = request.POST['address_detail']
         user.save()
         return redirect('accounts:myinfo')
     return render(request, 'myInfo-change.html')
