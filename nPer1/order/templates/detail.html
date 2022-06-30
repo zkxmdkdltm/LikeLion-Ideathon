@@ -20,6 +20,7 @@
               <li>tel : </li>
               <li>{{order.store.tel}}</li>
             </ul>
+
           </div>
 
           <div class="deliveryInfo">
@@ -75,9 +76,12 @@
 
 
         <div class="box2">
+          
           <form method="POST" action="{% url 'order:joinEnd' %}">
           {% csrf_token %}
           <div class="follow">
+            <div >배달 픽업 장소</div>
+            <div style="margin-bottom:10px; font-weight:bold; font-size:18px;">{{order.author.address}}</div>
             <div class="orderOption">
               <div class="top">내 주문 옵션</div>
               <div class="follow_content order_content">

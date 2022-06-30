@@ -71,7 +71,8 @@
       {% csrf_token %} {% endcomment %}
       <div class="follow">
         <div class="hostOption">
-
+            <div >배달 픽업 장소</div>
+            <div style="margin-bottom:10px; font-weight:bold; font-size:18px;">{{order.author.address}}</div>
             <div class="top">주문 옵션</div>
             <div class="top_content">
                 <span>주문 종료 방법 : {{host_option}}</span><br/>

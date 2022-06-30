@@ -92,7 +92,7 @@ var showMyMenu = () => {
   }
 
   sumPirce();
-
+}
 
 //초기화: order content 안에 생성된 자식 요소 모두 삭제하기 
 var removeAllchild = () => {
@@ -170,7 +170,7 @@ var star = () => {
 }
 star();
 
-var checkMin = (url) =>{
+var checkMin = (url) => {
   
   var min_price = (document.getElementById("min_price").innerText);
   min_price = parseInt(min_price.replace(/[^0-9]/g, ''));
