@@ -26,7 +26,7 @@
             <li>{{user.name}}</li>
         </ul>
         <hr>
-        <form method="POST" action="{% url 'accounts:info_change' %}" style="margin-top:0px"></form>
+        <form method="POST" action="{% url 'accounts:info_change' %}" style="margin-top:0px">
          {% csrf_token %}
         <ul class="int-area">
             <li>닉네임</li>
