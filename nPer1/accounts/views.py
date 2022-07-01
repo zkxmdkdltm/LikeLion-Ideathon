@@ -5,7 +5,7 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 
 from .models import User
-from order.models import Order, Store, Menu
+from order.models import Order, Store, Menu, Log
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
